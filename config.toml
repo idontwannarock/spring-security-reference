@@ -1,3 +1,9 @@
-baseURL = "http://example.org/"
-languageCode = "en-us"
-title = "My New Hugo Site"
+baseURL = "https://idontwannarock.github.io/Spring-Security-Reference/"
+languageCode = "zh-tw"
+title = "Spring Security 之不要太相信這個中文手冊"
+theme = "book"
+canonifyURLs = true
+publishDir = "docs"
+
+[permalinks]
+post = "/:year/:month/:slug/"
