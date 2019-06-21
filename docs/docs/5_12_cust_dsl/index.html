@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  
+    
+    5.12. 自訂 DSL 領域特定語言
+  
+ | Spring Security 之不要太相信這個中文手冊</title>
+
+
+
+<link rel="stylesheet" href="https://idontwannarock.github.io/spring-security-reference/book.min.f4161f5e2de53a2e927f51df1611323a2a12cccb2681f23cb6fc3517852e8643.css">
+
+
+<link rel="icon" href="https://idontwannarock.github.io/spring-security-reference/favicon.png" type="image/x-icon">
+
+
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body>
+  <input type="checkbox" style="display: none" id="menu-control" />
+  <main class="flex container">
+
+    <aside class="book-menu fixed">
+      <nav>
+<h2 class="book-brand">
+  <a href="https://idontwannarock.github.io/spring-security-reference/">Spring Security 之不要太相信這個中文手冊</a>
+</h2>
+
+
+
+    
+  
+  
+  
+
+  <style>
+  nav ul a[href$="\2f docs\2f 5_12_cust_dsl\2f "] {
+      color: #004ed0;
+  }
+  </style>
+
+<ul>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/i_pref/"><strong>I. 前言</strong></a>
+
+<ul>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/1_gett_star/">1. 準備開始</a></li>
+<li>2. 介紹
+
+<ul>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/2_1_what_is_spri_secu/">2.1. 什麼是 Spring Security</a></li>
+<li>2.2. 歷史</li>
+<li>2.3. 版本編號規則</li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/gett_spri_secu/">2.4. 取得 Spring Security</a></li>
+</ul></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/3_what_new_in_spri_secu_5/">3. Spring Security 5.0 新增功能</a></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/4_samp_and_guid/">4. 範例及指引 (由此開始)</a></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/5_java_conf/">5. Java 設定</a>
+
+<ul>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/5_1_hell_web_secu_java_conf/">5.1. 初到貴寶地來用個 Java 設定</a></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/5_2_http/">5.2. <code>HttpSecurity</code></a></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/5_3_java_conf_and_form_logi/">5.3. Java 設定及表單登入</a></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/5_4_auth_requ/">5.4. 設定授權請求</a></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/5_5_hand_logo/">5.5. 登出處理</a></li>
+<li>5.6. WebFlux 模組安全控制</li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/5_7_oaut_2_0_logi/">5.7. OAuth 2.0 登入</a></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/5_8_auth/">5.8. 權限驗證</a></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/5_9_mult_http/">5.9. 多重 <code>HttpSecurity</code></a></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/5_10_meth_secu/">5.10. 方法層級安全</a></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/5_11_post_proc_conf_obje/">5.11. 已設定物件的後處理</a></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/5_12_cust_dsl/">5.12. 自訂 DSL 領域特定語言</a></li>
+</ul></li>
+<li>6. Security 命名空間設定
+
+<ul>
+<li>6.1. 介紹</li>
+<li>6.2. 開始使用安全命名空間設定</li>
+<li>6.3. 進階網路功能</li>
+<li>6.4. 方法安全</li>
+<li>6.5. 預設 <code>AccessDecisionManager</code></li>
+<li>6.6. 驗證管理器與命名空間</li>
+</ul></li>
+<li>7. 範例應用程式
+
+<ul>
+<li>7.1. Tutorial 範例</li>
+<li>7.2. Contacts</li>
+<li>7.3. LDAP 範例</li>
+<li>7.4. OpenID 範例</li>
+<li>7.5. CAS 範例</li>
+<li>7.6. JAAS 範例</li>
+<li>7.7. 預先驗證範例</li>
+</ul></li>
+<li>8. Spring Security 社群
+
+<ul>
+<li>8.1. 問題追蹤</li>
+<li>8.2. 參與</li>
+<li>8.3. 未來資訊</li>
+</ul></li>
+</ul></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/ii_arch_and_impl/"><strong>II. 架構及實作</strong></a>
+
+<ul>
+<li>9. 技術概觀
+
+<ul>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/9_1_runt_envi/">9.1. 運行環境</a></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/9_2_core_comp/">9.2. 核心組件</a></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/9_3_auth/">9.3. 權限驗證</a></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/9_4_auth_in_web_app/">9.4. 網路應用程式的權限驗證</a></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/9_5_acce_cont_auth/">9.5. 存取控制 (授權管理)</a></li>
+<li>9.6. 在地化</li>
+</ul></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/10_core_serv/">10. 核心服務</a>
+
+<ul>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/10_1_auth_prov_auth/">10.1. <code>AuthenticationManager</code>、<code>ProviderManager</code> 及 <code>AuthenticationProvider</code></a></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/10_2_user_impl/">10.2. 實作 <code>UserDetailsService</code></a></li>
+<li>10.3. 密碼編碼</li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/10_4_jack_supp/">10.4. Jackson 支援</a></li>
+</ul></li>
+</ul></li>
+<li><strong>III. 測試</strong>
+
+<ul>
+<li>11. 測試方法安全
+
+<ul>
+<li>11.1. 設定安全測試</li>
+<li>11.2. <code>@WithMockUser</code></li>
+<li>11.3. <code>@WithAnonymousUser</code></li>
+<li>11.4. <code>@WithUserDetails</code></li>
+<li>11.5. <code>@WithSecurityContext</code></li>
+<li>11.6. 測試元註解</li>
+</ul></li>
+<li>12. Spring MVC 測試整合
+
+<ul>
+<li>12.1. 設定 <code>MockMvc</code> 及 Spring Security</li>
+<li>12.2. <code>SecurityMockMvcRequestPostProcessors</code></li>
+<li>12.3. <code>SecurityMockMvcRequestBuilders</code></li>
+<li>12.4. <code>SecurityMockMvcResultMatchers</code></li>
+</ul></li>
+</ul></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/iv_web_app_secu/"><strong>IV. 網路應用程式安全</strong></a>
+
+<ul>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/14_the_secu_filt_chai/">14. Security Filter Chain</a>
+
+<ul>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/14_1_dele/">14.1. <code>DelegatingFilterProxy</code></a></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/14_2_filt/">14.2. <code>FilterChainProxy</code></a></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/14_3_filt_orde/">14.3. Filter 排序</a></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/14_4_requ_matc_and_http/">14.4. 請求匹配與 <code>HttpFirewall</code></a></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/14_5_use_with_othe_filt_base_fram/">14.5. 與其他 filter 基礎的框架一起使用</a></li>
+<li>14.6. 進階命名空間設定</li>
+</ul></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/15_core_secu_filt/">15. 核心 Security Filter</a>
+
+<ul>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/15_1_filt/">15.1. <code>FilterSecurityInterceptor</code></a></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/15_2_exce/">15.2. <code>ExceptionTranslationFilter</code></a></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/15_3_secu/">15.3. <code>SecurityContextPersistenceFilter</code></a></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/15_4_user/">15.4. <code>UsernamePasswordAuthenticationFilter</code></a></li>
+</ul></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/16_serv_api_inte/">16. Servlet 介面整合</a>
+
+<ul>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/16_1_serv_2_5_plus_inte/">16.1. Servlet 2.5+ 整合</a></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/16_2_serv_3_plus_inte/">16.2. Servlet 3+ 整合</a></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/16_3_serv_3_1_plus_inte/">16.3. Servlet 3.1+ 整合</a></li>
+</ul></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/17_basi_and_dige_auth/">17. 基本及摘要驗證</a>
+
+<ul>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/17_1_basi/">17.1. <code>BasicAuthenticationFilter</code></a></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/17_2_dige/">17.2. <code>DigestAuthenticationFilter</code></a></li>
+</ul></li>
+<li>18. 記得我驗證
+
+<ul>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/18_1_over/">18.1. 總覽</a></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/18_2_simp_hash_base_toke_appr/">18.2. 簡單雜湊 Token 方式</a></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/18_3_pers_toke_appr/">18.3. 持久化 Token 方式</a></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/18_4_reme_me_inte_and_impl/">18.4. 記得我介面及實作</a></li>
+</ul></li>
+<li>19. CSRF
+
+<ul>
+<li>19.1. CSRF 攻擊</li>
+<li>19.2. 同步 Token 樣式</li>
+<li>19.3. 何時使用 CSRF 保護機制</li>
+<li>19.4. 使用 CSRF 保護機制</li>
+<li>19.5. CSRF 注意事項</li>
+<li>19.6. Override 預設</li>
+</ul></li>
+<li>20. CORS</li>
+<li>21. 安全 HTTP 回應表頭</li>
+<li>22. Session 管理</li>
+<li>23. 匿名驗證</li>
+<li>24. WebSocket 安全控制</li>
+</ul></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/v_auth/"><strong>V. 授權管理</strong></a>
+
+<ul>
+<li>25. 授權管理架構
+
+<ul>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/25_1_auth/">25.1. 權限</a></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/25_2_pre_invo_hand/">25.2. 觸發前處理</a></li>
+<li>25.3. 觸發後處理</li>
+<li>25.4. 階層式腳色</li>
+</ul></li>
+<li>26. 實作 Secure Object
+
+<ul>
+<li>26.1. AOP Alliance (<code>MethodInvocation</code>) 安全攔截器</li>
+<li>26.2. AspectJ (<code>JoinPoint</code>) 安全攔截器</li>
+</ul></li>
+<li>27. 表達式存取控制
+
+<ul>
+<li>27.1. 總覽</li>
+<li>27.2. 網路安全表達式</li>
+<li>27.3. 方法安全表達式</li>
+</ul></li>
+</ul></li>
+<li><strong>VI. 其他主題</strong>
+
+<ul>
+<li>39. 整合 Spring MVC
+
+<ul>
+<li>39.1. <code>@EnableWebMvcSecurity</code></li>
+<li>39.2. <code>MvcRequestMatcher</code></li>
+<li>39.3. <code>@AuthenticationPricipal</code></li>
+<li>39.4. Spring MVC 非同步整合</li>
+<li>39.5. Spring MVC 與 CSRF 整合</li>
+</ul></li>
+</ul></li>
+<li><strong>VII. 整合 Spring Data</strong></li>
+<li><strong>VIII. 附錄</strong>
+
+<ul>
+<li>46. FAQ
+
+<ul>
+<li>46.1. 概括性問題</li>
+<li>46.2. 常見問題</li>
+<li>46.3. 架構問題</li>
+<li>46.4. 常見「如何」問題</li>
+</ul></li>
+</ul></li>
+</ul>
+
+
+
+
+
+</nav>
+
+
+  
+<script>
+(function() {
+  var menu = document.querySelector('aside.book-menu nav')
+  addEventListener('beforeunload', function(event) {
+    localStorage.setItem('menu.scrollTop', menu.scrollTop)
+  });
+  menu.scrollTop = localStorage.getItem('menu.scrollTop')
+})()
+</script>
+
+
+
+    </aside>
+
+    <div class="book-page">
+      <header class="align-center justify-between book-header">
+  <label for="menu-control">
+    <img src="https://idontwannarock.github.io/spring-security-reference/svg/menu.svg" alt="Menu" />
+  </label>
+  <strong>
+  
+    
+    5.12. 自訂 DSL 領域特定語言
+  
+</strong>
+</header>
+
+      
+<article class="markdown">
+
+<h1 id="5-12-自訂-dsl-領域特定語言">5.12. 自訂 DSL 領域特定語言</h1>
+
+<p>在 Spring Security 中，你也可以提供你自訂的 DSL。</p>
+
+<p>例如你可能會有像以下這樣的東西：</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#00a8c8">public</span> <span style="color:#00a8c8">class</span> <span style="color:#75af00">MyCustomDsl</span> <span style="color:#00a8c8">extends</span> <span style="color:#111">AbstractHttpConfigurer</span><span style="color:#f92672">&lt;</span><span style="color:#111">MyCustomDsl</span><span style="color:#f92672">,</span> <span style="color:#111">HttpSecurity</span><span style="color:#f92672">&gt;</span> <span style="color:#f92672">{</span>
+    <span style="color:#00a8c8">private</span> <span style="color:#00a8c8">boolean</span> <span style="color:#111">flag</span><span style="color:#f92672">;</span>
+
+    <span style="color:#75af00">@Override</span>
+    <span style="color:#00a8c8">public</span> <span style="color:#00a8c8">void</span> <span style="color:#75af00">init</span><span style="color:#f92672">(</span><span style="color:#111">H</span> <span style="color:#111">http</span><span style="color:#f92672">)</span> <span style="color:#00a8c8">throws</span> <span style="color:#111">Exception</span> <span style="color:#f92672">{</span>
+        <span style="color:#75715e">// 任何要加上其他 configurer 的方法都必須要在 init 方法中完成
+</span><span style="color:#75715e"></span>        <span style="color:#111">http</span><span style="color:#f92672">.</span><span style="color:#75af00">csrf</span><span style="color:#f92672">().</span><span style="color:#75af00">disable</span><span style="color:#f92672">();</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#75af00">@Override</span>
+    <span style="color:#00a8c8">public</span> <span style="color:#00a8c8">void</span> <span style="color:#75af00">configure</span><span style="color:#f92672">(</span><span style="color:#111">H</span> <span style="color:#111">http</span><span style="color:#f92672">)</span> <span style="color:#00a8c8">throws</span> <span style="color:#111">Exception</span> <span style="color:#f92672">{</span>
+        <span style="color:#111">ApplicationContext</span> <span style="color:#111">context</span> <span style="color:#f92672">=</span> <span style="color:#111">http</span><span style="color:#f92672">.</span><span style="color:#75af00">getSharedObject</span><span style="color:#f92672">(</span><span style="color:#111">ApplicationContext</span><span style="color:#f92672">.</span><span style="color:#75af00">class</span><span style="color:#f92672">);</span>
+
+        <span style="color:#75715e">// 此處我們從 ApplicationContext 中取得，但你也可以直接建立一個新的實例
+</span><span style="color:#75715e"></span>        <span style="color:#111">MyFilter</span> <span style="color:#111">myFilter</span> <span style="color:#f92672">=</span> <span style="color:#111">context</span><span style="color:#f92672">.</span><span style="color:#75af00">getBean</span><span style="color:#f92672">(</span><span style="color:#111">MyFilter</span><span style="color:#f92672">.</span><span style="color:#75af00">class</span><span style="color:#f92672">);</span>
+        <span style="color:#111">myFilter</span><span style="color:#f92672">.</span><span style="color:#75af00">setFlag</span><span style="color:#f92672">(</span><span style="color:#111">flag</span><span style="color:#f92672">);</span>
+        <span style="color:#111">http</span><span style="color:#f92672">.</span><span style="color:#75af00">addFilterBefore</span><span style="color:#f92672">(</span><span style="color:#111">myFilter</span><span style="color:#f92672">,</span> <span style="color:#111">UsernamePasswordAuthenticationFilter</span><span style="color:#f92672">.</span><span style="color:#75af00">class</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#00a8c8">public</span> <span style="color:#111">MyCustomDsl</span> <span style="color:#75af00">flag</span><span style="color:#f92672">(</span><span style="color:#00a8c8">boolean</span> <span style="color:#111">value</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#00a8c8">this</span><span style="color:#f92672">.</span><span style="color:#75af00">flag</span> <span style="color:#f92672">=</span> <span style="color:#111">value</span><span style="color:#f92672">;</span>
+        <span style="color:#00a8c8">return</span> <span style="color:#00a8c8">this</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#00a8c8">public</span> <span style="color:#00a8c8">static</span> <span style="color:#111">MyCustomDsl</span> <span style="color:#75af00">customDsl</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#00a8c8">return</span> <span style="color:#00a8c8">new</span> <span style="color:#111">MyCustomDsl</span><span style="color:#f92672">();</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span></code></pre></div>
+<blockquote>
+<p>其實像是 <code>HttpSecurity.authorizeRequests()</code> 這樣的方法也是這樣實作的</p>
+</blockquote>
+
+<p>然後自訂的 DSL 可以像這樣使用：</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75af00">@EnableWebSecurity</span>
+<span style="color:#00a8c8">public</span> <span style="color:#00a8c8">class</span> <span style="color:#75af00">Config</span> <span style="color:#00a8c8">extends</span> <span style="color:#111">WebSecurityConfigurerAdapter</span> <span style="color:#f92672">{</span>
+    <span style="color:#75af00">@Override</span>
+    <span style="color:#00a8c8">protected</span> <span style="color:#00a8c8">void</span> <span style="color:#75af00">configure</span><span style="color:#f92672">(</span><span style="color:#111">HttpSecurity</span> <span style="color:#111">http</span><span style="color:#f92672">)</span> <span style="color:#00a8c8">throws</span> <span style="color:#111">Exception</span> <span style="color:#f92672">{</span>
+        <span style="color:#111">http</span>
+            <span style="color:#f92672">.</span><span style="color:#75af00">apply</span><span style="color:#f92672">(</span><span style="color:#111">customDsl</span><span style="color:#f92672">())</span>
+                <span style="color:#f92672">.</span><span style="color:#75af00">flag</span><span style="color:#f92672">(</span><span style="color:#00a8c8">true</span><span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#75af00">and</span><span style="color:#f92672">()</span>
+            <span style="color:#f92672">...;</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span></code></pre></div>
+<p>其中的程式碼會以下列順序被調用：</p>
+
+<ol>
+<li><code>Config</code> 的 <code>configure()</code> 方法會先被調用</li>
+<li><code>MyCustomDsl</code> 的 <code>init()</code> 方法會接著被調用</li>
+<li><code>MyCustomDsl</code> 的 <code>configure()</code> 方法會最後被調用</li>
+</ol>
+
+<p>如果你想，也是可以透過使用 <code>SpringFactories</code> 的方式讓 <code>WebSecurityConfiguerAdapter</code> 預設就加上 <code>MyCustomDsl</code>。</p>
+
+<p>例如你可以在 classpath 建立一個 <code>META-INF/spring.factories</code> 檔案，內容如下：</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml">org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer = sample.MyCustomDsl</code></pre></div>
+<p>如果使用者要停用預設，可以這樣做：</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75af00">@EnableWebSecurity</span>
+<span style="color:#00a8c8">public</span> <span style="color:#00a8c8">class</span> <span style="color:#75af00">Config</span> <span style="color:#00a8c8">extends</span> <span style="color:#111">WebSecurityConfigurerAdapter</span> <span style="color:#f92672">{</span>
+    <span style="color:#75af00">@Override</span>
+    <span style="color:#00a8c8">protected</span> <span style="color:#00a8c8">void</span> <span style="color:#75af00">configure</span><span style="color:#f92672">(</span><span style="color:#111">HttpSecurity</span> <span style="color:#111">http</span><span style="color:#f92672">)</span> <span style="color:#00a8c8">throws</span> <span style="color:#111">Exception</span> <span style="color:#f92672">{</span>
+        <span style="color:#111">http</span>
+            <span style="color:#f92672">.</span><span style="color:#75af00">apply</span><span style="color:#f92672">(</span><span style="color:#111">customDsl</span><span style="color:#f92672">()).</span><span style="color:#75af00">disable</span><span style="color:#f92672">()</span>
+            <span style="color:#f92672">...;</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span></code></pre></div></article>
+
+      
+<div class="book-footer justify-end">
+  
+  
+  <div>
+    <a href="https://github.com/idontwannarock/spring-security-reference/edit/master/content/docs%5c5_12_cust_dsl.md" target="_blank" rel="noopener">
+      <img src="https://idontwannarock.github.io/spring-security-reference/svg/edit.svg" alt="Edit" /> Edit this page
+    </a>
+  </div>
+  
+</div>
+
+
+      
+    </div>
+
+    
+  
+
+  <aside class="book-toc level-3 fixed">
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#5-12-自訂-dsl-領域特定語言">5.12. 自訂 DSL 領域特定語言</a></li>
+</ul>
+</nav>
+  </aside>
+
+
+
+  </main>
+  
+  
+  
+</body>
+
+</html>

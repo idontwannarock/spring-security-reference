@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  
+    
+    5.7. OAuth 2.0 登入
+  
+ | Spring Security 之不要太相信這個中文手冊</title>
+
+
+
+<link rel="stylesheet" href="https://idontwannarock.github.io/spring-security-reference/book.min.f4161f5e2de53a2e927f51df1611323a2a12cccb2681f23cb6fc3517852e8643.css">
+
+
+<link rel="icon" href="https://idontwannarock.github.io/spring-security-reference/favicon.png" type="image/x-icon">
+
+
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body>
+  <input type="checkbox" style="display: none" id="menu-control" />
+  <main class="flex container">
+
+    <aside class="book-menu fixed">
+      <nav>
+<h2 class="book-brand">
+  <a href="https://idontwannarock.github.io/spring-security-reference/">Spring Security 之不要太相信這個中文手冊</a>
+</h2>
+
+
+
+    
+  
+  
+  
+
+  <style>
+  nav ul a[href$="\2f docs\2f 5_7_oaut_2_0_logi\2f "] {
+      color: #004ed0;
+  }
+  </style>
+
+<ul>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/i_pref/"><strong>I. 前言</strong></a>
+
+<ul>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/1_gett_star/">1. 準備開始</a></li>
+<li>2. 介紹
+
+<ul>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/2_1_what_is_spri_secu/">2.1. 什麼是 Spring Security</a></li>
+<li>2.2. 歷史</li>
+<li>2.3. 版本編號規則</li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/gett_spri_secu/">2.4. 取得 Spring Security</a></li>
+</ul></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/3_what_new_in_spri_secu_5/">3. Spring Security 5.0 新增功能</a></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/4_samp_and_guid/">4. 範例及指引 (由此開始)</a></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/5_java_conf/">5. Java 設定</a>
+
+<ul>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/5_1_hell_web_secu_java_conf/">5.1. 初到貴寶地來用個 Java 設定</a></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/5_2_http/">5.2. <code>HttpSecurity</code></a></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/5_3_java_conf_and_form_logi/">5.3. Java 設定及表單登入</a></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/5_4_auth_requ/">5.4. 設定授權請求</a></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/5_5_hand_logo/">5.5. 登出處理</a></li>
+<li>5.6. WebFlux 模組安全控制</li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/5_7_oaut_2_0_logi/">5.7. OAuth 2.0 登入</a></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/5_8_auth/">5.8. 權限驗證</a></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/5_9_mult_http/">5.9. 多重 <code>HttpSecurity</code></a></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/5_10_meth_secu/">5.10. 方法層級安全</a></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/5_11_post_proc_conf_obje/">5.11. 已設定物件的後處理</a></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/5_12_cust_dsl/">5.12. 自訂 DSL 領域特定語言</a></li>
+</ul></li>
+<li>6. Security 命名空間設定
+
+<ul>
+<li>6.1. 介紹</li>
+<li>6.2. 開始使用安全命名空間設定</li>
+<li>6.3. 進階網路功能</li>
+<li>6.4. 方法安全</li>
+<li>6.5. 預設 <code>AccessDecisionManager</code></li>
+<li>6.6. 驗證管理器與命名空間</li>
+</ul></li>
+<li>7. 範例應用程式
+
+<ul>
+<li>7.1. Tutorial 範例</li>
+<li>7.2. Contacts</li>
+<li>7.3. LDAP 範例</li>
+<li>7.4. OpenID 範例</li>
+<li>7.5. CAS 範例</li>
+<li>7.6. JAAS 範例</li>
+<li>7.7. 預先驗證範例</li>
+</ul></li>
+<li>8. Spring Security 社群
+
+<ul>
+<li>8.1. 問題追蹤</li>
+<li>8.2. 參與</li>
+<li>8.3. 未來資訊</li>
+</ul></li>
+</ul></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/ii_arch_and_impl/"><strong>II. 架構及實作</strong></a>
+
+<ul>
+<li>9. 技術概觀
+
+<ul>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/9_1_runt_envi/">9.1. 運行環境</a></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/9_2_core_comp/">9.2. 核心組件</a></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/9_3_auth/">9.3. 權限驗證</a></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/9_4_auth_in_web_app/">9.4. 網路應用程式的權限驗證</a></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/9_5_acce_cont_auth/">9.5. 存取控制 (授權管理)</a></li>
+<li>9.6. 在地化</li>
+</ul></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/10_core_serv/">10. 核心服務</a>
+
+<ul>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/10_1_auth_prov_auth/">10.1. <code>AuthenticationManager</code>、<code>ProviderManager</code> 及 <code>AuthenticationProvider</code></a></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/10_2_user_impl/">10.2. 實作 <code>UserDetailsService</code></a></li>
+<li>10.3. 密碼編碼</li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/10_4_jack_supp/">10.4. Jackson 支援</a></li>
+</ul></li>
+</ul></li>
+<li><strong>III. 測試</strong>
+
+<ul>
+<li>11. 測試方法安全
+
+<ul>
+<li>11.1. 設定安全測試</li>
+<li>11.2. <code>@WithMockUser</code></li>
+<li>11.3. <code>@WithAnonymousUser</code></li>
+<li>11.4. <code>@WithUserDetails</code></li>
+<li>11.5. <code>@WithSecurityContext</code></li>
+<li>11.6. 測試元註解</li>
+</ul></li>
+<li>12. Spring MVC 測試整合
+
+<ul>
+<li>12.1. 設定 <code>MockMvc</code> 及 Spring Security</li>
+<li>12.2. <code>SecurityMockMvcRequestPostProcessors</code></li>
+<li>12.3. <code>SecurityMockMvcRequestBuilders</code></li>
+<li>12.4. <code>SecurityMockMvcResultMatchers</code></li>
+</ul></li>
+</ul></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/iv_web_app_secu/"><strong>IV. 網路應用程式安全</strong></a>
+
+<ul>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/14_the_secu_filt_chai/">14. Security Filter Chain</a>
+
+<ul>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/14_1_dele/">14.1. <code>DelegatingFilterProxy</code></a></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/14_2_filt/">14.2. <code>FilterChainProxy</code></a></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/14_3_filt_orde/">14.3. Filter 排序</a></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/14_4_requ_matc_and_http/">14.4. 請求匹配與 <code>HttpFirewall</code></a></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/14_5_use_with_othe_filt_base_fram/">14.5. 與其他 filter 基礎的框架一起使用</a></li>
+<li>14.6. 進階命名空間設定</li>
+</ul></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/15_core_secu_filt/">15. 核心 Security Filter</a>
+
+<ul>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/15_1_filt/">15.1. <code>FilterSecurityInterceptor</code></a></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/15_2_exce/">15.2. <code>ExceptionTranslationFilter</code></a></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/15_3_secu/">15.3. <code>SecurityContextPersistenceFilter</code></a></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/15_4_user/">15.4. <code>UsernamePasswordAuthenticationFilter</code></a></li>
+</ul></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/16_serv_api_inte/">16. Servlet 介面整合</a>
+
+<ul>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/16_1_serv_2_5_plus_inte/">16.1. Servlet 2.5+ 整合</a></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/16_2_serv_3_plus_inte/">16.2. Servlet 3+ 整合</a></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/16_3_serv_3_1_plus_inte/">16.3. Servlet 3.1+ 整合</a></li>
+</ul></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/17_basi_and_dige_auth/">17. 基本及摘要驗證</a>
+
+<ul>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/17_1_basi/">17.1. <code>BasicAuthenticationFilter</code></a></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/17_2_dige/">17.2. <code>DigestAuthenticationFilter</code></a></li>
+</ul></li>
+<li>18. 記得我驗證
+
+<ul>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/18_1_over/">18.1. 總覽</a></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/18_2_simp_hash_base_toke_appr/">18.2. 簡單雜湊 Token 方式</a></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/18_3_pers_toke_appr/">18.3. 持久化 Token 方式</a></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/18_4_reme_me_inte_and_impl/">18.4. 記得我介面及實作</a></li>
+</ul></li>
+<li>19. CSRF
+
+<ul>
+<li>19.1. CSRF 攻擊</li>
+<li>19.2. 同步 Token 樣式</li>
+<li>19.3. 何時使用 CSRF 保護機制</li>
+<li>19.4. 使用 CSRF 保護機制</li>
+<li>19.5. CSRF 注意事項</li>
+<li>19.6. Override 預設</li>
+</ul></li>
+<li>20. CORS</li>
+<li>21. 安全 HTTP 回應表頭</li>
+<li>22. Session 管理</li>
+<li>23. 匿名驗證</li>
+<li>24. WebSocket 安全控制</li>
+</ul></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/v_auth/"><strong>V. 授權管理</strong></a>
+
+<ul>
+<li>25. 授權管理架構
+
+<ul>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/25_1_auth/">25.1. 權限</a></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/25_2_pre_invo_hand/">25.2. 觸發前處理</a></li>
+<li>25.3. 觸發後處理</li>
+<li>25.4. 階層式腳色</li>
+</ul></li>
+<li>26. 實作 Secure Object
+
+<ul>
+<li>26.1. AOP Alliance (<code>MethodInvocation</code>) 安全攔截器</li>
+<li>26.2. AspectJ (<code>JoinPoint</code>) 安全攔截器</li>
+</ul></li>
+<li>27. 表達式存取控制
+
+<ul>
+<li>27.1. 總覽</li>
+<li>27.2. 網路安全表達式</li>
+<li>27.3. 方法安全表達式</li>
+</ul></li>
+</ul></li>
+<li><strong>VI. 其他主題</strong>
+
+<ul>
+<li>39. 整合 Spring MVC
+
+<ul>
+<li>39.1. <code>@EnableWebMvcSecurity</code></li>
+<li>39.2. <code>MvcRequestMatcher</code></li>
+<li>39.3. <code>@AuthenticationPricipal</code></li>
+<li>39.4. Spring MVC 非同步整合</li>
+<li>39.5. Spring MVC 與 CSRF 整合</li>
+</ul></li>
+</ul></li>
+<li><strong>VII. 整合 Spring Data</strong></li>
+<li><strong>VIII. 附錄</strong>
+
+<ul>
+<li>46. FAQ
+
+<ul>
+<li>46.1. 概括性問題</li>
+<li>46.2. 常見問題</li>
+<li>46.3. 架構問題</li>
+<li>46.4. 常見「如何」問題</li>
+</ul></li>
+</ul></li>
+</ul>
+
+
+
+
+
+</nav>
+
+
+  
+<script>
+(function() {
+  var menu = document.querySelector('aside.book-menu nav')
+  addEventListener('beforeunload', function(event) {
+    localStorage.setItem('menu.scrollTop', menu.scrollTop)
+  });
+  menu.scrollTop = localStorage.getItem('menu.scrollTop')
+})()
+</script>
+
+
+
+    </aside>
+
+    <div class="book-page">
+      <header class="align-center justify-between book-header">
+  <label for="menu-control">
+    <img src="https://idontwannarock.github.io/spring-security-reference/svg/menu.svg" alt="Menu" />
+  </label>
+  <strong>
+  
+    
+    5.7. OAuth 2.0 登入
+  
+</strong>
+</header>
+
+      
+<article class="markdown">
+
+<h1 id="5-7-oauth-2-0-登入">5.7. OAuth 2.0 登入</h1>
+
+<p>Spring Security 的 OAuth 2.0 Login 功能，讓應用程式可以提供使用者透過在 OAuth 2.0 Provider (例如 GitHub) 或 OpenID Connect 1.0 Provider (例如 Google) 已存在的帳號作登入。</p>
+
+<p>OAuth 2.0 Login 功能實作了兩個使用案例：Google 登入或 GitHub 登入</p>
+
+<blockquote>
+<p>Spring Security 是以 <strong>Authorization Code Grant</strong> 實作 OAuth 2.0 Login 功能，參考 <a href="https://tools.ietf.org/html/rfc6749#section-4.1">OAuth 2.0 Authorization Framework</a> 及 <a href="https://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth">OpenID Connect Core 1.0</a></p>
+</blockquote>
+
+<h2 id="5-7-1-spring-boot-2-0-範例">5.7.1. Spring Boot 2.0 範例</h2>
+
+<p>Spring Boot 2.0 提供完整的 OAuth 2.0 Login 功能自動設定。</p>
+
+<p>這個段落會示範如何以 Google 為 <em>Authentication Provider</em> 來設定 <a href="https://github.com/spring-projects/spring-security/tree/master/samples/boot/oauth2login">OAuth 2.0 Login 功能範例</a>，並包含以下主題：</p>
+
+<ul>
+<li><a href="#初始設定">初始設定</a></li>
+<li><a href="#設定重新導向-uri">設定重新導向 URI</a></li>
+<li><a href="#設定-application-yml">設定 <code>application.yml</code></a></li>
+<li><a href="#啟動應用程式">啟動應用程式</a></li>
+</ul>
+
+<h3 id="初始設定">初始設定</h3>
+
+<p>要使用 Google 的 OAuth 2.0 驗證系統作登入，你必須要先在 Google API Console 新增一個 project 以取得 OAuth 2.0 的憑證 (credentials)。</p>
+
+<blockquote>
+<p><a href="https://developers.google.com/identity/protocols/OpenIDConnect">Google 的 OAuth 2.0 驗證實作</a>，符合 <a href="https://openid.net/connect/">OpenID Connect 1.0</a> 的規範，而且該驗證是 <a href="https://openid.net/certification/">OpenID 憑證</a></p>
+</blockquote>
+
+<p>請按照 <a href="https://developers.google.com/identity/protocols/OpenIDConnect">OpenID Connect</a> 頁面 Setting up OAuth 2.0 這個段落的指示進行。</p>
+
+<p>在完成 Obtain OAuth 2.0 credentials 段落的指示後，你應該就會獲得一個新的 OAuth Client，以及包含 Client ID 及 Client Secret 的憑證。</p>
+
+<h3 id="設定重新導向-uri">設定重新導向 URI</h3>
+
+<p>當終端使用者的使用者代理 (user-agent) 通過 Google 驗證並在同意畫面得到連接 OAuth Client 的許可後，被導向應用程式中的路徑，就是此處所說的重新導向的 URI。</p>
+
+<p>在前段設定內的 Set a redirect URI 步驟，請確定 Authorized redirect URIs 欄位設定為 <code>http://localhost:8080/login/oauth2/code/google</code>。</p>
+
+<blockquote>
+<p>預設的重新導向 URI 的樣版為 <code>{baseUrl}/login/oauth2/code/{registrationId}</code>，其中 <strong>registrationId</strong> 是給 <a href="#5-7-2-clientregistration">5.7.2. <code>ClientRegistration</code></a> 使用的獨特指示物</p>
+</blockquote>
+
+<h3 id="設定-application-yml">設定 <code>application.yml</code></h3>
+
+<p>現在你已經從 Google 得到新的 OAuth Client，你還需要設定應用程式在驗證流程 (authentication flow) 去使用 OAuth Client：</p>
+
+<ol>
+<li>在 <code>application.yml</code> 作以下設定：</li>
+</ol>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml">spring<span style="color:#111">:</span>
+    security<span style="color:#111">:</span>
+        oauth2<span style="color:#111">:</span>
+            client<span style="color:#111">:</span>
+                registration<span style="color:#111">:</span> <span style="color:#75715e"># 1.</span>
+                    google<span style="color:#111">:</span>   <span style="color:#75715e"># 2.</span>
+                        client-id<span style="color:#111">:</span> google-client-id
+                        client-secret<span style="color:#111">:</span> google-client-secret</code></pre></div>
+<ul>
+<li>1. <code>spring.security.oauth2.client.registration</code> 是 OAuth Client 屬性的基本前綴</li>
+<li>2. 在前綴後則是 <code>ClientRegistration</code> 的 ID，例如 google</li>
+</ul>
+
+<ol>
+<li>將你前面取得的 OAuth 2.0 憑證取代 <code>client-id</code> 及 <code>client-secret</code> 的值</li>
+</ol>
+
+<h3 id="啟動應用程式">啟動應用程式</h3>
+
+<p>啟動 Spring Boot 2.0 範例然後前往 <code>http://localhost:8080</code>，你就會先被轉到預設自動產生的登入畫面，畫面會顯示一個 Google 的連結。</p>
+
+<p>點擊該連結，就會被轉導到 Google 作驗證。</p>
+
+<p>通過 Google 登入驗證後，會展示同意畫面詢問是否同意連接你前面建立的 OAuth Client，點擊允許以授權給 OAuth Client 取得如 email 等基本個人資訊。</p>
+
+<p>在這個步驟，OAuth Client 會從 <a href="https://openid.net/specs/openid-connect-core-1_0.html#UserInfo">UserInfo Endpoint</a> 取得你的 email 及基本資料，並建立一個已驗證 session。</p>
+
+<h2 id="5-7-2-clientregistration">5.7.2. <code>ClientRegistration</code></h2>
+
+<p><code>ClientRegistration</code> 是一個用 OAuth 2.0 或 OpenID Connect 1.0 Provider 註冊過的客戶端代表。</p>
+
+<p>客戶端註冊會持有包括 client id、client secret、authorization grant type、redirect URI、scope(s)、authorization URI、token URI 等資訊。</p>
+
+<p><code>ClientRegistration</code> 及其屬性設定如下：</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#00a8c8">public</span> <span style="color:#00a8c8">final</span> <span style="color:#00a8c8">class</span> <span style="color:#75af00">ClientRegistration</span> <span style="color:#f92672">{</span>
+    <span style="color:#00a8c8">private</span> <span style="color:#111">String</span> <span style="color:#111">registrationId</span><span style="color:#f92672">;</span> <span style="color:#75715e">// 1.
+</span><span style="color:#75715e"></span>    <span style="color:#00a8c8">private</span> <span style="color:#111">String</span> <span style="color:#111">clientId</span><span style="color:#f92672">;</span>       <span style="color:#75715e">// 2.
+</span><span style="color:#75715e"></span>    <span style="color:#00a8c8">private</span> <span style="color:#111">String</span> <span style="color:#111">clientSecret</span><span style="color:#f92672">;</span>   <span style="color:#75715e">// 3.
+</span><span style="color:#75715e"></span>    <span style="color:#00a8c8">private</span> <span style="color:#111">ClientAuthenticationMethod</span> <span style="color:#111">clientAuthenticationMethod</span><span style="color:#f92672">;</span> <span style="color:#75715e">// 4.
+</span><span style="color:#75715e"></span>    <span style="color:#00a8c8">private</span> <span style="color:#111">AuthorizationGrantType</span> <span style="color:#111">authorizationGrantType</span><span style="color:#f92672">;</span>         <span style="color:#75715e">// 5.
+</span><span style="color:#75715e"></span>    <span style="color:#00a8c8">private</span> <span style="color:#111">String</span> <span style="color:#111">redirectUriTemplate</span><span style="color:#f92672">;</span>  <span style="color:#75715e">// 6.
+</span><span style="color:#75715e"></span>    <span style="color:#00a8c8">private</span> <span style="color:#111">Set</span><span style="color:#f92672">&lt;</span><span style="color:#111">String</span><span style="color:#f92672">&gt;</span> <span style="color:#111">scopes</span><span style="color:#f92672">;</span>          <span style="color:#75715e">// 7.
+</span><span style="color:#75715e"></span>    <span style="color:#00a8c8">private</span> <span style="color:#111">ProviderDetails</span> <span style="color:#111">providerDetails</span><span style="color:#f92672">;</span>
+    <span style="color:#00a8c8">private</span> <span style="color:#111">String</span> <span style="color:#111">clientName</span><span style="color:#f92672">;</span>           <span style="color:#75715e">// 8.
+</span><span style="color:#75715e"></span>
+    <span style="color:#00a8c8">public</span> <span style="color:#00a8c8">class</span> <span style="color:#75af00">ProviderDetails</span> <span style="color:#f92672">{</span>
+        <span style="color:#00a8c8">private</span> <span style="color:#111">String</span> <span style="color:#111">authorizationUri</span><span style="color:#f92672">;</span> <span style="color:#75715e">// 9.
+</span><span style="color:#75715e"></span>        <span style="color:#00a8c8">private</span> <span style="color:#111">String</span> <span style="color:#111">tokenUri</span><span style="color:#f92672">;</span>         <span style="color:#75715e">// 10.
+</span><span style="color:#75715e"></span>        <span style="color:#00a8c8">private</span> <span style="color:#111">UserInfoEndpoint</span> <span style="color:#111">userInfoEndpoint</span><span style="color:#f92672">;</span>
+        <span style="color:#00a8c8">private</span> <span style="color:#111">String</span> <span style="color:#111">jwkSetUri</span><span style="color:#f92672">;</span>        <span style="color:#75715e">// 11.
+</span><span style="color:#75715e"></span>
+        <span style="color:#00a8c8">public</span> <span style="color:#00a8c8">class</span> <span style="color:#75af00">UserInfoEndpoint</span> <span style="color:#f92672">{</span>
+            <span style="color:#00a8c8">private</span> <span style="color:#111">String</span> <span style="color:#111">uri</span><span style="color:#f92672">;</span>                   <span style="color:#75715e">// 12.
+</span><span style="color:#75715e"></span>            <span style="color:#00a8c8">private</span> <span style="color:#111">String</span> <span style="color:#111">userNameAttributeName</span><span style="color:#f92672">;</span> <span style="color:#75715e">// 13.
+</span><span style="color:#75715e"></span>        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span></code></pre></div>
+<ol>
+<li><code>registrationId</code>: <code>ClientRegistration</code> 的獨特 ID 指示物</li>
+<li><code>clientId</code>: 客戶端的指示物</li>
+<li><code>clientSecret</code>: 客戶端的 secret</li>
+<li><code>clientAuthenticationMethod</code>: 用來跟 Provider 驗證 Client 的方法，支援的值為 <strong>basic</strong> 跟 <strong>post</strong></li>
+<li><code>authorizationGrantType</code>: OAuth 2.0 授權框架定義了四種 <a href="https://tools.ietf.org/html/rfc6749#section-1.3">Authorization Grant</a> 類型，支援的值為 <strong>authorization_code</strong> 跟 <strong>implicit</strong></li>
+<li><code>redirectUriTemplate</code>: 在終端使用者通過驗證並獲得連接客戶端權限後，Authorization Server 會將終端使用者的使用者代理轉導向此客戶端登記的轉導 URI。預設的轉導 URI 樣版為 <code>{baseUrl}/login/oauth2/code/{registrationId}</code>，支援 URI 樣版變數</li>
+<li><code>scopes</code>: 在 Authorization Request 流程中，客戶端請求的範圍，例如 openid、email 或個人資料</li>
+<li><code>clientName</code>: 客戶端的描述性名稱，此名稱在某些特定的情景下可能會使用到，例如在自動產生的登入頁面顯示客戶端名稱</li>
+<li><code>authorizationUri</code>: Authorization Server 的 Authorization Endpoint URI</li>
+<li><code>tokenUri</code>: Authorization Server 的 Token Endpoint URI</li>
+<li><code>jwkSetUri</code>: 用來取得 Authorization Server 設定好的 <a href="https://tools.ietf.org/html/rfc7517">JSON Web Key (JWK)</a>，JWK 內含用來驗證對應到 ID Token 或選用的 UserInfo Response 的 <a href="https://tools.ietf.org/html/rfc7517">JSON Web Signature (JWS)</a> 的加密密鑰</li>
+<li><code>(userInfoEndpoint)uri</code>: 用來連接經過驗證的終端使用者要求/屬性的 UserInfo Endpoint URI</li>
+<li><code>userNameAttributeName</code>: 對應終端使用者名稱或指示物的返回的 UserInfo Response 內含屬性的名稱</li>
+</ol>
+
+<h2 id="5-7-3-spring-boot-2-0-屬性映射">5.7.3. Spring Boot 2.0 屬性映射</h2>
+
+<p>以下表格表示 Spring Boot 2.0 OAuth Client 屬性與 <code>ClientRegistration</code> 屬性的對應關係。</p>
+
+<table>
+<thead>
+<tr>
+<th>Spring Boot 2.0</th>
+<th><code>ClientRegistration</code></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>spring.security.oauth2.client.registration.[registrationId]</code></td>
+<td><code>registrationId</code></td>
+</tr>
+
+<tr>
+<td><code>spring.security.oauth2.client.registration.[registrationId].client-id</code></td>
+<td><code>clientId</code></td>
+</tr>
+
+<tr>
+<td><code>spring.security.oauth2.client.registration.[registrationId].client-secret</code></td>
+<td><code>clientSecret</code></td>
+</tr>
+
+<tr>
+<td><code>spring.security.oauth2.client.registration.[registrationId].client-authentication-method</code></td>
+<td><code>clientAuthenticationMethod</code></td>
+</tr>
+
+<tr>
+<td><code>spring.security.oauth2.client.registration.[registrationId].authorization-grant-type</code></td>
+<td><code>authorizationGrantType</code></td>
+</tr>
+
+<tr>
+<td><code>spring.security.oauth2.client.registration.[registrationId].redirect-uri-template</code></td>
+<td><code>redirectUriTemplate</code></td>
+</tr>
+
+<tr>
+<td><code>spring.security.oauth2.client.registration.[registrationId].scope</code></td>
+<td><code>scopes</code></td>
+</tr>
+
+<tr>
+<td><code>spring.security.oauth2.client.registration.[registrationId].client-name</code></td>
+<td><code>clientName</code></td>
+</tr>
+
+<tr>
+<td><code>spring.security.oauth2.client.provider.[providerId].authorization-uri</code></td>
+<td><code>providerDetails.authorizationUri</code></td>
+</tr>
+
+<tr>
+<td><code>spring.security.oauth2.client.provider.[providerId].token-uri</code></td>
+<td><code>providerDetails.tokenUri</code></td>
+</tr>
+
+<tr>
+<td><code>spring.security.oauth2.client.provider.[providerId].jwk-set-uri</code></td>
+<td><code>providerDetails.jwkSetUri</code></td>
+</tr>
+
+<tr>
+<td><code>spring.security.oauth2.client.provider.[providerId].user-info-uri</code></td>
+<td><code>providerDetails.userInfoEndpoint.uri</code></td>
+</tr>
+
+<tr>
+<td><code>spring.security.oauth2.client.provider.[providerId].userNameAttribute</code></td>
+<td><code>providerDetails.userInfoEndpoint.userNameAttributeName</code></td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="5-7-4-clientregistrationrepository">5.7.4. <code>ClientRegistrationRepository</code></h2>
+
+<p><code>ClientRegistrationRepository</code> 是作為 OAuth 2.0 / OpenID Connect 1.0 <code>ClientRegistration</code> 的 repository 來使用。</p>
+
+<blockquote>
+<p>客戶端的註冊資訊是存放在相關聯的 Authorization Server 中，這個 repository 是用來取得存放在 Authorization Server 的主要客戶端註冊資訊的子集</p>
+</blockquote>
+
+<p>Spring Boot 2.0 自動設定的功能會將 <code>spring.security.oauth2.client.registration.[registrationId]</code> 底下的屬性，與一個 <code>ClientRegistration</code> 的實例綁定，然後使用 <code>ClientRegistrationRepository</code> 將每個 <code>ClientRegistration</code> 的實例賦值。</p>
+
+<blockquote>
+<p>預設的 <code>ClientRegistrationRepository</code> 實作為 <code>InMemoryClientRegistrationRepository</code></p>
+</blockquote>
+
+<p>自動設定功能同時也會在 <code>ApplicationContext</code> 中將 <code>ClientRegistrationRepository</code> 登記為一個 <code>@Bean</code>，以利應用程式需要的時候 DI。</p>
+
+<p>以下是一個範例：</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75af00">@Controller</span>
+<span style="color:#00a8c8">public</span> <span style="color:#00a8c8">class</span> <span style="color:#75af00">MainController</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#75af00">@Autowired</span>
+    <span style="color:#00a8c8">private</span> <span style="color:#111">ClientRegistrationRepository</span> <span style="color:#111">clientRegistrationRepository</span><span style="color:#f92672">;</span>
+
+    <span style="color:#75af00">@RequestMapping</span><span style="color:#f92672">(</span><span style="color:#d88200">&#34;/&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#00a8c8">public</span> <span style="color:#111">String</span> <span style="color:#75af00">index</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#111">ClientRegistration</span> <span style="color:#111">googleRegistration</span> <span style="color:#f92672">=</span>
+            <span style="color:#00a8c8">this</span><span style="color:#f92672">.</span><span style="color:#75af00">clientRegistrationRepository</span><span style="color:#f92672">.</span><span style="color:#75af00">findByRegistrationId</span><span style="color:#f92672">(</span><span style="color:#d88200">&#34;google&#34;</span><span style="color:#f92672">);</span>
+
+        <span style="color:#f92672">...</span>
+
+        <span style="color:#00a8c8">return</span> <span style="color:#d88200">&#34;index&#34;</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span></code></pre></div>
+<h2 id="5-7-5-commonoauth2provider">5.7.5. <code>CommonOAuth2Provider</code></h2>
+
+<p><code>CommonOAuth2Provider</code> 針對常用的 provider：Google、GitHub、Facebook 及 Okta，預先定義了一組預設的客戶端屬性。</p>
+
+<p>例如 <code>authorization-uri</code>、<code>token-uri</code> 及 <code>user-info-uri</code> 在同一個 provider 裡不會經常改變，所以提供一組預設值來減少必須的設定也是很合理der。</p>
+
+<p>如同前面的範例，當我們 <a href="#設定-application-yml">設定一組 Google 的客戶端</a>，只有 <code>client-id</code> 及 <code>client-secret</code> 兩個屬性需要設定。</p>
+
+<p>以下是一個範例：</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml">spring<span style="color:#111">:</span>
+    security<span style="color:#111">:</span>
+        oauth2<span style="color:#111">:</span>
+            client<span style="color:#111">:</span>
+                registration<span style="color:#111">:</span>
+                    google<span style="color:#111">:</span>
+                        client-id<span style="color:#111">:</span> google-client-id
+                        client-secret<span style="color:#111">:</span> google-client-secret</code></pre></div>
+<blockquote>
+<p>這裡的自動設定客戶端屬性預設值可以無縫接軌，是因為 registrationId (google) 與 <code>CommonOAuth2Provider</code> 內的枚舉常數 <code>GOOGLE</code> (大小寫沒差) 相符</p>
+</blockquote>
+
+<p>某些情況下，你可能會想要指定一個不同的 <code>registrationId</code>，例如 <code>google-login</code>，你還是可以透過設定 <code>provider</code> 屬性來利用自動設定客戶端屬性預設值的功能。</p>
+
+<p>例如：</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml">spring<span style="color:#111">:</span>
+    security<span style="color:#111">:</span>
+        oauth2<span style="color:#111">:</span>
+            client<span style="color:#111">:</span>
+                registration<span style="color:#111">:</span>
+                    google-login<span style="color:#111">:</span>        <span style="color:#75715e"># 1.</span>
+                        provider<span style="color:#111">:</span> google <span style="color:#75715e"># 2.</span>
+                        client-id<span style="color:#111">:</span> google-client-id
+                        client-secret<span style="color:#111">:</span> google-client-secret</code></pre></div>
+<ol>
+<li>將 <code>registrationId</code> 設為 <code>google-login</code></li>
+<li>將 <code>provider</code> 屬性設為 <code>google</code>，如此就可以利用 <code>CommonOAuth2Provider.GOOGLE.getBuilder()</code> 的自動設定客戶端屬性預設功能</li>
+</ol>
+
+<h2 id="5-7-6-設定自訂-provider-屬性">5.7.6. 設定自訂 Provider 屬性</h2>
+
+<p>有某些 OAuth 2.0 Provider 支援多重租賃技術，導致每個租戶 (或子網域) 會有不同的協定端點。</p>
+
+<p>例如一個註冊了 Okta 的 OAuth Client 被分配到一個特定的子網域，並有自己的協定端點。</p>
+
+<p>在這些情況下，Spring Boot 2.0 提供了以下的基本屬性，以自訂 provider 的屬性：<code>spring.security.oauth2.client.provider.[providerId]</code>。</p>
+
+<p>例如：</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml">spring<span style="color:#111">:</span>
+    security<span style="color:#111">:</span>
+        oauth2<span style="color:#111">:</span>
+            client<span style="color:#111">:</span>
+                registration<span style="color:#111">:</span>
+                    okta<span style="color:#111">:</span>
+                        client-id<span style="color:#111">:</span> okta-client-id
+                        client-secret<span style="color:#111">:</span> okta-client-secret
+                provider<span style="color:#111">:</span>
+                    okta<span style="color:#111">:</span> <span style="color:#75715e"># 1.</span>
+                        authorization-uri<span style="color:#111">:</span> https<span style="color:#111">:</span>//your-subdomain.oktapreview.com/oauth2/v1/authorize
+                        token-uri<span style="color:#111">:</span> https<span style="color:#111">:</span>//your-subdomain.oktapreview.com/oauth2/v1/token
+                        user-info-uri<span style="color:#111">:</span> https<span style="color:#111">:</span>//your-subdomain.oktapreview.com/oauth2/v1/userinfo
+                        user-name-attribute<span style="color:#111">:</span> sub
+                        jwk-set-uri<span style="color:#111">:</span> https<span style="color:#111">:</span>//your-subdomain.oktapreview.com/oauth2/v1/keys</code></pre></div>
+<ol>
+<li><code>spring.security.oauth2.client.provider.okta</code> 基本屬性，可以用來自訂協定端點的位址</li>
+</ol>
+
+<h2 id="5-7-7-override-spring-boot-2-0-自動設定">5.7.7. Override Spring Boot 2.0 自動設定</h2>
+
+<p>Spring Boot 2.0 用來支援 OAuth Client 的自動設定類別是 <code>OAuth2ClientAutoConfiguration</code>。</p>
+
+<p>它會執行以下任務：</p>
+
+<ul>
+<li>註冊一個以從設定好的 OAuth Client 屬性而來的 <code>ClientRegistration</code> 組成的 <code>ClientRegistrationRepository</code> <code>@Bean</code></li>
+<li>提供一個 <code>WebSecurityConfigurerAdapter</code> <code>@Configuration</code>，並透過 <code>httpSecurity.oauth2Login()</code> 開啟 OAuth 2.0 Login 功能</li>
+</ul>
+
+<p>如果你有特定的需求要蓋過自動設定，你可以有以下幾種作法：</p>
+
+<ul>
+<li><a href="#註冊一個-clientregistrationrepository-bean">註冊一個 <code>ClientRegistrationRepository</code> <code>@Bean</code></a></li>
+<li><a href="#提供一個-websecurityconfigureradapter">提供一個 <code>WebSecurityConfigurerAdapter</code></a></li>
+<li><a href="#完全-override-自動設定">完全 override 自動設定</a></li>
+</ul>
+
+<h3 id="註冊一個-clientregistrationrepository-bean">註冊一個 <code>ClientRegistrationRepository</code> <code>@Bean</code></h3>
+
+<p>以下是一個註冊 <code>ClientRegistrationRepository</code> <code>@Bean</code> 的範例：</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75af00">@Configuration</span>
+<span style="color:#00a8c8">public</span> <span style="color:#00a8c8">class</span> <span style="color:#75af00">OAuth2LoginConfig</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#75af00">@Bean</span>
+    <span style="color:#00a8c8">public</span> <span style="color:#111">ClientRegistrationRepository</span> <span style="color:#75af00">clientRegistrationRepository</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#00a8c8">return</span> <span style="color:#00a8c8">new</span> <span style="color:#111">InMemoryClientRegistrationRepository</span><span style="color:#f92672">(</span><span style="color:#00a8c8">this</span><span style="color:#f92672">.</span><span style="color:#75af00">googleClientRegistration</span><span style="color:#f92672">());</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#00a8c8">private</span> <span style="color:#111">ClientRegistration</span> <span style="color:#75af00">googleClientRegistration</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#00a8c8">return</span> <span style="color:#111">ClientRegistration</span><span style="color:#f92672">.</span><span style="color:#75af00">withRegistrationId</span><span style="color:#f92672">(</span><span style="color:#d88200">&#34;google&#34;</span><span style="color:#f92672">)</span>
+            <span style="color:#f92672">.</span><span style="color:#75af00">clientId</span><span style="color:#f92672">(</span><span style="color:#d88200">&#34;google-client-id&#34;</span><span style="color:#f92672">)</span>
+            <span style="color:#f92672">.</span><span style="color:#75af00">clientSecret</span><span style="color:#f92672">(</span><span style="color:#d88200">&#34;google-client-secret&#34;</span><span style="color:#f92672">)</span>
+            <span style="color:#f92672">.</span><span style="color:#75af00">clientAuthenticationMethod</span><span style="color:#f92672">(</span><span style="color:#111">ClientAuthenticationMethod</span><span style="color:#f92672">.</span><span style="color:#75af00">BASIC</span><span style="color:#f92672">)</span>
+            <span style="color:#f92672">.</span><span style="color:#75af00">authorizationGrantType</span><span style="color:#f92672">(</span><span style="color:#111">AuthorizationGrantType</span><span style="color:#f92672">.</span><span style="color:#75af00">AUTHORIZATION_CODE</span><span style="color:#f92672">)</span>
+            <span style="color:#f92672">.</span><span style="color:#75af00">redirectUriTemplate</span><span style="color:#f92672">(</span><span style="color:#d88200">&#34;{baseUrl}/login/oauth2/code/{registrationId}&#34;</span><span style="color:#f92672">)</span>
+            <span style="color:#f92672">.</span><span style="color:#75af00">scope</span><span style="color:#f92672">(</span><span style="color:#d88200">&#34;openid&#34;</span><span style="color:#f92672">,</span> <span style="color:#d88200">&#34;profile&#34;</span><span style="color:#f92672">,</span> <span style="color:#d88200">&#34;email&#34;</span><span style="color:#f92672">,</span> <span style="color:#d88200">&#34;address&#34;</span><span style="color:#f92672">,</span> <span style="color:#d88200">&#34;phone&#34;</span><span style="color:#f92672">)</span>
+            <span style="color:#f92672">.</span><span style="color:#75af00">authorizationUri</span><span style="color:#f92672">(</span><span style="color:#d88200">&#34;https://accounts.google.com/o/oauth2/v2/auth&#34;</span><span style="color:#f92672">)</span>
+            <span style="color:#f92672">.</span><span style="color:#75af00">tokenUri</span><span style="color:#f92672">(</span><span style="color:#d88200">&#34;https://www.googleapis.com/oauth2/v4/token&#34;</span><span style="color:#f92672">)</span>
+            <span style="color:#f92672">.</span><span style="color:#75af00">userInfoUri</span><span style="color:#f92672">(</span><span style="color:#d88200">&#34;https://www.googleapis.com/oauth2/v3/userinfo&#34;</span><span style="color:#f92672">)</span>
+            <span style="color:#f92672">.</span><span style="color:#75af00">userNameAttributeName</span><span style="color:#f92672">(</span><span style="color:#111">IdTokenClaimNames</span><span style="color:#f92672">.</span><span style="color:#75af00">SUB</span><span style="color:#f92672">)</span>
+            <span style="color:#f92672">.</span><span style="color:#75af00">jwkSetUri</span><span style="color:#f92672">(</span><span style="color:#d88200">&#34;https://www.googleapis.com/oauth2/v3/certs&#34;</span><span style="color:#f92672">)</span>
+            <span style="color:#f92672">.</span><span style="color:#75af00">clientName</span><span style="color:#f92672">(</span><span style="color:#d88200">&#34;Google&#34;</span><span style="color:#f92672">)</span>
+            <span style="color:#f92672">.</span><span style="color:#75af00">build</span><span style="color:#f92672">();</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span></code></pre></div>
+<h3 id="提供一個-websecurityconfigureradapter">提供一個 <code>WebSecurityConfigurerAdapter</code></h3>
+
+<p>以下範例示範如何提供一個帶有 <code>@EnableWebSecurity</code> 註解的 <code>WebSecurityConfigurerAdapter</code>，並透過 <code>httpSecurity.oauth2Login()</code> 啟動 OAuth 2.0 登入功能：</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75af00">@EnableWebSecurity</span>
+<span style="color:#00a8c8">public</span> <span style="color:#00a8c8">class</span> <span style="color:#75af00">OAuth2LoginSecurityConfig</span> <span style="color:#00a8c8">extends</span> <span style="color:#111">WebSecurityConfigurerAdapter</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#75af00">@Override</span>
+    <span style="color:#00a8c8">protected</span> <span style="color:#00a8c8">void</span> <span style="color:#75af00">configure</span><span style="color:#f92672">(</span><span style="color:#111">HttpSecurity</span> <span style="color:#111">http</span><span style="color:#f92672">)</span> <span style="color:#00a8c8">throws</span> <span style="color:#111">Exception</span> <span style="color:#f92672">{</span>
+        <span style="color:#111">http</span>
+            <span style="color:#f92672">.</span><span style="color:#75af00">authorizeRequests</span><span style="color:#f92672">()</span>
+                <span style="color:#f92672">.</span><span style="color:#75af00">anyRequest</span><span style="color:#f92672">().</span><span style="color:#75af00">authenticated</span><span style="color:#f92672">()</span>
+                <span style="color:#f92672">.</span><span style="color:#75af00">and</span><span style="color:#f92672">()</span>
+            <span style="color:#f92672">.</span><span style="color:#75af00">oauth2Login</span><span style="color:#f92672">();</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span></code></pre></div>
+<h3 id="完全-override-自動設定">完全 override 自動設定</h3>
+
+<p>以下示範如何完全 override 自動設定，其實就是結合前兩個部分啦顆顆：</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75af00">@Configuration</span>
+<span style="color:#00a8c8">public</span> <span style="color:#00a8c8">class</span> <span style="color:#75af00">OAuth2LoginConfig</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#75af00">@EnableWebSecurity</span>
+    <span style="color:#00a8c8">public</span> <span style="color:#00a8c8">static</span> <span style="color:#00a8c8">class</span> <span style="color:#75af00">OAuth2LoginSecurityConfig</span> <span style="color:#00a8c8">extends</span> <span style="color:#111">WebSecurityConfigurerAdapter</span> <span style="color:#f92672">{</span>
+
+        <span style="color:#75af00">@Override</span>
+        <span style="color:#00a8c8">protected</span> <span style="color:#00a8c8">void</span> <span style="color:#75af00">configure</span><span style="color:#f92672">(</span><span style="color:#111">HttpSecurity</span> <span style="color:#111">http</span><span style="color:#f92672">)</span> <span style="color:#00a8c8">throws</span> <span style="color:#111">Exception</span> <span style="color:#f92672">{</span>
+            <span style="color:#111">http</span>
+                <span style="color:#f92672">.</span><span style="color:#75af00">authorizeRequests</span><span style="color:#f92672">()</span>
+                    <span style="color:#f92672">.</span><span style="color:#75af00">anyRequest</span><span style="color:#f92672">().</span><span style="color:#75af00">authenticated</span><span style="color:#f92672">()</span>
+                    <span style="color:#f92672">.</span><span style="color:#75af00">and</span><span style="color:#f92672">()</span>
+                <span style="color:#f92672">.</span><span style="color:#75af00">oauth2Login</span><span style="color:#f92672">();</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#75af00">@Bean</span>
+    <span style="color:#00a8c8">public</span> <span style="color:#111">ClientRegistrationRepository</span> <span style="color:#75af00">clientRegistrationRepository</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#00a8c8">return</span> <span style="color:#00a8c8">new</span> <span style="color:#111">InMemoryClientRegistrationRepository</span><span style="color:#f92672">(</span><span style="color:#00a8c8">this</span><span style="color:#f92672">.</span><span style="color:#75af00">googleClientRegistration</span><span style="color:#f92672">());</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#00a8c8">private</span> <span style="color:#111">ClientRegistration</span> <span style="color:#75af00">googleClientRegistration</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#00a8c8">return</span> <span style="color:#111">ClientRegistration</span><span style="color:#f92672">.</span><span style="color:#75af00">withRegistrationId</span><span style="color:#f92672">(</span><span style="color:#d88200">&#34;google&#34;</span><span style="color:#f92672">)</span>
+            <span style="color:#f92672">.</span><span style="color:#75af00">clientId</span><span style="color:#f92672">(</span><span style="color:#d88200">&#34;google-client-id&#34;</span><span style="color:#f92672">)</span>
+            <span style="color:#f92672">.</span><span style="color:#75af00">clientSecret</span><span style="color:#f92672">(</span><span style="color:#d88200">&#34;google-client-secret&#34;</span><span style="color:#f92672">)</span>
+            <span style="color:#f92672">.</span><span style="color:#75af00">clientAuthenticationMethod</span><span style="color:#f92672">(</span><span style="color:#111">ClientAuthenticationMethod</span><span style="color:#f92672">.</span><span style="color:#75af00">BASIC</span><span style="color:#f92672">)</span>
+            <span style="color:#f92672">.</span><span style="color:#75af00">authorizationGrantType</span><span style="color:#f92672">(</span><span style="color:#111">AuthorizationGrantType</span><span style="color:#f92672">.</span><span style="color:#75af00">AUTHORIZATION_CODE</span><span style="color:#f92672">)</span>
+            <span style="color:#f92672">.</span><span style="color:#75af00">redirectUriTemplate</span><span style="color:#f92672">(</span><span style="color:#d88200">&#34;{baseUrl}/login/oauth2/code/{registrationId}&#34;</span><span style="color:#f92672">)</span>
+            <span style="color:#f92672">.</span><span style="color:#75af00">scope</span><span style="color:#f92672">(</span><span style="color:#d88200">&#34;openid&#34;</span><span style="color:#f92672">,</span> <span style="color:#d88200">&#34;profile&#34;</span><span style="color:#f92672">,</span> <span style="color:#d88200">&#34;email&#34;</span><span style="color:#f92672">,</span> <span style="color:#d88200">&#34;address&#34;</span><span style="color:#f92672">,</span> <span style="color:#d88200">&#34;phone&#34;</span><span style="color:#f92672">)</span>
+            <span style="color:#f92672">.</span><span style="color:#75af00">authorizationUri</span><span style="color:#f92672">(</span><span style="color:#d88200">&#34;https://accounts.google.com/o/oauth2/v2/auth&#34;</span><span style="color:#f92672">)</span>
+            <span style="color:#f92672">.</span><span style="color:#75af00">tokenUri</span><span style="color:#f92672">(</span><span style="color:#d88200">&#34;https://www.googleapis.com/oauth2/v4/token&#34;</span><span style="color:#f92672">)</span>
+            <span style="color:#f92672">.</span><span style="color:#75af00">userInfoUri</span><span style="color:#f92672">(</span><span style="color:#d88200">&#34;https://www.googleapis.com/oauth2/v3/userinfo&#34;</span><span style="color:#f92672">)</span>
+            <span style="color:#f92672">.</span><span style="color:#75af00">userNameAttributeName</span><span style="color:#f92672">(</span><span style="color:#111">IdTokenClaimNames</span><span style="color:#f92672">.</span><span style="color:#75af00">SUB</span><span style="color:#f92672">)</span>
+            <span style="color:#f92672">.</span><span style="color:#75af00">jwkSetUri</span><span style="color:#f92672">(</span><span style="color:#d88200">&#34;https://www.googleapis.com/oauth2/v3/certs&#34;</span><span style="color:#f92672">)</span>
+            <span style="color:#f92672">.</span><span style="color:#75af00">clientName</span><span style="color:#f92672">(</span><span style="color:#d88200">&#34;Google&#34;</span><span style="color:#f92672">)</span>
+            <span style="color:#f92672">.</span><span style="color:#75af00">build</span><span style="color:#f92672">();</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span></code></pre></div>
+<h2 id="5-7-8-如何不依靠-spring-boot-2-0-來作-java-設定">5.7.8. 如何不依靠 Spring Boot 2.0 來作 Java 設定</h2>
+
+<p>不多說，直接上範例：</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75af00">@Configuration</span>
+<span style="color:#00a8c8">public</span> <span style="color:#00a8c8">class</span> <span style="color:#75af00">OAuth2LoginConfig</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#75af00">@EnableWebSecurity</span>
+    <span style="color:#00a8c8">public</span> <span style="color:#00a8c8">static</span> <span style="color:#00a8c8">class</span> <span style="color:#75af00">OAuth2LoginSecurityConfig</span> <span style="color:#00a8c8">extends</span> <span style="color:#111">WebSecurityConfigurerAdapter</span> <span style="color:#f92672">{</span>
+
+        <span style="color:#75af00">@Override</span>
+        <span style="color:#00a8c8">protected</span> <span style="color:#00a8c8">void</span> <span style="color:#75af00">configure</span><span style="color:#f92672">(</span><span style="color:#111">HttpSecurity</span> <span style="color:#111">http</span><span style="color:#f92672">)</span> <span style="color:#00a8c8">throws</span> <span style="color:#111">Exception</span> <span style="color:#f92672">{</span>
+            <span style="color:#111">http</span>
+                <span style="color:#f92672">.</span><span style="color:#75af00">authorizeRequests</span><span style="color:#f92672">()</span>
+                    <span style="color:#f92672">.</span><span style="color:#75af00">anyRequest</span><span style="color:#f92672">().</span><span style="color:#75af00">authenticated</span><span style="color:#f92672">()</span>
+                    <span style="color:#f92672">.</span><span style="color:#75af00">and</span><span style="color:#f92672">()</span>
+                <span style="color:#f92672">.</span><span style="color:#75af00">oauth2Login</span><span style="color:#f92672">();</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#75af00">@Bean</span>
+    <span style="color:#00a8c8">public</span> <span style="color:#111">ClientRegistrationRepository</span> <span style="color:#75af00">clientRegistrationRepository</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#00a8c8">return</span> <span style="color:#00a8c8">new</span> <span style="color:#111">InMemoryClientRegistrationRepository</span><span style="color:#f92672">(</span><span style="color:#00a8c8">this</span><span style="color:#f92672">.</span><span style="color:#75af00">googleClientRegistration</span><span style="color:#f92672">());</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#75af00">@Bean</span>
+    <span style="color:#00a8c8">public</span> <span style="color:#111">OAuth2AuthorizedClientService</span> <span style="color:#75af00">authorizedClientService</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#00a8c8">return</span> <span style="color:#00a8c8">new</span> <span style="color:#111">InMemoryOAuth2AuthorizedClientService</span><span style="color:#f92672">(</span><span style="color:#00a8c8">this</span><span style="color:#f92672">.</span><span style="color:#75af00">clientRegistrationRepository</span><span style="color:#f92672">());</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#00a8c8">private</span> <span style="color:#111">ClientRegistration</span> <span style="color:#75af00">googleClientRegistration</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#00a8c8">return</span> <span style="color:#111">CommonOAuth2Provider</span><span style="color:#f92672">.</span><span style="color:#75af00">GOOGLE</span><span style="color:#f92672">.</span><span style="color:#75af00">getBuilder</span><span style="color:#f92672">(</span><span style="color:#d88200">&#34;google&#34;</span><span style="color:#f92672">)</span>
+            <span style="color:#f92672">.</span><span style="color:#75af00">clientId</span><span style="color:#f92672">(</span><span style="color:#d88200">&#34;google-client-id&#34;</span><span style="color:#f92672">)</span>
+            <span style="color:#f92672">.</span><span style="color:#75af00">clientSecret</span><span style="color:#f92672">(</span><span style="color:#d88200">&#34;google-client-secret&#34;</span><span style="color:#f92672">)</span>
+            <span style="color:#f92672">.</span><span style="color:#75af00">build</span><span style="color:#f92672">();</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span></code></pre></div>
+<h2 id="5-7-9-oauth2authorizedclient-oauth2authorizedclientservice">5.7.9. <code>OAuth2AuthorizedClient</code> / <code>OAuth2AuthorizedClientService</code></h2>
+
+<p><code>OAuth2AuthorizedClient</code> 代表一個已授權客戶端。只有當終端使用者 (資源擁有者) 授權客戶端連接受保護資源的情況下，該客戶端才會被視為已授權。</p>
+
+<p><code>OAuth2AuthorizedClient</code> 主要是用來將一個 <code>OAuth2AccessToken</code> 關連到一個 <code>ClientRegistration</code> 或資源擁有者身上，資源擁有者是指可以通過授權的 <code>Principal</code> 終端使用者。</p>
+
+<p>而 <code>OAuth2AuthorizedClientService</code> 的主要腳色則是管理 <code>OAuth2AuthorizedClient</code> 實例。從開發者的角度來說，它提供了尋找關連到一個客戶端的 <code>OAuth2AccessToken</code> 的功能，這樣它才能被用來向資源伺服器發起請求。</p>
+
+<blockquote>
+<p>Spring Boot 2.0 自動設定功能會在 <code>ApplicationContext</code> 中註冊一個 <code>OAuth2AuthorizedClientService</code> <code>@Bean</code></p>
+</blockquote>
+
+<p>開發者也可以透過在 <code>ApplicationContext</code> 中註冊一個 <code>OAuth2AuthorizedClientService</code> <code>@Bean</code> 的方式來獲得尋找與特定 <code>ClientRegistration</code> 關聯的 <code>OAuth2AccessToken</code>。</p>
+
+<p>範例：</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75af00">@Controller</span>
+<span style="color:#00a8c8">public</span> <span style="color:#00a8c8">class</span> <span style="color:#75af00">MainController</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#75af00">@Autowired</span>
+    <span style="color:#00a8c8">private</span> <span style="color:#111">OAuth2AuthorizedClientService</span> <span style="color:#111">authorizedClientService</span><span style="color:#f92672">;</span>
+
+    <span style="color:#75af00">@RequestMapping</span><span style="color:#f92672">(</span><span style="color:#d88200">&#34;/userinfo&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#00a8c8">public</span> <span style="color:#111">String</span> <span style="color:#75af00">userinfo</span><span style="color:#f92672">(</span><span style="color:#111">OAuth2AuthenticationToken</span> <span style="color:#111">authentication</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#75715e">// authentication.getAuthorizedClientRegistrationId() returns the
+</span><span style="color:#75715e"></span>        <span style="color:#75715e">// registrationId of the Client that was authorized during the Login flow
+</span><span style="color:#75715e"></span>        <span style="color:#111">OAuth2AuthorizedClient</span> <span style="color:#111">authorizedClient</span> <span style="color:#f92672">=</span>
+            <span style="color:#00a8c8">this</span><span style="color:#f92672">.</span><span style="color:#75af00">authorizedClientService</span><span style="color:#f92672">.</span><span style="color:#75af00">loadAuthorizedClient</span><span style="color:#f92672">(</span>
+                <span style="color:#111">authentication</span><span style="color:#f92672">.</span><span style="color:#75af00">getAuthorizedClientRegistrationId</span><span style="color:#f92672">(),</span>
+                <span style="color:#111">authentication</span><span style="color:#f92672">.</span><span style="color:#75af00">getName</span><span style="color:#f92672">());</span>
+
+        <span style="color:#111">OAuth2AccessToken</span> <span style="color:#111">accessToken</span> <span style="color:#f92672">=</span> <span style="color:#111">authorizedClient</span><span style="color:#f92672">.</span><span style="color:#75af00">getAccessToken</span><span style="color:#f92672">();</span>
+
+        <span style="color:#f92672">...</span>
+
+        <span style="color:#00a8c8">return</span> <span style="color:#d88200">&#34;userinfo&#34;</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span></code></pre></div>
+<h2 id="5-7-10-其他資源">5.7.10. 其他資源</h2>
+
+<p>以下是一些描述更進階設定選項的資源：</p>
+
+<ul>
+<li>31.1. OAuth 2.0 Login Page</li>
+<li>Authorization Endpoint:
+
+<ul>
+<li>31.2.1. AuthorizationRequestRepository</li>
+</ul></li>
+<li>31.3. Redirection Endpoint</li>
+<li>Token Endpoint:
+
+<ul>
+<li>31.4.1. OAuth2AccessTokenResponseClient</li>
+</ul></li>
+<li>UserInfo Endpoint:
+
+<ul>
+<li>31.5.1. Mapping User Authorities</li>
+<li>31.5.2. Configuring a Custom OAuth2User</li>
+<li>31.5.3. OAuth 2.0 UserService</li>
+<li>31.5.4. OpenID Connect 1.0 UserService</li>
+</ul></li>
+</ul>
+</article>
+
+      
+<div class="book-footer justify-end">
+  
+  
+  <div>
+    <a href="https://github.com/idontwannarock/spring-security-reference/edit/master/content/docs%5c5_7_oaut_2_0_logi.md" target="_blank" rel="noopener">
+      <img src="https://idontwannarock.github.io/spring-security-reference/svg/edit.svg" alt="Edit" /> Edit this page
+    </a>
+  </div>
+  
+</div>
+
+
+      
+    </div>
+
+    
+  
+
+  <aside class="book-toc level-3 fixed">
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#5-7-oauth-2-0-登入">5.7. OAuth 2.0 登入</a>
+<ul>
+<li><a href="#5-7-1-spring-boot-2-0-範例">5.7.1. Spring Boot 2.0 範例</a>
+<ul>
+<li><a href="#初始設定">初始設定</a></li>
+<li><a href="#設定重新導向-uri">設定重新導向 URI</a></li>
+<li><a href="#設定-application-yml">設定 <code>application.yml</code></a></li>
+<li><a href="#啟動應用程式">啟動應用程式</a></li>
+</ul></li>
+<li><a href="#5-7-2-clientregistration">5.7.2. <code>ClientRegistration</code></a></li>
+<li><a href="#5-7-3-spring-boot-2-0-屬性映射">5.7.3. Spring Boot 2.0 屬性映射</a></li>
+<li><a href="#5-7-4-clientregistrationrepository">5.7.4. <code>ClientRegistrationRepository</code></a></li>
+<li><a href="#5-7-5-commonoauth2provider">5.7.5. <code>CommonOAuth2Provider</code></a></li>
+<li><a href="#5-7-6-設定自訂-provider-屬性">5.7.6. 設定自訂 Provider 屬性</a></li>
+<li><a href="#5-7-7-override-spring-boot-2-0-自動設定">5.7.7. Override Spring Boot 2.0 自動設定</a>
+<ul>
+<li><a href="#註冊一個-clientregistrationrepository-bean">註冊一個 <code>ClientRegistrationRepository</code> <code>@Bean</code></a></li>
+<li><a href="#提供一個-websecurityconfigureradapter">提供一個 <code>WebSecurityConfigurerAdapter</code></a></li>
+<li><a href="#完全-override-自動設定">完全 override 自動設定</a></li>
+</ul></li>
+<li><a href="#5-7-8-如何不依靠-spring-boot-2-0-來作-java-設定">5.7.8. 如何不依靠 Spring Boot 2.0 來作 Java 設定</a></li>
+<li><a href="#5-7-9-oauth2authorizedclient-oauth2authorizedclientservice">5.7.9. <code>OAuth2AuthorizedClient</code> / <code>OAuth2AuthorizedClientService</code></a></li>
+<li><a href="#5-7-10-其他資源">5.7.10. 其他資源</a></li>
+</ul></li>
+</ul>
+</nav>
+  </aside>
+
+
+
+  </main>
+  
+  
+  
+</body>
+
+</html>

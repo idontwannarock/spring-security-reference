@@ -2,156 +2,706 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Introduction on Spring Security 之不要太相信這個中文手冊</title>
-    <link>https://idontwannarock.github.io/Spring-Security-Reference/</link>
+    <link>https://idontwannarock.github.io/spring-security-reference/</link>
     <description>Recent content in Introduction on Spring Security 之不要太相信這個中文手冊</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
-    <lastBuildDate>Sun, 28 Sep 2014 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://idontwannarock.github.io/Spring-Security-Reference/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://idontwannarock.github.io/spring-security-reference/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Creating a New Theme</title>
-      <link>https://idontwannarock.github.io/Spring-Security-Reference/posts/creating-a-new-theme/</link>
-      <pubDate>Sun, 28 Sep 2014 00:00:00 +0000</pubDate>
+      <title>2.4. 取得 Spring Security</title>
+      <link>https://idontwannarock.github.io/spring-security-reference/docs/gett_spri_secu/</link>
+      <pubDate>Fri, 31 May 2019 15:28:50 +0800</pubDate>
       
-      <guid>https://idontwannarock.github.io/Spring-Security-Reference/posts/creating-a-new-theme/</guid>
-      <description>Introduction This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I&amp;rsquo;ll explain how Hugo uses templates and how you can organize your templates to create a theme. I won&amp;rsquo;t cover using CSS to style your theme.
-We&amp;rsquo;ll start with creating a new site with a very basic template.</description>
+      <guid>https://idontwannarock.github.io/spring-security-reference/docs/gett_spri_secu/</guid>
+      <description>2.4. 取得 Spring Security 有好幾種取得 Spring Security 的方式，可以從 Spring Security 的 Github 下載打包好的發行版本、可以從 Maven Central 直接下載 jar 檔，也可以取得原始碼自己建立專案。
+2.4.1. 使用 Maven 一組最基本的 Spring Security Maven 組合通常會長這樣：
+pom.xml
+&amp;lt;dependencies&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.springframework.security&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring-security-web&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;5.0.7.RELEASE&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.springframework.security&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring-security-config&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;5.0.7.RELEASE&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;/dependencies&amp;gt; 如果有需要其他功能例如 LDAP、OpenID 等等，你會需要再加入 其他模組。
+Maven Repositories 所有正式發行的版本 (版本號後綴為 .RELEASE) 都會放上 Maven Central，所以不需要另外在 pom 檔宣告其他 Maven repositories。
+但如果你使用的是 SNAPSHOT 版本，你就需要確保你有在 pom 檔有以下宣告：
+&amp;lt;repositories&amp;gt; &amp;lt;repository&amp;gt; &amp;lt;id&amp;gt;spring-snapshot&amp;lt;/id&amp;gt; &amp;lt;name&amp;gt;Spring Snapshot Repository&amp;lt;/name&amp;gt; &amp;lt;url&amp;gt;http://repo.spring.io/snapshot&amp;lt;/url&amp;gt; &amp;lt;/repository&amp;gt; &amp;lt;/repositories&amp;gt; 如果你使用的是 milestone 或發行候選的版本，則需要以下宣告：</description>
     </item>
     
     <item>
-      <title>Migrate to Hugo from Jekyll</title>
-      <link>https://idontwannarock.github.io/Spring-Security-Reference/posts/migrate-from-jekyll/</link>
-      <pubDate>Mon, 10 Mar 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://idontwannarock.github.io/Spring-Security-Reference/posts/migrate-from-jekyll/</guid>
-      <description>Move static content to static Jekyll has a rule that any directory not starting with _ will be copied as-is to the _site output. Hugo keeps all static content under static. You should therefore move it all there. With Jekyll, something that looked like
-▾ &amp;lt;root&amp;gt;/ ▾ images/ logo.png  should become
-▾ &amp;lt;root&amp;gt;/ ▾ static/ ▾ images/ logo.png  Additionally, you&amp;rsquo;ll want any files that should reside at the root (such as CNAME) to be moved to static.</description>
-    </item>
-    
-    <item>
-      <title>(Hu)go Template Primer</title>
-      <link>https://idontwannarock.github.io/Spring-Security-Reference/posts/goisforlovers/</link>
-      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://idontwannarock.github.io/Spring-Security-Reference/posts/goisforlovers/</guid>
-      <description>Hugo uses the excellent Go html/template library for its template engine. It is an extremely lightweight engine that provides a very small amount of logic. In our experience that it is just the right amount of logic to be able to create a good static website. If you have used other template systems from different languages or frameworks you will find a lot of similarities in Go templates.
-This document is a brief primer on using Go templates.</description>
-    </item>
-    
-    <item>
-      <title>Getting Started with Hugo</title>
-      <link>https://idontwannarock.github.io/Spring-Security-Reference/posts/hugoisforlovers/</link>
-      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://idontwannarock.github.io/Spring-Security-Reference/posts/hugoisforlovers/</guid>
-      <description>Step 1. Install Hugo Go to Hugo releases and download the appropriate version for your OS and architecture.
-Save it somewhere specific as we will be using it in the next step.
-More complete instructions are available at Install Hugo
-Step 2. Build the Docs Hugo has its own example site which happens to also be the documentation site you are reading right now.
-Follow the following steps:
- Clone the Hugo repository Go into the repo Run hugo in server mode and build the docs Open your browser to http://localhost:1313  Corresponding pseudo commands:</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://idontwannarock.github.io/Spring-Security-Reference/docs/advanced/</link>
+      <title>1. 準備開始</title>
+      <link>https://idontwannarock.github.io/spring-security-reference/docs/1_gett_star/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://idontwannarock.github.io/Spring-Security-Reference/docs/advanced/</guid>
-      <description>Vagus elidunt Mole et vultus populifer quaque primoque non Lorem markdownum pignora pelle est tota propiore conpellat pectoribus de pectora summo. Redit teque digerit hominumque toris verebor lumina non cervice subde tollit usus habet Arctonque, furores quas nec ferunt. Quoque montibus nunc caluere tempus inhospita parcite confusaque translucet patri vestro qui optatis lumine cognoscere flos nubis! Fronde ipsamque patulos Dryopen deorum.
- Exierant elisi ambit vivere dedere Duce pollice Eris modo Spargitque ferrea quos palude  Rursus nulli murmur; hastile inridet ut ab gravi sententia!</description>
+      <guid>https://idontwannarock.github.io/spring-security-reference/docs/1_gett_star/</guid>
+      <description>1. 準備開始 在後續的章節，這本手冊將會深入的討論框架架構及各種實作類別，這些是當你想客製化的時候需要了解的部分。
+而這個章節則會介紹 Spring Security 4.0 大略的歷史，並簡單的介紹如何開始使用本框架，特別會介紹如何使用命名空間作設定，相較使用傳統 Spring bean 方式必須分別對每個要實作的類別手動進行連結，是更簡單的方式；但如果想配合使用 Spring Boot，可以考慮用 Java 方式做設定。
+我們也會看一些範例，很值得在繼續後續章節之前對這些範例程式做些試驗，當然隨著對框架有了更多了解，你也可以隨時回去這些部分。
+也可以上 Spring Security 專案網站，那裡有提供很多建構專案有用的資訊、文章的連結、影片及教學。</description>
     </item>
     
     <item>
-      <title></title>
-      <link>https://idontwannarock.github.io/Spring-Security-Reference/docs/client/</link>
+      <title>10. 核心服務</title>
+      <link>https://idontwannarock.github.io/spring-security-reference/docs/10_core_serv/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://idontwannarock.github.io/Spring-Security-Reference/docs/client/</guid>
-      <description>Ista qua aera Tetigisse hac duc omnipotens urbis per sapiente Lorem markdownum insigne. Olympo signis Delphis! Retexi Nereius nova develat stringit, frustra Saturnius uteroque inter! Oculis non ritibus Telethusa protulit, sed sed aere valvis inhaesuro Pallas animam: qui quid, ignes. Miseratus fonte Ditis conubia.
-var mnemonicPcmcia = file; if (bookmarkMultiprocessing) { core.intranetDigitize = menu(vdslWordart(enterprise, dviRealityTeraflops)); } else { portal_socket.jsp_shareware_digital = multicasting(component_uml); memory.ppc_title_hit(lunWebFormat + fontSmartphoneView, tween * default_hard, 5 + laptopMethod); wddm_tablet_null.</description>
+      <guid>https://idontwannarock.github.io/spring-security-reference/docs/10_core_serv/</guid>
+      <description>10. 核心服務 這部分主要會說明 AuthenticationManager、UserDetailsService 及 AccessDecisionManager 這幾個重要而且經常會用到的介面，它們如何設定及運作。</description>
     </item>
     
     <item>
-      <title></title>
-      <link>https://idontwannarock.github.io/Spring-Security-Reference/docs/examples/</link>
+      <title>10.1. `AuthenticationManager`、`ProviderManager` 及 `AuthenticationProvider`</title>
+      <link>https://idontwannarock.github.io/spring-security-reference/docs/10_1_auth_prov_auth/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://idontwannarock.github.io/Spring-Security-Reference/docs/examples/</guid>
-      <description>Ubi loqui Mentem genus facietque salire tempus bracchia Lorem markdownum partu paterno Achillem. Habent amne generosi aderant ad pellem nec erat sustinet merces columque haec et, dixit minus nutrit accipiam subibis subdidit. Temeraria servatum agros qui sed fulva facta. Primum ultima, dedit, suo quisque linguae medentes fixo: tum petis.
-Rapit vocant si hunc siste adspice Ora precari Patraeque Neptunia, dixit Danae Cithaeron armaque maxima in nati Coniugis templis fluidove. Effugit usus nec ingreditur agmen ac manus conlato.</description>
+      <guid>https://idontwannarock.github.io/spring-security-reference/docs/10_1_auth_prov_auth/</guid>
+      <description>10.1. AuthenticationManager、ProviderManager 及 AuthenticationProvider AuthenticationManager 是一個介面，而預設的實作就是 ProviderManager，而 ProviderManager 還會將驗證請求代理給一連串設定好的 AuthenticationProvider 去操作，而 AuthenticationProvider 會被依序詢問是否能執行驗證，而每個 provider 要馬丟例外，要馬就回傳裝著使用者 context 資訊的 Authentication 物件。
+常見的 provider 驗證方式就是取得使用端對應的資料並裝進 UserDetails，再比對 UserDetails 內的密碼及使用者輸入的密碼，這也是 DaoAuthenticationProvider 採取的方式。
+若驗證通過，則用這個裝著使用端資料的 UserDetails，特別是他持有的 GrantedAuthority，去構建 Authentication，並存放在 SecurityContext。
+如果使用命名空間標籤 &amp;lt;authentication-manager&amp;gt; 做設定，則一個 ProviderManager 的實例會在內部被建立並維護，接著再將 provider 透過 &amp;lt;authentication-provider&amp;gt; 加入。但如果使用這種方式，則不應該在應用程式 context 中宣告 ProviderManager bean。
+若不要使用命名空間的方式宣告，則可能會像這樣：
+&amp;lt;bean id=&amp;#34;authenticationManager&amp;#34; class=&amp;#34;org.springframework.security.authentication.ProviderManager&amp;#34;&amp;gt; &amp;lt;constructor-arg&amp;gt; &amp;lt;list&amp;gt; &amp;lt;ref local=&amp;#34;daoAuthenticationProvider&amp;#34;/&amp;gt; &amp;lt;ref local=&amp;#34;anonymousAuthenticationProvider&amp;#34;/&amp;gt; &amp;lt;ref local=&amp;#34;ldapAuthenticationProvider&amp;#34;/&amp;gt; &amp;lt;/list&amp;gt; &amp;lt;/constructor-arg&amp;gt; &amp;lt;/bean&amp;gt; 上面這個例子表示我們使用三種 provider，並且會依序試圖執行驗證，或跳過驗證只回傳 null。
+如果每個 provider 都回傳 null，ProviderManager 就會拋出 ProviderNotFoundException。</description>
     </item>
     
     <item>
-      <title></title>
-      <link>https://idontwannarock.github.io/Spring-Security-Reference/docs/hidden/</link>
+      <title>10.2. 實作 `UserDetailsService`</title>
+      <link>https://idontwannarock.github.io/spring-security-reference/docs/10_2_user_impl/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://idontwannarock.github.io/Spring-Security-Reference/docs/hidden/</guid>
-      <description>This page is hidden in menu Quondam non pater est dignior ille Eurotas Latent te facies Lorem markdownum arma ignoscas vocavit quoque ille texit mandata mentis ultimus, frementes, qui in vel. Hippotades Peleus pennas conscia cuiquam Caeneus quas.
- Pater demittere evincitque reddunt Maxime adhuc pressit huc Danaas quid freta Soror ego Luctus linguam saxa ultroque prior Tatiumque inquit Saepe liquitur subita superata dederat Anius sudor  Cum honorum Latona O fallor in sustinui iussorum equidem.</description>
+      <guid>https://idontwannarock.github.io/spring-security-reference/docs/10_2_user_impl/</guid>
+      <description>10.2. 實作 UserDetailsService 前面有提過多數 provider 都會利用 UserDetails 及 UserDetailsService。
+UserDetailsService 介面預設有唯一的一個方法：
+UserDetails loadUserByUsername(String username) throws UsernameNotFoundException; 方法返回的 UserDetails 是一個提供 getter 的介面，提供非空值的驗證資訊，例如 username、password、granted authorities，以及使用者帳號是否啟用或停用等。
+多數的驗證 provider 都會用到 UserDetailsService，即使驗證通過與否並沒有用到 username 及 password，可能只是為了其中的 GrantedAuthority 資訊，例如 LDAP、X.509 或 CAS 等，其他系統會負責實際去驗證憑證。
+UserDetailsService 是很容易實作的，使用者應該可以很輕鬆的選用某種永續層策略來取得驗證資訊。
+Spring Security 有提供了一些實用的基本實作，我們接著來看R。
+10.2.1. In-Memory Authentication UserDetailsService 的實作中去使用某種永續層引擎來取得資訊是很容易的，但其實很多應用程式並不需要搞得這麼複雜，特別是當你還在建立應用程式的雛型或剛開始整合 Spring Security 的時候，並不會特別想花時間去設定資料庫或真的去寫 UserDetailsService 的實作。
+在這種情況下，可以簡單的使用 security 命名空間的 user-service 元素：
+&amp;lt;user-service id=&amp;#34;userDetailsService&amp;#34;&amp;gt; &amp;lt;!-- 密碼的前綴字 {noop} 是用來跟 DelegatingPasswordEncoder 說要使用 NoOpPasswordEncoder (也就是什麼事都不做的 PasswordEncoder)。這樣對於正式環境來說其實並不安全，只是讓讀取範本的時候更容易一點。一般來說密碼需要被 hash 跟 BCrypt --&amp;gt; &amp;lt;user name=&amp;#34;jimi&amp;#34; password=&amp;#34;{noop}jimispassword&amp;#34; authorities=&amp;#34;ROLE_USER, ROLE_ADMIN&amp;#34; /&amp;gt; &amp;lt;user name=&amp;#34;bob&amp;#34; password=&amp;#34;{noop}bobspassword&amp;#34; authorities=&amp;#34;ROLE_USER&amp;#34; /&amp;gt; &amp;lt;/user-service&amp;gt; 也支援使用外部 properties 檔做設定：</description>
     </item>
     
     <item>
-      <title></title>
-      <link>https://idontwannarock.github.io/Spring-Security-Reference/docs/server/</link>
+      <title>10.4. Jackson 支援</title>
+      <link>https://idontwannarock.github.io/spring-security-reference/docs/10_4_jack_supp/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://idontwannarock.github.io/Spring-Security-Reference/docs/server/</guid>
-      <description>Nimium sacravere cetera exorata multifidasque satia Datum perierunt nato Lorem markdownum. Sit en turpe, recessit nominibus et sanguis totis. Unaque cognitius docuit sensimus mutasse terra flammas. Nec nunc sustinet Coeranon figura Erecthida saepe gestu vel: quod mei. Docto interdum quasi labefactus nocentius miserrimus pars cum missi matrem, ipse fletus illo super.
- Metuunt non paene iniectis licuit Extemplo iugulum relictis reddidit caput Frustra adspiceres viae Non fluctibus civiliter pater procedit non Deos spumis ille aderam semper Stygios quantum Orgia hoc  Dare hirtus cervice Cecropis Si veteris alas proelia, sic remotis in portus nisi minimae acerris carina: et ne.</description>
+      <guid>https://idontwannarock.github.io/spring-security-reference/docs/10_4_jack_supp/</guid>
+      <description>10.4. Jackson 支援 Spring Security 支援 Jackson 以將有關 Spring Security 的類別序列化，這樣在運作分散式 sessions (例如複製 sessions、Spring Session 等) 的時候，可以提升序列化 Spring Security 有關類別的效能。
+要使用 Jackson，需要將 JacksonJacksonModules.getModules(ClassLoader) 登記為 Jackson 模組。
+ObjectMapper mapper = new ObjectMapper(); ClassLoader loader = getClass().getClassLoader(); List&amp;lt;Module&amp;gt; modules = SecurityJackson2Modules.getModules(loader); mapper.registerModules(modules); // ... use ObjectMapper as normally ... SecurityContext context = new SecurityContextImpl(); // ... String json = mapper.</description>
     </item>
     
     <item>
-      <title></title>
-      <link>https://idontwannarock.github.io/Spring-Security-Reference/docs/shortcodes/</link>
+      <title>14. Security Filter Chain</title>
+      <link>https://idontwannarock.github.io/spring-security-reference/docs/14_the_secu_filt_chai/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://idontwannarock.github.io/Spring-Security-Reference/docs/shortcodes/</guid>
-      <description>Shortcodes Expand shortcode Default {{&amp;lt; expand &amp;gt;}} ## Markdown content Lorem markdownum insigne... {{&amp;lt; /expand &amp;gt;}}  Expand↕Markdown content Lorem markdownum insigne&amp;hellip;With Custom Label {{&amp;lt; expand &amp;quot;Custom Label&amp;quot; &amp;quot;...&amp;quot; &amp;gt;}} ## Markdown content Lorem markdownum insigne... {{&amp;lt; /expand &amp;gt;}}  Custom Label...Markdown content Lorem markdownum insigne. Olympo signis Delphis! Retexi Nereius nova develat stringit, frustra Saturnius uteroque inter!</description>
+      <guid>https://idontwannarock.github.io/spring-security-reference/docs/14_the_secu_filt_chai/</guid>
+      <description>14. Security Filter Chain Spring Security 的 web 部分基礎完全是建立在標準 servlet filter 上，並不使用 servlet 或在內部使用任何基於 servlet 的框架，例如 Spring MVC，所以並沒有跟特定 web 技術有強烈的關聯。
+它處理 HttpServletRequest 跟 HttpServletResponse，並不管請求是從瀏覽器、web service 客戶端、HttpInvoker 或 AJAX 應用而來。
+Spring Security 內部會維護一個 filter chain，其中的每個 filter 都有特定的責任，而且會依據需要哪一些服務而決定適用哪些 filter。
+filter 的順序很重要，因為它們之間是有依賴關係的。
+如果你曾經使用命名空間的方式做設定，那 Spring Security 就已經自動幫你設定好 filters，你不用特別定義任何 Spring bean。但當你要使用某些命名空間方式不支援的功能，或要使用自訂的類別時，你可能就想要完全掌控 security filter chain。</description>
     </item>
     
     <item>
-      <title></title>
-      <link>https://idontwannarock.github.io/Spring-Security-Reference/docs/sub-section/ego-numen/</link>
+      <title>14.1. `DelegatingFilterProxy`</title>
+      <link>https://idontwannarock.github.io/spring-security-reference/docs/14_1_dele/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://idontwannarock.github.io/Spring-Security-Reference/docs/sub-section/ego-numen/</guid>
-      <description>Ego numen obest Mors curru Iove pedibus curva humano salutem Lorem markdownum, mole, profugus. Madida ne quantus, pars verba lacrimis memorique longius cupidi ipse attrahit et. Vota liberiore rector suos fallit videor iustissimus barbara quod habet. Tantum patriaeque omnia spectes inimica mari nec spemque ululare: nuper quodque, sic, quo.
-var php_wireless = 4; siteWinsock.switch_inbox += so_control_logic; if (target_website.bugCopyrightIcs.cms_digital_method(mca_active) &amp;gt; cloneScrollHttps) { https_drop_hard(97, sshPayload + autoresponder_bmp_file); hypertextCommercialBookmark = optical_impact; } architecture = userRate.</description>
+      <guid>https://idontwannarock.github.io/spring-security-reference/docs/14_1_dele/</guid>
+      <description>14.1. DelegatingFilterProxy 當使用 servlet filter 的時候，你必須在 web.xml 裡面做宣告，否則 filter 就會被 servlet 容器忽略。
+在 Spring Security 裡面，filter 類別同時也是定義在 application context 的 Spring bean，因此能夠利用 Spring 的 DI 功能及生命週期介面的優勢，Spring 的 DelegatingFilterProxy 可以將 web.xml 連結到 application context。
+當使用 DelegatingFilterProxy 的時候，你會在 web.xml 中看到類似這樣的東西：
+&amp;lt;filter&amp;gt; &amp;lt;filter-name&amp;gt;myFilter&amp;lt;/filter-name&amp;gt; &amp;lt;filter-class&amp;gt;org.springframework.web.filter.DelegatingFilterProxy&amp;lt;/filter-class&amp;gt; &amp;lt;/filter&amp;gt; &amp;lt;filter-mapping&amp;gt; &amp;lt;filter-name&amp;gt;myFilter&amp;lt;/filter-name&amp;gt; &amp;lt;url-pattern&amp;gt;/*&amp;lt;/url-pattern&amp;gt; &amp;lt;/filter-mapping&amp;gt; 注意宣告的 filter 其實是 DelegatingFilterProxy，而不是會實作 filter 邏輯的類別。
+DelegatingFilterProxy 會透過一個從 Spring application context 取得的 bean 來代理 Filter 的方法，使得這個 bean 能利用 Spring 對 web application context lifecycle 的支援以及設定的彈性。</description>
     </item>
     
     <item>
-      <title></title>
-      <link>https://idontwannarock.github.io/Spring-Security-Reference/docs/sub-section/natusque/</link>
+      <title>14.2. `FilterChainProxy`</title>
+      <link>https://idontwannarock.github.io/spring-security-reference/docs/14_2_filt/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://idontwannarock.github.io/Spring-Security-Reference/docs/sub-section/natusque/</guid>
-      <description>Natusque putat tu vero Scylaceaque neve coepisse Lorem markdownum hostem et addit arbusta iacuit laetissimus medio, quae quoque faciente. Belli et fuerant fuerat, curas Abas equos sacerdos iactasque videndo tanto, sub. Et simulasse caedis, est nec acre addiderat, manet Phrygiae quisquam, ater, aura sua deique cornua. Bacchi dixi cum tollit, ad sinistra mirum, non se dis fraudare in decimo vocet. Ducunt Acrisio sine ratem: enim illas venti, ferit nam ora.</description>
+      <guid>https://idontwannarock.github.io/spring-security-reference/docs/14_2_filt/</guid>
+      <description>14.2. FilterChainProxy Spring Security 的 web 基礎架構應該只被用來代理給一個 FilterChainProxy 的實例，security filter 不該被它們自己所使用。
+理論上，你可以在 application context 檔案裡面宣告每一個你需要的 Spring Security filter，並在 web.xml 內為每個 filter 加上一個對應的 DelegatingFilterProxy 進入點，只要確保它們的順序正確。
+但這樣寫太笨重，而且當你有一堆 filter 的時候會塞爆 web.xml 檔。
+FilterChainProxy 讓我們可以在 web.xml 裡面加入單一的進入點，然後就完全可以在 application context 檔內管理 web security bean。
+它們是透過 DelegatingFilterProxy 像前面的例子那樣串聯，但將 filter-name 設定成 bean 的名稱 filterChainProxy，然後在 application context 裡使用同一個名稱宣告 filter chain：
+&amp;lt;bean id=&amp;#34;filterChainProxy&amp;#34; class=&amp;#34;org.springframework.security.web.FilterChainProxy&amp;#34;&amp;gt; &amp;lt;constructor-arg&amp;gt; &amp;lt;list&amp;gt; &amp;lt;sec:filter-chain pattern=&amp;#34;/restful/**&amp;#34; filters=&amp;#34; securityContextPersistenceFilterWithASCFalse, basicAuthenticationFilter, exceptionTranslationFilter, filterSecurityInterceptor&amp;#34; /&amp;gt; &amp;lt;sec:filter-chain pattern=&amp;#34;/**&amp;#34; filters=&amp;#34; securityContextPersistenceFilterWithASCTrue, formLoginFilter, exceptionTranslationFilter, filterSecurityInterceptor&amp;#34; /&amp;gt; &amp;lt;/list&amp;gt; &amp;lt;/constructor-arg&amp;gt; &amp;lt;/bean&amp;gt; 命名空間元素 filter-chain 是用來方便設定應用程式需要的 security filter chain，他會依特定的 URL 樣式去對照一串 filter，這些 filter 是由在 filters 元素裡註明名稱的 bean 建立起來的，然後在一個類型是 SecurityFilterChain 的 bean 當中將這些 filter 合併起來。</description>
     </item>
     
     <item>
-      <title></title>
-      <link>https://idontwannarock.github.io/Spring-Security-Reference/docs/with-toc/</link>
+      <title>14.3. Filter 排序</title>
+      <link>https://idontwannarock.github.io/spring-security-reference/docs/14_3_filt_orde/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://idontwannarock.github.io/Spring-Security-Reference/docs/with-toc/</guid>
-      <description>Caput vino delphine in tamen vias Cognita laeva illo fracta Lorem markdownum pavent auras, surgit nunc cingentibus libet Laomedonque que est. Pastor An arbor filia foedat, ne fugit aliter, per. Helicona illas et callida neptem est Oresitrophos caput, dentibus est venit. Tenet reddite famuli praesentem fortibus, quaeque vis foret si frondes gelidos gravidae circumtulit inpulit armenta nativum.
- Te at cruciabere vides rubentis manebo Maturuit in praetemptat ruborem ignara postquam habitasse Subitarum supplevit quoque fontesque venabula spretis modo Montis tot est mali quasque gravis Quinquennem domus arsit ipse Pellem turis pugnabant locavit  Natus quaerere Pectora et sine mulcere, coniuge dum tincta incurvae.</description>
+      <guid>https://idontwannarock.github.io/spring-security-reference/docs/14_3_filt_orde/</guid>
+      <description> 14.3. Filter 排序 在 filter chain 定義好的順序是非常重要的，不論你實際使用哪些 filter，順序都應該如下：
+ ChannelProcessingFilter：因為此 filter 負責轉導到不同的協定 (protocol) SecurityContextPersistenceFilter：此 filter 需排在此，如此才能在請求的一開始就將 SecurityContext 設定到 SecurityContextHolder 當中，而且 SecurityContext 的任何變動才能在請求結束 (準備好給下一次請求使用) 時複製到 HttpSession 當中 ConcurrentSessionFilter：此 filter 會使用 SecurityContextHolder 的功能，而且會更新 SessionRegistry 以反應請求端 (principal) 持續進行的請求 驗證處理機制：UsernamePasswordAuthenticationFilter、CasAuthenticationFilter、BasicAuthenticationFilter 等等，如此 SecurityContextHolder 才能將通過驗證的 Authentication 請求 token 包含在內 SecurityContextHolderAwareRequestFilter：如果你要使用這個 filter 來將 Spring Security 的 aware HttpServletRequestWrapper 安裝到你的 servlet 容器中  Spring Security 的 aware 其實是繼承 javax.servlet.http.HttpServletRequestWrapper 的 org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestWrapper  JaasApiIntegrationFilter：如果 SecurityContextHolder 當中有一個 JaasAuthenticationToken，此 filter 會將 FilterChain 當成 JaasAuthenticationToken 裡面的 Subject 處理 RememberMeAuthenticationFilter：當沒有更前面的執行的驗證機制對 SecurityContextHolder 做更新，而且該請求提供了一個允許記得我功能啟動的 cookie，則此 filter 會將一個合適的 Authentication 物件放到 SecurityContextHolder 中 AnonymousAuthenticationFilter：當沒有更前面的執行的驗證機制對 SecurityContextHolder 做更新，一個匿名的 Authentication 物件會被放到 SecurityContextHolder 中 ExceptionTranslationFilter：此 filter 用來接住任何 Spring Security 的 exceptions，然後回傳一個 HTTP 錯誤回應，或啟動一個合適的 AuthenticationEntryPoint FilterSecurityInterceptor：保護 URIs 並在訪問被拒絕的時候拋出異常  </description>
     </item>
     
     <item>
-      <title></title>
-      <link>https://idontwannarock.github.io/Spring-Security-Reference/docs/without-toc/</link>
+      <title>14.4. 請求匹配與 `HttpFirewall`</title>
+      <link>https://idontwannarock.github.io/spring-security-reference/docs/14_4_requ_matc_and_http/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://idontwannarock.github.io/Spring-Security-Reference/docs/without-toc/</guid>
-      <description>At me ipso nepotibus nunc celebratior genus Tanto oblite Lorem markdownum pectora novis patenti igne sua opus aurae feras materiaque illic demersit imago et aristas questaque posset. Vomit quoque suo inhaesuro clara. Esse cumque, per referri triste. Ut exponit solisque communis in tendens vincetis agisque iamque huic bene ante vetat omina Thebae rates. Aeacus servat admonitu concidit, ad resimas vultus et rugas vultu dignamque Siphnon.
-Quam iugulum regia simulacra, plus meruit humo pecorumque haesit, ab discedunt dixit: ritu pharetramque.</description>
+      <guid>https://idontwannarock.github.io/spring-security-reference/docs/14_4_requ_matc_and_http/</guid>
+      <description>14.4. 請求匹配與 HttpFirewall Spring Security 有好幾個區塊會將請求與你定義的樣式做比對，以決定如何處理請求，尤其當 FilterChainProxy 決定哪一條 filter 鍊要處理請求，以及當 FilterSecurityInterceptor 決定哪些安全限制要適用到請求上的時候會發生，所以了解機制跟比對樣式時會使用什麼 URL 會被使用是很重要的。
+Servlet 規格在 HttpSevletRequest 裡面規範了一些可以透過 getter 取得的屬性，包括 contextPath、servletPath、pathInfo 及 queryString 可供我們比對。Spring Security 保護只針對應用程式內的路徑，所以 contextPath 可以忽略，但 Servlet 並沒有明確規範針對一個特定請求的 URI，servletPath 跟 pathInfo 會包含什麼值。
+舉例來說，依照 RFC 2396 的規格，URL 的每個區塊都可以包含參數，而 Servlet 規格並沒有明確指出這部分應該被歸類到 servletPath 或 pathInfo，而且不同的 servlet 容器還會有不同的實作。所以當應用程式被部署到一個不會卸除路徑參數的容器中，攻擊者就可以透過在路徑上做文章，使得比對樣式時成功或非預期的失敗，造成危險。
+URL 也可能有其他狀況，例如包含路徑遍歷符號，例如 /../，或多個斜線 //，因而造成樣式比對失敗。有些容器會對此作處理，但也有一些不會。為了處理這樣的問題，FilterChainProxy 使用 HttpFirewall 的策略去檢查並包裝請求。未處理的請求預設就會自動被拒絕，而為了比對，路徑參數及多重斜線會被移除，所以運用 FilterChainProxy 來處理 security filter chain 是非常關鍵的。
+注意容器會將 servletPath 跟 pathInfo 的值解碼，所以你的應用程式不應該有任何包含分號的合格路徑，因為為了比對，這部分會被移除。
+如上所述，預設的比對方式是使用 ANT 風格的路徑，這可能也是多數使用者最好的選擇。這個比對方式由 AntPathRequestMatcher 實作，使用了 Spring 的 AntPathMatcher 來對忽略 queryString 後串聯起來的 servletPath 及 pathInfo 進行不分大小寫的樣式比對。</description>
+    </item>
+    
+    <item>
+      <title>14.5. 與其他 filter 基礎的框架一起使用</title>
+      <link>https://idontwannarock.github.io/spring-security-reference/docs/14_5_use_with_othe_filt_base_fram/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://idontwannarock.github.io/spring-security-reference/docs/14_5_use_with_othe_filt_base_fram/</guid>
+      <description>14.5. 與其他 filter 基礎的框架一起使用 如果你有使用其他也是以 filter 為基礎的框架，那你必須確保 Spring Security 的 filter 最優先，這樣 SecurityContextHolder 才能在其他 filter 使用前及時取得資料。
+舉例來說，你可能會使用 SiteMesh 來裝飾你的網頁，或者 Wicket 網路框架也是使用 filter 來處理請求。</description>
+    </item>
+    
+    <item>
+      <title>15. 核心 Security Filter</title>
+      <link>https://idontwannarock.github.io/spring-security-reference/docs/15_core_secu_filt/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://idontwannarock.github.io/spring-security-reference/docs/15_core_secu_filt/</guid>
+      <description>15. 核心 Security Filter 在使用 Spring Security 的網路應用程式中，會有幾個關鍵的 filter 總是會被用到，所以我們就先要來看看這些 filter 及支援的類別及介面。
+我們不會講到全部的功能，所以如果你想要有個完整的架構，請參考 JavaDoc。</description>
+    </item>
+    
+    <item>
+      <title>15.1. `FilterSecurityInterceptor`</title>
+      <link>https://idontwannarock.github.io/spring-security-reference/docs/15_1_filt/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://idontwannarock.github.io/spring-security-reference/docs/15_1_filt/</guid>
+      <description>15.1. FilterSecurityInterceptor 我們在討論 9.5. 存取控制 (授權管理) 的時候已經有簡單的看過 FilterSecurityInterceptor，而已經在命名空間使用 &amp;lt;intercept-url&amp;gt; 元素對它做設定。現在我們要來看如何仔細的設定它來給 FilterChainProxy 使用，順帶提到它的同伴 ExceptionTranslationFilter。
+典型的設定範例如下：
+&amp;lt;bean id=&amp;#34;filterSecurityInterceptor&amp;#34; class=&amp;#34;org.springframework.security.web.access.intercept.FilterSecurityInterceptor&amp;#34;&amp;gt; &amp;lt;property name=&amp;#34;authenticationManager&amp;#34; ref=&amp;#34;authenticationManager&amp;#34;/&amp;gt; &amp;lt;property name=&amp;#34;accessDecisionManager&amp;#34; ref=&amp;#34;accessDecisionManager&amp;#34;/&amp;gt; &amp;lt;property name=&amp;#34;securityMetadataSource&amp;#34;&amp;gt; &amp;lt;security:filter-security-metadata-source&amp;gt; &amp;lt;security:intercept-url pattern=&amp;#34;/secure/super/**&amp;#34; access=&amp;#34;ROLE_WE_DONT_HAVE&amp;#34;/&amp;gt; &amp;lt;security:intercept-url pattern=&amp;#34;/secure/**&amp;#34; access=&amp;#34;ROLE_SUPERVISOR,ROLE_TELLER&amp;#34;/&amp;gt; &amp;lt;/security:filter-security-metadata-source&amp;gt; &amp;lt;/property&amp;gt; &amp;lt;/bean&amp;gt; FilterSecurityInterceptor 負責處理 HTTP 資源的安全，它需要 AuthenticationManager 及 AccessDecisionManager 的參考，它也提供針對不同 HTTP URL 請求的 configuration attributes，請參考 之前對於 configuration attributes 的討論。
+有兩種方式可以使用 configuration attributes 來對 FilterSecurityInterceptor 做設定。
+第一種就是如上面程式碼所示，使用 &amp;lt;filter-security-metadata-source&amp;gt; 命名空間元素。這跟命名空間設定章節提到的 &amp;lt;http&amp;gt; 很類似，但 &amp;lt;interceptor-url&amp;gt; 子元素只使用 pattern 及 access 屬性，並用逗點分隔適用於個別 HTTP URL 的不同 configuration attributes。</description>
+    </item>
+    
+    <item>
+      <title>15.2. `ExceptionTranslationFilter`</title>
+      <link>https://idontwannarock.github.io/spring-security-reference/docs/15_2_exce/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://idontwannarock.github.io/spring-security-reference/docs/15_2_exce/</guid>
+      <description>15.2. ExceptionTranslationFilter 在 security filter chain 當中，ExceptionTranslationFilter 是位於 FilterSecurityInterceptor 的上一層，它並不會實際的做任何強制性的安全動作，而是處理安全相關的 interceptor 所拋出的異常並提供適合的 HTTP 回應。
+&amp;lt;bean id=&amp;#34;exceptionTranslationFilter&amp;#34; class=&amp;#34;org.springframework.security.web.access.ExceptionTranslationFilter&amp;#34;&amp;gt; &amp;lt;property name=&amp;#34;authenticationEntryPoint&amp;#34; ref=&amp;#34;authenticationEntryPoint&amp;#34;/&amp;gt; &amp;lt;property name=&amp;#34;accessDeniedHandler&amp;#34; ref=&amp;#34;accessDeniedHandler&amp;#34;/&amp;gt; &amp;lt;/bean&amp;gt; &amp;lt;bean id=&amp;#34;authenticationEntryPoint&amp;#34; class=&amp;#34;org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint&amp;#34;&amp;gt; &amp;lt;property name=&amp;#34;loginFormUrl&amp;#34; value=&amp;#34;/login.jsp&amp;#34;/&amp;gt; &amp;lt;/bean&amp;gt; &amp;lt;bean id=&amp;#34;accessDeniedHandler&amp;#34; class=&amp;#34;org.springframework.security.web.access.AccessDeniedHandlerImpl&amp;#34;&amp;gt; &amp;lt;property name=&amp;#34;errorPage&amp;#34; value=&amp;#34;/accessDenied.htm&amp;#34;/&amp;gt; &amp;lt;/bean&amp;gt; 15.2.1. AuthenticationEntryPoint 當使用者針對某個受保護的 HTTP 資源做出請求，但還未通過驗證時，AuthenticationEntryPoint 就會被呼叫，然後合適的 AuthenticationException 或 AccessDeniedException 會被 interceptor 拋出，並觸發該進入點的 commence 方法，如此就可以提供適合的回應給使用者以開始驗證流程。在此我們使用的是 LoginUrlAuthenticationEntryPoint，它會將請求轉導到一個不同的 URL，通常是一個登入頁面。
+實際的實作則要看你想要在你的應用程式中使用怎樣的驗證機制。
+15.2.2. AccessDeniedHandle 如果一個使用者已經驗證過，並且想要訪問一個受保護的資源，會發生什麼事呢？一般來說這應該不會發生，因為應用程式的工作流程應該限制在使用者擁有訪問權限的那些行動。
+舉例來說，一個沒有管理者權限的使用者應該看不到可以連到管理頁面的 HTML 連結，當然你不能只依賴隱藏連結的方式，畢竟總是有可能使用者會直接輸入 URL 來試圖繞過這種限制，或可能會修改一個 RESTful URL 的參數值。
+你的應用程式應該想辦法應對這些情況，不然肯定會很不安全。
+你通常會針對基本的 URL 使用簡單的網路層安全限制，並在服務層介面使用方法安全基礎的限制來真正決定哪些是可允許的資源。</description>
+    </item>
+    
+    <item>
+      <title>15.3. `SecurityContextPersistenceFilter`</title>
+      <link>https://idontwannarock.github.io/spring-security-reference/docs/15_3_secu/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://idontwannarock.github.io/spring-security-reference/docs/15_3_secu/</guid>
+      <description>15.3. SecurityContextPersistenceFilter 我們在 9.4.4. 在請求之間保存 SecurityContext 這個章節已經探討過這個非常重要的 filter 的目的，所以你也可以趁機重新複習一下那個部分。
+首先我們來看一下如何對它做設定好讓 FilterChainProxy 可以使用，基本的設定只需要 bean：
+&amp;lt;bean id=&amp;#34;securityContextPersistenceFilter&amp;#34; class=&amp;#34;org.springframework.security.web.context.SecurityContextPersistenceFilter&amp;#34;/&amp;gt; 如同我們之前看過的，這個 filter 主要有兩個任務：
+ 在 HTTP 請求之間保存 SecurityContext 的內容 在一個請求結束的時候，清除 SecurityContextHolder  清除 ThreadLocal 保存的 context 是很關鍵的，因為它有可能會被放到 servlet 容器的執行續池，而且裡面還包含著使用者的安全資訊，然後這個執行續可能在後續的階段被用來執行其他行動，但是用錯誤的憑證。
+15.3.1. SecurityContextRepository 從 Spring Security 3.0 開始，裝載及保存安全資訊的任務被委託給一個分離的介面：
+public interface SecurityContextRepository { SecurityContext loadContext(HttpRequestResponseHolder requestResponseHolder); void saveContext(SecurityContext context, HttpServletRequest request, HttpServletResponse response); } HttpRequestResponseHolder 只是一個用來裝著收到的請求及回應物件的容器，使得這個實作可以將它們換為封裝類別，返回的物件則會被傳給 filter 鍊。
+HttpSessionSecurityContextRepository 是預設的實作，它會將 security context 存成一個 HttpSession 性質。而這個實作最重要的設定參數 allowSessionCreation，預設為 true，因此當這個類別需要存放一個通過驗證的使用者的 security context 時，可以產生一個 session 來保存。但只有當驗證動作有發生而且 security context 的內容有改變時才會建立 session。</description>
+    </item>
+    
+    <item>
+      <title>15.4. `UsernamePasswordAuthenticationFilter`</title>
+      <link>https://idontwannarock.github.io/spring-security-reference/docs/15_4_user/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://idontwannarock.github.io/spring-security-reference/docs/15_4_user/</guid>
+      <description>15.4. UsernamePasswordAuthenticationFilter 我們已經看了三個 Spring Security 網路設定中一直會出現的三個主要的 filter，這三個 filter 是由命名空間 &amp;lt;http&amp;gt; 元素自動產生，而且無法被其他替代方案抽換。
+現在唯一還沒提到的是一個真正的驗證機制，一個真正讓使用者驗證的東西。
+這個 filter 是最廣泛被使用的驗證 filter，也是最常被客製的，它也提供給命名空間 &amp;lt;form-login&amp;gt; 元素使用的實作。
+它有三個需要作設定的階段：
+ 設定一個含有登入頁面 URL 的 LoginUrlAuthenticationEntryPoint，如同我們前面所做的那樣，並把它設定到 ExceptionTranslationFilter 實作一個登入頁面，不論是 JSP 或 MVC 的 controller 在 application context 中設定一個 UsernamePasswordAuthenticationFilter 的實例 將此 filter 的 bean 加入你的 filter chain proxy，但請務必注意順序  登入的頁面只會包含 username 及 password 的輸入框，並用 POST 請求到被 filter 監控的 URL，預設為 /login。
+基本的 filter 設定會長得像這樣：
+&amp;lt;bean id=&amp;#34;authenticationFilter&amp;#34; class=&amp;#34;org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter&amp;#34;&amp;gt; &amp;lt;property name=&amp;#34;authenticationManager&amp;#34; ref=&amp;#34;authenticationManager&amp;#34;/&amp;gt; &amp;lt;/bean&amp;gt; 15.4.1. 應用程式驗證成功或失敗的工作流程 這個 filter 會呼叫設定好的 AuthenticationManager 來處理每個驗證請求。而不論是驗證成功或失敗的目的則是對應的由 AuthenticationSuccessHandler 或 AuthenticationFailureHandler 介面來控制。這個 filter 裡面有屬性可以讓你完全的自訂這些行為。</description>
+    </item>
+    
+    <item>
+      <title>16. Servlet 介面整合</title>
+      <link>https://idontwannarock.github.io/spring-security-reference/docs/16_serv_api_inte/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://idontwannarock.github.io/spring-security-reference/docs/16_serv_api_inte/</guid>
+      <description>16. Servlet 介面整合 這個段落會介紹 Spring Security 如何與 Sevlet API 整合。
+這個範例 示範了如何使用這些方法。</description>
+    </item>
+    
+    <item>
+      <title>16.1. Servlet 2.5&#43; 整合</title>
+      <link>https://idontwannarock.github.io/spring-security-reference/docs/16_1_serv_2_5_plus_inte/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://idontwannarock.github.io/spring-security-reference/docs/16_1_serv_2_5_plus_inte/</guid>
+      <description>16.1. Servlet 2.5+ 整合 16.1.1. HttpServletRequest.getRemoteUser() HttpServletRequest.getRemoteUser() 方法會回傳 SecurityContextHolder.getContext().getAuthentication().getName() 的結果，一般來說就是目前使用者的 username。
+這功能在你想要在應用程式中展示目前使用者的 username 時很有用，另外檢查這個值是否為 null 也可以被用來辨識一個使用者是否有經過驗證或是一個匿名使用者。當要決定某個 UI 元件 (例如應該只有已驗證使用者可以看得到登出連結) 是否要顯示時，知道使用者是否經過驗證就很有用了。
+16.1.2. HttpServletRequest.getUserPrincipal() HttpServletRequest.getUserPrincipal() 方法則會回傳 SecurityContextHolder.getContext().getAuthentication() 的結果。這表示這個物件是一個 Authentication，而當使用 username 和 password 為基礎的驗證方式時，它通常是 UsernamePasswordAuthenticationToken 的一個實例。
+當你需要知道更多關於使用者資訊時，這就很有用了。舉例來說，你可能需要自訂一個可以回傳包含使用者姓跟名的客製 UserDetails 的 UserDetailsService，你可以這樣來取得資訊：
+Authentication auth = httpServletRequest.getUserPrincipal(); // 假設已整合的自訂 UserDetails 叫做 MyCustomUserDetails // 預設它通常是一個 UserDetails 的實例 MyCustomUserDetails userDetails = (MyCustomUserDetails) auth.getPrincipal(); String firstName = userDetails.getFirstName(); String lastName = userDetails.getLastName();  值得注意的是在整個應用程式中作這麼多邏輯操作通常是個壞習慣，我們應該將將它集中以盡量降低 Spring Security 跟 Servlet API 的耦合</description>
+    </item>
+    
+    <item>
+      <title>16.2. Servlet 3&#43; 整合</title>
+      <link>https://idontwannarock.github.io/spring-security-reference/docs/16_2_serv_3_plus_inte/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://idontwannarock.github.io/spring-security-reference/docs/16_2_serv_3_plus_inte/</guid>
+      <description>16.2. Servlet 3+ 整合 這個段落會說明 Spring Security 與 Servlet 3 方法的整合。
+16.2.1. HttpServletRequest.authenticate(HttpServletRequest,HttpServletResponse) HttpServletRequest.authenticate(HttpServletRequest,HttpServletResponse) 方法可以用來確保使用者經過驗證。
+如果還沒驗證，則設定好的 AuthenticationEntryPoint 會被觸發來要求使用者作驗證，例如轉導到登入頁面。
+16.2.2. HttpServletRequest.login(String,String) HttpServletRequest.login(String,String) 方法可以被用來使用當前的 AuthenticationManager 來驗證使用者。
+例如以下範例會試圖以使用者名稱 user 及密碼 password 來作驗證：
+try { httpServletRequest.login(&amp;#34;user&amp;#34;,&amp;#34;password&amp;#34;); } catch (ServletException e) { // fail to authenticate }  如果你希望 Spring Security 來處理失敗的驗證，則不需要 catch ServletException
+ 16.2.3. HttpServletRequest.logout() HttpServletRequest.logout() 方法可以用來登出目前的使用者。
+通常這代表 SecurityContextHolder 會被清空，HttpSession 會被廢止，任何「記得我」認證都會被清除等等。但是設定好的 LogoutHandler 實作也可以能因為你的 Spring Security 設定而有所不同。所以在 HttpServletRequest.logout() 被觸發後，你還能控制回應寫出是非常重要的，例如通常會轉導到歡迎頁面。
+16.2.4. AsyncContext.start(Runnable) AsyncContext.start(Runnable) 方法是用來確保你的憑證會被傳遞到新的 Thread。</description>
+    </item>
+    
+    <item>
+      <title>16.3. Servlet 3.1&#43; 整合</title>
+      <link>https://idontwannarock.github.io/spring-security-reference/docs/16_3_serv_3_1_plus_inte/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://idontwannarock.github.io/spring-security-reference/docs/16_3_serv_3_1_plus_inte/</guid>
+      <description>16.3. Servlet 3.1+ 整合 這個段落會說明 Spring Security 整合 Sevlet 3.1 的方法。
+16.3.1. HttpServletRequest#changeSessionId() HttpServletRequest#changeSessionId() 是 Servlet 3.1 開始用來對付 Session 固定攻擊 的預設方法。</description>
+    </item>
+    
+    <item>
+      <title>17.1. `BasicAuthenticationFilter`</title>
+      <link>https://idontwannarock.github.io/spring-security-reference/docs/17_1_basi/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://idontwannarock.github.io/spring-security-reference/docs/17_1_basi/</guid>
+      <description>17.1. BasicAuthenticationFilter BasicAuthenticationFilter 負責以 HTTP 標頭攜帶的憑證來做基本驗證，它可以用來處理 Spring 遠端協定，如 Hessian 及 Burlap，或普通瀏覽器使用者端，如 Firefox 及 IE 所作的驗證請求。
+RFC 1934，段落 11 定義了如何處理標準的 HTTP 基本驗證，BasicAuthenticationFilter 符合 RFC 規範。
+基本驗證是很吸引人的驗證方式，因為絕大多數的使用者端都有部屬此方式，而且實作上非常簡單，它只是一個在 HTTP 標頭中定義的 Base64 編碼 username:password 字段。
+17.1.1. 設定 要實作 HTTP 基本驗證，你需要將 BasicAuthenticationFilter 加入 filter 鍊。application context 應該包含 BasicAuthenticationFilter 以及它需要的合作者：
+&amp;lt;bean id=&amp;#34;basicAuthenticationFilter&amp;#34; class=&amp;#34;org.springframework.security.web.authentication.www.BasicAuthenticationFilter&amp;#34;&amp;gt; &amp;lt;property name=&amp;#34;authenticationManager&amp;#34; ref=&amp;#34;authenticationManager&amp;#34;/&amp;gt; &amp;lt;property name=&amp;#34;authenticationEntryPoint&amp;#34; ref=&amp;#34;authenticationEntryPoint&amp;#34;/&amp;gt; &amp;lt;/bean&amp;gt; &amp;lt;bean id=&amp;#34;authenticationEntryPoint&amp;#34; class=&amp;#34;org.springframework.security.web.authentication.www.BasicAuthenticationEntryPoint&amp;#34;&amp;gt; &amp;lt;property name=&amp;#34;realmName&amp;#34; value=&amp;#34;Name Of Your Realm&amp;#34;/&amp;gt; &amp;lt;/bean&amp;gt; 設定當中的 AuthenticationManager 會處理每個驗證請求。
+如果驗證失敗，則 AuthenticationEntryPoint 會用來重新嘗試驗證程序。你通常會將此 filter 與 BasicAuthenticationEntryPoint 結合使用，它會返回一個有著合適標頭的 401 回應以重試 HTTP 基本驗證。</description>
+    </item>
+    
+    <item>
+      <title>17.2. `DigestAuthenticationFilter`</title>
+      <link>https://idontwannarock.github.io/spring-security-reference/docs/17_2_dige/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://idontwannarock.github.io/spring-security-reference/docs/17_2_dige/</guid>
+      <description>17.2. DigestAuthenticationFilter DigestAuthenticationFilter 可以處理 HTTP 標頭內的摘要驗證憑證。
+摘要驗證嘗試解決基本驗證的許多弱點，特別是為了避免憑證不會被以明文傳遞。
+許多使用者端支援摘要驗證，包括 Mozilla Firefox 及 IE。摘要驗證的標準處理程序定義在 RFC 2617，並且更新了 RFC 2069 這個較早期的版本，多數的使用者端都實作了 RFC 2617。而 DigestAuthenticationFilter 兼容 RFC 2617 規範的「auth」qop 保護質量指示語，也向下支援 RFC 2069。
+如果你需要使用無加密 HTTP 方式，例如沒有 TLS/HTTPS，而且希望加強驗證過程的安全，那摘要驗證就是一個很有吸引力的選項。而在 RFC 2518 段落 17.1 當中，摘要驗證也的確是 WebDAV 協議 必備的。
+ 你不應該在當代的應用程式中使用摘要，因為它已經被認為是不安全的，最明顯的問題就是它會將密碼以純文字、加密或 MD5 格式保存，這些格式都被認為是不安全的。你應該使用單向雜湊密碼，例如 bCript、PBKDF2、SCript 等等。
+ 摘要驗證的核心是 nonce，它是個伺服器產生的值。
+Spring Security 採取以下格式產生 nonce：
+base64(expirationTime + &amp;quot;:&amp;quot; + md5Hex(expirationTime + &amp;quot;:&amp;quot; + key)) expirationTime: 以毫秒為單位，紀錄 nonce 失效的日期時間 key: 用來避免 nonce token 被更改的私有 key  DigestAuthenticatonEntryPoint 有一個屬性用來註明產生 nonce token 的 key，還有一個 nonceValiditySeconds 屬性註明到期時限，預設是 300，也就是五分鐘。只要 nonce 還是合格的，摘要就會透過串聯不同的字串，如 username、password、nonce、請求 URI、客戶端產生 nonce (客戶端每次請求產生的隨機值)、領域名稱等等，來產生摘要，然後再進行 MD5 雜湊。</description>
+    </item>
+    
+    <item>
+      <title>18.1. 總覽</title>
+      <link>https://idontwannarock.github.io/spring-security-reference/docs/18_1_over/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://idontwannarock.github.io/spring-security-reference/docs/18_1_over/</guid>
+      <description>18.1. 總覽 記得我或持續登入驗證是指網站能夠在 session 之間記得某個使用端的身份。一般來說是透過發送一個 cookie 到瀏覽器保存，然後在未來的 session 偵測到此 cookie 就可以自動登入。
+Spring Security 提供了執行這個行動必要的觸發掛勾，並且有兩種記得我的實作。一種是利用雜湊來保存安全 token 到 cookie 中；另一種則是使用資料庫或其他持久保存機制來保存產生的 token。
+注意這兩種實作都需要 UserDetailsService。如果你採用了一個不使用 UserDetailsService 的驗證提供者，例如 LDAP 提供者，那你必須要在 application context 中提供 UserDetailsService 的 bean，否這這兩種實作都無法運作。</description>
+    </item>
+    
+    <item>
+      <title>18.2. 簡單雜湊 Token 方式</title>
+      <link>https://idontwannarock.github.io/spring-security-reference/docs/18_2_simp_hash_base_toke_appr/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://idontwannarock.github.io/spring-security-reference/docs/18_2_simp_hash_base_toke_appr/</guid>
+      <description>18.2. 簡單雜湊 Token 方式 這個方式使用雜湊來達到實用的記得我策略。簡單來說，在成功的驗證過後，一個 cookie 會被發送給瀏覽器，這個 cookie 會長得像這樣：
+base64(username + &amp;quot;:&amp;quot; + expirationTime + &amp;quot;:&amp;quot; + md5Hex(username + &amp;quot;:&amp;quot; + expirationTime + &amp;quot;:&amp;quot; password + &amp;quot;:&amp;quot; + key)) username: 可被 UserDetailsService 識別 password: 與取得的 UserDetails 相符 expirationTime: 以毫秒為單位，紀錄記得我 token 到期的日期及時間 key: 用來避免記得我 token 被修改的私有 key  這樣的記得我 token 只會依照設定的時間存活，前提是使用者名稱、密碼及 key 都不變。
+要注意的是，這個機制有個安全問題，就是當記得我 token 被捕獲後，在 token 失效前，任何使用端都可以使用它，這與摘要驗證是同樣的問題。如果一個請求端取得一個 token，它就可以很容易地變更密碼，並立即讓其他記得我 token 全都失效。
+所以如果你需要更加強的安全，你應該參考下一段的機制，或者根本不要使用記得我功能。
+如果你對於命名空間設定還算熟悉，你可以加上 &amp;lt;remember-me&amp;gt; 元素就可以啟用記得我驗證：
+&amp;lt;http&amp;gt; ... &amp;lt;remember-me key=&amp;#34;myAppKey&amp;#34;/&amp;gt; &amp;lt;/http&amp;gt; 通常 UserDetailsService 會自動被選用，但如果應用程式裡有不止一個 UserDetailsService，你需要在 user-service-re 性質中註明要使用的是哪一個 UserDetailsService bean 的名稱。</description>
+    </item>
+    
+    <item>
+      <title>18.3. 持久化 Token 方式</title>
+      <link>https://idontwannarock.github.io/spring-security-reference/docs/18_3_pers_toke_appr/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://idontwannarock.github.io/spring-security-reference/docs/18_3_pers_toke_appr/</guid>
+      <description> 18.3. 持久化 Token 方式 這個方法是基於 Barry Jaspan 文章 Improved Persistent Login Cookie Best Practice (文章網址 http://jaspan.com/improved_persistent_login_cookie_best_practice 已失效) 及底下的討論，並作了一些小調整。
+要使用命名方式來啟用這個方式，你需要提供 datasource 的參考：
+&amp;lt;http&amp;gt; ... &amp;lt;remember-me data-source-ref=&amp;#34;someDataSource&amp;#34;/&amp;gt; &amp;lt;/http&amp;gt; 而資料庫中應該要有一個名為 persistent_logins 的資料表，可以用以下或同等的 SQL 建立：
+create table persistent_logins ( username varchar(64) not null, series varchar(64) primary key, token varchar(64) not null, last_used timestamp not null)</description>
+    </item>
+    
+    <item>
+      <title>18.4. 記得我介面及實作</title>
+      <link>https://idontwannarock.github.io/spring-security-reference/docs/18_4_reme_me_inte_and_impl/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://idontwannarock.github.io/spring-security-reference/docs/18_4_reme_me_inte_and_impl/</guid>
+      <description>18.4. 記得我介面及實作 記得我功能是與 UsernamePasswordAuthenticationFilter 一起使用，並且是透過父類別 AbstractAuthenticationProcessingFilter 裡的掛勾來實作。它也會在 BasicAuthenticationFilter 內部使用。這個掛勾會在合適的時間點觸發有實作的 RememberMeServices。此介面長這個樣子：
+Authentication autoLogin(HttpServletRequest request, HttpServletResponse response); void loginFail(HttpServletRequest request, HttpServletResponse response); void loginSuccess(HttpServletRequest request, HttpServletResponse response, Authentication successfulAuthentication); 要了解每個方法做些什麼，請參考 Javadoc 裡面更完整的討論，但注意在這個階段，AbstractAuthenticationProcessingFilter 只會呼叫 loginFail() 及 loginSuccess() 兩個方法。
+autoLogin() 方法則是當 SecurityContextHolder 並不持有一個 Authentication 的時候，由 RememberMeAuthenticationFilter 來呼叫，所以這個介面會提供對於驗證相關事件足夠提醒的記得我功能底層實作，並且當一個網路請求可能包含一個 cookie 且希望被記得的時候，代理給該實作。這個設計容許任意數量的記得我實作策略。
+我們在前面已經知道 Spring Security 提供兩種實作，我們會依序來看。
+18.4.1. TokenBasedRememberMeServices 這個實作支援在 18.2. 簡單雜湊 Token 方式 裡描述的簡單方式。在 RememberMeAuthenticationProvider 處理的過程中，會調用 TokenBasedRememberMeServices 來產生一個 RememberMeAuthenticationToken。一個 key 會在這個驗證提供者及 TokenBasedRememberMeServices 之間傳遞。
+另外，為了比對 token 的簽名，TokenBasedRememberMeServices 還需要一個 UserDetailsService 來取得使用者名稱及密碼，並產生包含正確 GrantedAuthority 的 RememberMeAuthenticationToken。</description>
+    </item>
+    
+    <item>
+      <title>2.1. 什麼是 Spring Security</title>
+      <link>https://idontwannarock.github.io/spring-security-reference/docs/2_1_what_is_spri_secu/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://idontwannarock.github.io/spring-security-reference/docs/2_1_what_is_spri_secu/</guid>
+      <description>2.1. 什麼是 Spring Security Spring Secuity 好棒棒 blah blah，重點是要熟悉 Spring，特別是 DI 依賴注入的部分。
+接著先嗆一頓 Servlet 跟 EJB，再說 Spring Security 好棒棒。
+應用程式安全主要分成兩個部分，驗證 (authentication) 以及授權 (authorization | access-control)。驗證就是一個建立 Principal 的過程，Principal 通常代表一個使用者、裝置或其他要對你的應用程式採取動作的系統；授權則是指決定 Principal 在你的應用系統中是否能執行一個動作的過程。而當進行到一個需要授權的階段時，Principal 的身分 (identity) 應該早就透過驗證建立起來。這些是很普遍的概念，並不局限於 Spring Security。
+Spring Security 支援多種驗證模型，這些模型大多數是由第三方或相關標準單位所提供，例如 IETF。另外，Spring Security 也自訂了一些驗證功能。
+Spring Security 目前支援整合以下驗證技術：
+ HTTP BASIC authentication headers (an IETF RFC-based standard) HTTP Digest authentication headers (an IETF RFC-based standard) HTTP X.509 client certificate exchange (an IETF RFC-based standard) LDAP (常見的跨平台驗證需求，特別是在大型環境) 表單驗證 (簡單的使用者介面需求) OpenID authentication Authentication based on pre-established request headers (such as Computer Associates Siteminder) Jasig Central Authentication Service (otherwise known as CAS, which is a popular open source single sign-on system) Transparent authentication context propagation for Remote Method Invocation (RMI) and HttpInvoker (a Spring remoting protocol) 自動化「記得我」驗證 (只需要打個勾，就可避免在一段預先設定好的時間內每次都要重新驗證) 匿名驗證 (讓每個未經過驗證的呼叫，自動定義為一個特定的安全身分) Run-as authentication (which is useful if one call should proceed with a different security identity) Java Authentication and Authorization Service (JAAS) Java EE container authentication (so you can still use Container Managed Authentication if desired) Kerberos Java Open Source Single Sign-On (JOSSO) * OpenNMS Network Management Platform * AppFuse * AndroMDA * Mule ESB * Direct Web Request (DWR) * Grails * Tapestry * JTrac * Jasypt * Roller * Elastic Path * Atlassian Crowd * Your own authentication systems (see below)  (標註 * 號代表由第三方提供)</description>
+    </item>
+    
+    <item>
+      <title>25.1. 權限</title>
+      <link>https://idontwannarock.github.io/spring-security-reference/docs/25_1_auth/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://idontwannarock.github.io/spring-security-reference/docs/25_1_auth/</guid>
+      <description>25.1. 權限 如同我們在 9.2.3. GrantedAuthority 當中看到的，所有的 Authentication 實作都保存了一個 GrantedAuthority 物件的清單，這些代表使用端被賦予的權限。GrantedAuthority 是由 AuthenticationManager 注入 Authentication 物件，並且會在後續由 AccessDecisionManager 在做出授權決策時讀取。
+GrantedAuthority 是一個只有一個方法的介面：
+String getAuthority(); 這個方法讓 AccessDecisionManager 可以取得代表該 GrantedAuthority 的精確的 String。透過回傳 String，GrantedAuthority 就可以被大部分的 AccessDecisionManager 「讀取」。如果 GrantedAuthority 無法精確地用 String 來代表，那這個 GrantedAuthority 就會被視為是「複雜的」，並且 getAuthority() 方法必須回傳 null。
+舉例來說，一個「複雜的」GrantedAuthority 實作可能會保存一份動作清單以及對應不同客戶帳號的不同權限門檻。要用一個 String 來代表這樣的複雜 GrantedAuthority 相當的困難，所以 getAuthority() 方法應該要回傳 null，這會指示所有 AccessDecisionManager 必須要針對這個 GrantedAuthority 實作有特別的支援以理解其內容。
+Spring Security 有一個 GrantedAuthority 的實作，SimpleGrantedAuthority，它允許任何使用者自定義的 String 轉換為一個 GrantedAuthority。所有包含在架構內的 AuthenticationProvider 都使用 SimpleGrantedAuthority 來填入 Authentication 物件。</description>
+    </item>
+    
+    <item>
+      <title>25.2. 觸發前處理</title>
+      <link>https://idontwannarock.github.io/spring-security-reference/docs/25_2_pre_invo_hand/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://idontwannarock.github.io/spring-security-reference/docs/25_2_pre_invo_hand/</guid>
+      <description>25.2. 觸發前處理 我們在 9.5.2. Secure Object 及 AbstractSecurityInterceptor 也看到，Spring Security 提供許多攔截器來控制 secure object 的存取，例如方法觸發或網路請求。
+一個是否允許觸發的觸發前決策是由 AccessDecisionManager 來做。
+25.2.1. AccessDecisionManager AccessDecisionManager 是由 AbstractSecurityInterceptor 來呼叫，並且負責做最終存取控制決策。
+AccessDecisionManager 介面包含三個方法：
+void decide(Authentication authentication, Object secureObject, Collection&amp;lt;ConfigAttribute&amp;gt; attrs) throws AccessDeniedException; boolean supports(ConfigAttribute attribute); boolean supports(Class clazz); AccessDecisionManager 所需用來做出授權決策的相關資訊都會被傳入 decide() 方法，特別是將 secure Object 傳入，以對真正傳入 secure object 觸發過程的參數進行檢驗。
+舉例來說，假設 secure object 是一個 MethodInvocation，它就可以很簡單的查詢 MethodInvocation 是否有任何的 Customer 參數，並在 AccessDecisionManger 實作某種安全邏輯來確保使用端被允許對該 customer 進行操作，並且實作應該要在存取被拒的時候拋出 AccessDeniedException。
+supports(ConfigAttribute) 方法會在 AbstractSecurityInterceptor 初始時被觸發，以決定該 AccessDecisionManager 是否可以處理傳入的 ConfigAttribute；而 supports(Class) 方法則會被某個安全攔截器的實作觸發，以確保該 AccessDecisionManager 支援該攔截器會攔截的 secure object 類型</description>
+    </item>
+    
+    <item>
+      <title>3. Spring Security 5.0 新增功能</title>
+      <link>https://idontwannarock.github.io/spring-security-reference/docs/3_what_new_in_spri_secu_5/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://idontwannarock.github.io/spring-security-reference/docs/3_what_new_in_spri_secu_5/</guid>
+      <description> 3. Spring Security 5.0 新增功能 Spring Security 5.0 提供許多新功能並支援 Spring Framework 5，大約有 400 多項加強及除錯。
+可以查看這些版本的變更日誌：
+5.0.0.M1 5.0.0.M2 5.0.0.M3 5.0.0.M4 5.0.0.M5 5.0.0.RC1 5.0.0.RELEASE
+以下是比較重要的功能。
+3.1. 新功能  OAuth 2.0 Login Reactive Support  @EnableWebFluxSecurity @EnableReactiveMethodSecurity WebFlux Testing Support  Modernized Password Encoding  </description>
+    </item>
+    
+    <item>
+      <title>4. 範例及指引 (由此開始)</title>
+      <link>https://idontwannarock.github.io/spring-security-reference/docs/4_samp_and_guid/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://idontwannarock.github.io/spring-security-reference/docs/4_samp_and_guid/</guid>
+      <description>4. 範例及指引 (由此開始)    程式碼 描述 指引     Hello Spring Security 展示如何使用 Java 設定方式將 Spring Security 整合進現有的應用程式 Hello Spring Security Guide   Hello Spring Security Boot 展示如何將 Spring Security 整合到現有的 Spring Boot 應用程式 Hello Spring Security Boot Guide   Hello Spring Security XML 展示如何使用命名空間設定方式將 Spring Security 整合進現有的應用程式 Hello Spring Security XML Guide   Hello Spring MVC Security 展示如何將 Spring Security 整合到現有的 Spring MVC 應用程式 Hello Spring MVC Security Guide   Custom Login Form 展示如何建立客製的登入表格 Custom Login Form Guide   OAuth 2.</description>
+    </item>
+    
+    <item>
+      <title>5. Java 設定機制</title>
+      <link>https://idontwannarock.github.io/spring-security-reference/docs/5_java_conf/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://idontwannarock.github.io/spring-security-reference/docs/5_java_conf/</guid>
+      <description> 5. Java 設定機制 Java 設定機制大致上是從 3.1 版本開始加入到 Spring 框架中。
+從 Spring Security 3.2 開始，對 Java 設定機制的支援就可以讓使用者在設定 Spring Security 的時候再也不必用 XML 惹。
+如果你對命名空間的設定方式很熟悉，那你該會發現兩種設定方式間有多處相似。
+ 可用 這一堆範例程式 作為 Java 設定的參考
+ </description>
+    </item>
+    
+    <item>
+      <title>5.1. 初到貴寶地來用個 Java 設定</title>
+      <link>https://idontwannarock.github.io/spring-security-reference/docs/5_1_hell_web_secu_java_conf/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://idontwannarock.github.io/spring-security-reference/docs/5_1_hell_web_secu_java_conf/</guid>
+      <description>5.1. 初到貴寶地來用個 Java 設定 首先要建立 Java 設定類，這個設定類會建立一個被稱為 springSecurityFilterChain 的 Servlet Filter，負責應用程式的所有安全控制，例如保護應用程式的 URL、驗證提交的 username 及 passwords、重新導向登入表格等。
+以下是一個最基本的 Java 設定類範例：
+import org.springframework.beans.factory.annotation.Autowired; import org.springframework.context.annotation.*; import org.springframework.security.config.annotation.authentication.builders.*; import org.springframework.security.config.annotation.web.configuration.*; @EnableWebSecurity public class WebSecurityConfig implements WebMvcConfigurer { @Bean public UserDetailsService userDetailsService() throws Exception { InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager(); manager.createUser(User.withDefaultPasswordEncoder().username(&amp;#34;user&amp;#34;).password(&amp;#34;password&amp;#34;).roles(&amp;#34;USER&amp;#34;).build()); return manager; } }  重點是 @EnableWebSecurity 這個註解跟實作 WebMvcConfigurer 這個介面
+ 我們並沒有做什麼設定，但它就會幫我們做掉很多事：
+ 對應用程式所有 URL 作驗證 自動產生登入表格 允許填入表格名稱為 _user_、密碼為 password 的使用者進行驗證 允許使用者登出 阻絕 CSRF 攻擊 防止 Session Fixation 整合 Security 標頭  使用 HSTS 保護請求 X-Content-Type-Options 整合 緩存控制 (後續可以在你的應用程式中改為允許緩存靜態資源) X-XSS-Protection 整合 X-Frame-Options 整合以避免 Clickjacking  整合下列 Servlet API 方法  HttpServletRequest#getRemoteUser() HttpServletRequest.</description>
+    </item>
+    
+    <item>
+      <title>5.10. 方法層級安全</title>
+      <link>https://idontwannarock.github.io/spring-security-reference/docs/5_10_meth_secu/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://idontwannarock.github.io/spring-security-reference/docs/5_10_meth_secu/</guid>
+      <description>5.10. 方法層級安全 從 2.0 開始，Spring Security 大幅度增加了對服務層方法安全的支援，提供對 JSR-250 安全註解的支援，以及框架原生的 @Secure 註解。
+從 3.0 開始，你還可以使用新的 表達式註解。
+你可以對一個 bean 作安全控制、可以在宣告 bean 時使用 intercept-methods 元素，或者也可以使用 AspectJ 形式的 pointcut 來保護整個服務層的多個 bean。
+5.10.1. @EnableGlobalMethodSecurity 我們可以透過在任何有 @Configuration 註解的實例加上 @EnableGlobalMethodSecurity 以開啟註解式安全控制功能。
+例如以下範例可以開啟 Spring Security 的 @Secured 註解功能：
+@EnableGlobalMethodSecurity(securedEnabled = true) public class MethodSecurityConfig { // ... } 接著在類別或介面中的方法加上註解，就可以根據註解來限制調用方法的權限。
+Spring Security 原生的註解支援對方法設定一組屬性，這些屬性會被傳遞給 AccessDecisionManager 以實際作出決定。
+public interface BankService { @Secured(&amp;#34;IS_AUTHENTICATED_ANONYMOUSLY&amp;#34;) public Account readAccount(Long id); @Secured(&amp;#34;IS_AUTHENTICATED_ANONYMOUSLY&amp;#34;) public Account[] findAccounts(); @Secured(&amp;#34;ROLE_TELLER&amp;#34;) public Account post(Account account, double amount); } 若要開啟對 JSR-250 註解的支援：</description>
+    </item>
+    
+    <item>
+      <title>5.11. 已設定物件的後處理</title>
+      <link>https://idontwannarock.github.io/spring-security-reference/docs/5_11_post_proc_conf_obje/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://idontwannarock.github.io/spring-security-reference/docs/5_11_post_proc_conf_obje/</guid>
+      <description> 5.11. 已設定物件的後處理 Spring Security 的 Java 設定機制並不會將其設定的每個物件的每個屬性都暴露出來，這樣可以簡化絕大多數使用者的設定，畢竟如果所有屬性都暴露出來，那乾脆直接用標準 bean 去設定就好。
+雖然有很好的理由不直接將每條屬性都暴露出來，但使用者可能還是需要能更進一步作設定的選項。
+為了處理這個部分，Spring Security 引進了 ObjectPostProcessor 的概念，它可以用來修改或取代許多由 Java 設定機制建立的物件實例。
+例如如果你想要對 FilterSecurityInterceptor 的 filterSecurityPublishAuthorizationSuccess 屬性作設定，你可以這樣做：
+@Override protected void configure(HttpSecurity http) throws Exception { http .authorizeRequests() .anyRequest().authenticated() .withObjectPostProcessor(new ObjectPostProcessor&amp;lt;FilterSecurityInterceptor&amp;gt;() { public &amp;lt;O extends FilterSecurityInterceptor&amp;gt; O postProcess(O fsi) { fsi.setPublishAuthorizationSuccess(true); return fsi; } }); }</description>
+    </item>
+    
+    <item>
+      <title>5.12. 自訂 DSL 領域特定語言</title>
+      <link>https://idontwannarock.github.io/spring-security-reference/docs/5_12_cust_dsl/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://idontwannarock.github.io/spring-security-reference/docs/5_12_cust_dsl/</guid>
+      <description>5.12. 自訂 DSL 領域特定語言 在 Spring Security 中，你也可以提供你自訂的 DSL。
+例如你可能會有像以下這樣的東西：
+public class MyCustomDsl extends AbstractHttpConfigurer&amp;lt;MyCustomDsl, HttpSecurity&amp;gt; { private boolean flag; @Override public void init(H http) throws Exception { // 任何要加上其他 configurer 的方法都必須要在 init 方法中完成  http.csrf().disable(); } @Override public void configure(H http) throws Exception { ApplicationContext context = http.getSharedObject(ApplicationContext.class); // 此處我們從 ApplicationContext 中取得，但你也可以直接建立一個新的實例  MyFilter myFilter = context.getBean(MyFilter.class); myFilter.setFlag(flag); http.addFilterBefore(myFilter, UsernamePasswordAuthenticationFilter.class); } public MyCustomDsl flag(boolean value) { this.flag = value; return this; } public static MyCustomDsl customDsl() { return new MyCustomDsl(); } }  其實像是 HttpSecurity.</description>
+    </item>
+    
+    <item>
+      <title>5.2. `HttpSecurity`</title>
+      <link>https://idontwannarock.github.io/spring-security-reference/docs/5_2_http/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://idontwannarock.github.io/spring-security-reference/docs/5_2_http/</guid>
+      <description>5.2. HttpSecurity 到目前為止，我們的 WebSecurityConfig 只包含了如何驗證使用者的資訊，但 Spring Security 要怎麼知道我們要求所有者用者都需要進行驗證？Spring Security 如何知道我們要使用表單驗證？
+這是因為 WebSecurityConfigurerAdapter 在 configure(HttpSecurity http) 方法中有提供一些預設的設定如下：
+protected void configure(HttpSecurity http) throws Exception { http .authorizeRequests() .anyRequest().authenticated() .and() .formLogin() .and() .httpBasic(); } 以上的預設設定包括：
+ 確保所有對應用程式的請求都需要使用者通過驗證 允許使用者使用表單驗證 允許使用者使用 HTTP Basic 驗證  這跟 XML 命名空間方式的設定很像：
+&amp;lt;http&amp;gt; &amp;lt;intercept-url pattern=&amp;#34;/**&amp;#34; access=&amp;#34;authenticated&amp;#34;/&amp;gt; &amp;lt;form-login /&amp;gt; &amp;lt;http-basic /&amp;gt; &amp;lt;/http&amp;gt; Java 設定方式的 and() 等於 XML 的結束標籤，這樣我們就可以繼續對物件作設定。
+但是 Java 設定方式有不同的預設 URL 跟參數，在自訂登入頁面的時候要注意這一點，這使得 URL 更貼近 RESTful 風格；另外，這樣讓我們在使用 Spring Security 上不會那麼明顯，以避免 資訊洩漏 Information Leak 的問題。</description>
+    </item>
+    
+    <item>
+      <title>5.3. Java 設定及表單登入</title>
+      <link>https://idontwannarock.github.io/spring-security-reference/docs/5_3_java_conf_and_form_logi/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://idontwannarock.github.io/spring-security-reference/docs/5_3_java_conf_and_form_logi/</guid>
+      <description>5.3. Java 設定及表單登入 接著，既然我們並沒有提到任何 HTML 或 JSP 檔，你可能會懷疑系統提示要登入的表格從哪裡來。
+雖然預設設定並沒有特別為登入頁面設定一個 URL，Spring Security 還是會基於一些預設被啟用的功能，自動產生一個頁面、使該頁面對處理提交登入的 URL 使用標準設定、自動設定使用者登入後會轉向的預設目標 URL 等等。
+不過自動產生登入畫面雖然讓建立跟快速運作起來很方便，大多數的應用程式還是會希望提供特定的登入頁面。我們可以透過以下設定來達成：
+protected void configure(HttpSecurity http) throws Exception { http .authorizeRequests() .anyRequest().authenticated() .and() .formLogin() .loginPage(&amp;#34;/login&amp;#34;) // 1.  .permitAll(); // 2. }  此處的設定表示登入頁面的實體位置 讓所有使用端都能取得登入頁面  基於目前設定的 JSP 登入頁面範例如下：
+&amp;lt;c:url value=&amp;#34;/login&amp;#34; var=&amp;#34;loginUrl&amp;#34;/&amp;gt; &amp;lt;form action=&amp;#34;${loginUrl}&amp;#34; method=&amp;#34;post&amp;#34;&amp;gt; &amp;lt;!-- 1. --&amp;gt; &amp;lt;c:if test=&amp;#34;${param.error != null}&amp;#34;&amp;gt; &amp;lt;!-- 2. --&amp;gt; &amp;lt;p&amp;gt; Invalid username and password. &amp;lt;/p&amp;gt; &amp;lt;/c:if&amp;gt; &amp;lt;c:if test=&amp;#34;${param.logout !</description>
+    </item>
+    
+    <item>
+      <title>5.4. 設定授權請求</title>
+      <link>https://idontwannarock.github.io/spring-security-reference/docs/5_4_auth_requ/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://idontwannarock.github.io/spring-security-reference/docs/5_4_auth_requ/</guid>
+      <description> 5.4. 設定授權請求 在前面的範例中，我們只要求每個 URL 都需要使用者通過驗證，但我們也可以透過在 http.authorizeRequests() 方法中，使用其他方法串接來對 URL 做更細緻的設定，例如：
+protected void configure(HttpSecurity http) throws Exception { http .authorizeRequests() // 1.  .antMatchers(&amp;#34;/resources/**&amp;#34;, &amp;#34;/signup&amp;#34;, &amp;#34;/about&amp;#34;).permitAll() // 2.  .antMatchers(&amp;#34;/admin/**&amp;#34;).hasRole(&amp;#34;ADMIN&amp;#34;) // 3.  .antMatchers(&amp;#34;/db/**&amp;#34;).access(&amp;#34;hasRole(&amp;#39;ADMIN&amp;#39;) and hasRole(&amp;#39;DBA&amp;#39;)&amp;#34;) // 4.  .anyRequest().authenticated() // 5.  .and() // ...  .formLogin(); }  在 http.authorizeRequests() 後面串接的其他 matcher，會按照被列舉的順序比對 同時宣告多種 URL 樣式，並允許所有使用者都有權限請求 必須有 ADMIN 腳色權限的使用者才能對 /admin/ 開頭的 URL 做請求。注意使用 hasRole() 方法設定腳色的時候，腳色名的 &amp;ldquo;ROLE_&amp;rdquo; 前綴可以省略 必須同時有 ADMIN 及 DBA 兩種腳色的權限才能對 /db/ 開頭的 URL 做請求 任何不符合已經列舉的 URL 樣式，使用者都必須經過驗證  </description>
+    </item>
+    
+    <item>
+      <title>5.5. 登出處理</title>
+      <link>https://idontwannarock.github.io/spring-security-reference/docs/5_5_hand_logo/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://idontwannarock.github.io/spring-security-reference/docs/5_5_hand_logo/</guid>
+      <description>5.5. 登出處理 當使用了 WebSecurityConfigurerAdapter 就會自動開啟登出的功能，預設會用 /logout 路徑讓使用者登出，並執行以下的動作：
+ 註銷該 HTTP Session 清除已設定的記得我驗證 清空 SecurityContextHolder 重新導向到 /login?logout  不過就如同登入設定，登出設定也有很多種選項可以依需求客製：
+protected void configure(HttpSecurity http) throws Exception { http .logout() // 1.  .logoutUrl(&amp;#34;/my/logout&amp;#34;) // 2.  .logoutSuccessUrl(&amp;#34;/my/index&amp;#34;) // 3.  .logoutSuccessHandler(logoutSuccessHandler) // 4.  .invalidateHttpSession(true) // 5.  .addLogoutHandler(logoutHandler) // 6.  .deleteCookies(cookieNamesToClear) // 7.  .and() ... }  提供登出功能的支援，當使用了 WebSecurityConfigurerAdapter 就會自動支援此功能 設定觸發登出功能的 URL，預設為 /logout。注意如果開啟預設的 CSRF 保護機制，那此請求必須是 POST，詳細參考 JavaDoc 登出後會重新導向的 URL，預設是 /login?</description>
+    </item>
+    
+    <item>
+      <title>5.7. OAuth 2.0 登入</title>
+      <link>https://idontwannarock.github.io/spring-security-reference/docs/5_7_oaut_2_0_logi/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://idontwannarock.github.io/spring-security-reference/docs/5_7_oaut_2_0_logi/</guid>
+      <description>5.7. OAuth 2.0 登入 Spring Security 的 OAuth 2.0 Login 功能，讓應用程式可以提供使用者透過在 OAuth 2.0 Provider (例如 GitHub) 或 OpenID Connect 1.0 Provider (例如 Google) 已存在的帳號作登入。
+OAuth 2.0 Login 功能實作了兩個使用案例：Google 登入或 GitHub 登入
+ Spring Security 是以 Authorization Code Grant 實作 OAuth 2.0 Login 功能，參考 OAuth 2.0 Authorization Framework 及 OpenID Connect Core 1.0
+ 5.7.1. Spring Boot 2.0 範例 Spring Boot 2.0 提供完整的 OAuth 2.0 Login 功能自動設定。
+這個段落會示範如何以 Google 為 Authentication Provider 來設定 OAuth 2.</description>
+    </item>
+    
+    <item>
+      <title>5.8. 權限驗證</title>
+      <link>https://idontwannarock.github.io/spring-security-reference/docs/5_8_auth/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://idontwannarock.github.io/spring-security-reference/docs/5_8_auth/</guid>
+      <description>5.8. 權限驗證 到目前為止，我們只看了如何進行最基本的驗證設定，接下來看一些更進階一些的選項。
+5.8.1. In-Memory 驗證 前面已經看過設定單一使用者的 in-memory 驗證範例，接著來看如何設定多使用者：
+@Bean public UserDetailsService userDetailsService() throws Exception { // 以確保密碼經過良好的編碼  UserBuilder users = User.withDefaultPasswordEncoder(); InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager(); manager.createUser(users.username(&amp;#34;user&amp;#34;).password(&amp;#34;password&amp;#34;).roles(&amp;#34;USER&amp;#34;).build()); manager.createUser(users.username(&amp;#34;admin&amp;#34;).password(&amp;#34;password&amp;#34;).roles(&amp;#34;USER&amp;#34;,&amp;#34;ADMIN&amp;#34;).build()); return manager; } 5.8.2. JDBC 驗證 這個版本有支援以 JDBC 為基礎的驗證機制，下面的範例假設你已經在應用程式中定義好一個 DataSource。這裡 也有一個使用 JDBC 基礎驗證的完整範例
+@Autowired private DataSource dataSource; @Autowired public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception { // 以確保密碼經過良好的編碼  UserBuilder users = User.withDefaultPasswordEncoder(); auth .jdbcAuthentication() .dataSource(dataSource) .withDefaultSchema() .withUser(users.username(&amp;#34;user&amp;#34;).password(&amp;#34;password&amp;#34;).roles(&amp;#34;USER&amp;#34;)) .withUser(users.username(&amp;#34;admin&amp;#34;).password(&amp;#34;password&amp;#34;).roles(&amp;#34;USER&amp;#34;,&amp;#34;ADMIN&amp;#34;)); } 5.</description>
+    </item>
+    
+    <item>
+      <title>5.9. 多重 `HttpSecurity`</title>
+      <link>https://idontwannarock.github.io/spring-security-reference/docs/5_9_mult_http/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://idontwannarock.github.io/spring-security-reference/docs/5_9_mult_http/</guid>
+      <description>5.9. 多重 HttpSecurity 我們可以設定多個 HttpSecurity 實例，如同在命名空間用多個 &amp;lt;http&amp;gt; 作設定一樣。關鍵是要在多處繼承 WebSecurityConfigurationAdapter。
+以下範例示範如何對 /api/ 開頭的 URL 作不同的設定：
+@EnableWebSecurity public class MultiHttpSecurityConfig { @Bean // 1.  public UserDetailsService userDetailsService() throws Exception { // 確保密碼有良好的編碼  UserBuilder users = User.withDefaultPasswordEncoder(); InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager(); manager.createUser(users.username(&amp;#34;user&amp;#34;).password(&amp;#34;password&amp;#34;).roles(&amp;#34;USER&amp;#34;).build()); manager.createUser(users.username(&amp;#34;admin&amp;#34;).password(&amp;#34;password&amp;#34;).roles(&amp;#34;USER&amp;#34;,&amp;#34;ADMIN&amp;#34;).build()); return manager; } @Configuration @Order(1) // 2.  public static class ApiWebSecurityConfigurationAdapter extends WebSecurityConfigurerAdapter { protected void configure(HttpSecurity http) throws Exception { http .antMatcher(&amp;#34;/api/**&amp;#34;) // 3.  .</description>
+    </item>
+    
+    <item>
+      <title>9.1. 運行環境</title>
+      <link>https://idontwannarock.github.io/spring-security-reference/docs/9_1_runt_envi/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://idontwannarock.github.io/spring-security-reference/docs/9_1_runt_envi/</guid>
+      <description>9.1. 運行環境 Spring Security 3.0 需要 JRE 5.0 或更高。
+因為 Spring Security 目的是以自給自足的方式運行，所以並不需要在 JRE 放置任何特別的設定檔案，特別是不需要設定一個 JAAS (Java Authentication and Authorization Service) policy 檔，或將 Spring Security 放到常見的 classpath 位置。
+就像使用 EJB 或 Servlet 容器，你並不需要在哪裡放特別的設定檔，也不需要在 server 的 classloader 載入 Spring Security。
+這樣的設計最大程度的提供佈署的彈性，只要將目標檔案 (例如 JAR、WAR、EAR) 複製到目的地就可以立刻運作。</description>
+    </item>
+    
+    <item>
+      <title>9.2. 核心組件</title>
+      <link>https://idontwannarock.github.io/spring-security-reference/docs/9_2_core_comp/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://idontwannarock.github.io/spring-security-reference/docs/9_2_core_comp/</guid>
+      <description>9.2. 核心組件 9.2.1. SecurityContextHolder、SecurityContext 及 Authentication 物件 SecurityContext 保存目前系統的 security context 及其細節，由 SecurityContextHolder 這個 helper class 提供接觸 SecurityContext 的方法。
+預設會使用 ThreadLocal 來保存 SecurityContext 細節，表示同執行緒的方法都可以取得 security context；但其實也可以對 SecurityContextHolder 做設定來調整 security context 保存的模式。
+Spring Security 在執行緒結束時會自動清除 ThreadLocal，所以不用擔心 ThreadLocal memory leak 的問題。
+Spring Security 使用 Authentication 來紀錄什麼樣的 principal 目前正在跟應用程式互動，而 Authentication 也會保存在 SecurityContext。
+通常不用自己產生 Authentication，但可能會在應用程式的各個地方取用 Authentication。例如：
+Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal(); if (principal instanceof UserDetails) { String username = ((UserDetails) principal).getUsername(); } else { String username = principal.</description>
+    </item>
+    
+    <item>
+      <title>9.3. 權限驗證</title>
+      <link>https://idontwannarock.github.io/spring-security-reference/docs/9_3_auth/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://idontwannarock.github.io/spring-security-reference/docs/9_3_auth/</guid>
+      <description>9.3. 權限驗證 Spring Security 可以整合很多種不同的驗證環境。
+雖然我們建議只使用 Spring Security 來做驗證，而不要整合容器管理的驗證系統，但不論如何它還是支援與自訂的驗證系統做整合。
+9.3.1. Spring Security 的權限驗證是什麼？ 一般普遍的驗證流程例如：
+ 使用者用 username 及 password 登入 系統成功驗證對於該 username 的 password 正確 系統取得有關該使用者的 context 資訊，例如腳色列表等 系統為該使用者建立 security context 使用者繼續執行某些受到控管的行動，資源控管機制會依照 security context 檢查執行該行動的權限  前三步基本組成了權限驗證的程序，而 Spring Security 大概是這樣做的：
+ 取得 username 及 password 並放入 UsernamePasswordAuthenticationToken 的實例中  UsernamePasswordAuthenticationToken 實作了 Authentication 介面  該 token 被傳遞給 AuthenticationManager 的實例作驗證 validation 若驗證成功，AuthenticationManager 會回傳一個裝著該使用者 context 資訊的 Authentication 實例 Spring Security 容器會接著呼叫 SecurityContextHolder.</description>
+    </item>
+    
+    <item>
+      <title>9.4. 網路應用程式的權限驗證</title>
+      <link>https://idontwannarock.github.io/spring-security-reference/docs/9_4_auth_in_web_app/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://idontwannarock.github.io/spring-security-reference/docs/9_4_auth_in_web_app/</guid>
+      <description>9.4. 網路應用程式的權限驗證 一般典型的 Web 應用程式驗證如下:
+ 訪問主頁，點擊一個連結 產生一個 request 到 server，而 server 判斷你要求的資源被權限控管 因為你目前還沒驗證，server 會回傳一個 response 指出你需要通過驗證，這個 response 可以是一個 HTTP response code，或直接將你導向某個頁面 然後隨著驗證機制的進行，可能瀏覽器會導向某個網頁填寫某些資訊，或瀏覽器透過某種方式取得你的 identity，例如彈出基本的驗證對話框、cookie 等等 瀏覽器再次送出 request 給 server，可能是帶有所填表格資訊的 POST request，或帶有驗證資訊表頭的 GET request 接著 server 會決定得到的憑證 credentials 是否合格，如果是則進行下一步；若否，通常會回到瀏覽器重試一次(第 4 步) 最後，最一開始觸發驗證的請求會重新觸發，若經過驗證的身分所擁有的權限可以取得該資源，則請求成功；若權限不足，則會回傳 HTTP error code 403 &amp;ldquo;forbidden&amp;rdquo;  Spring Security 對上述大多數的步驟都有對應的特定類別，主要有關的類別照使用順序依序為 ExceptionTranslationFilter、AuthenticationEntryPoint，接著是某種 authentication mechanism 驗證機制，此機制會負責呼叫 AuthenticationManager。
+9.4.1. ExceptionTranslationFilter ExceptionTranslationFilter 是一個 Spring Security filter，負責偵測任何在 Spring Security 執行過程中丟出的例外，而這些例外通常都是由主要負責資源管理的 AbstractSecurityInterceptor 丟出。
+所以 ExceptionTranslationFilter 要馬就是因為驗證過但權限不足回傳 HTTP error code 403 &amp;ldquo;forbidden&amp;rdquo; (上面的第 7 步)；要馬就是還沒驗證，所以啟動 AuthenticationEntryPoint。</description>
+    </item>
+    
+    <item>
+      <title>9.5. 存取控制 (授權管理)</title>
+      <link>https://idontwannarock.github.io/spring-security-reference/docs/9_5_acce_cont_auth/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://idontwannarock.github.io/spring-security-reference/docs/9_5_acce_cont_auth/</guid>
+      <description>9.5. 存取控制 (授權管理) 在 Spring Security 中最主要負責存取控制的介面就是 AccessDecisionManager。
+在介面中有一個 decide() 方法會使用 Authentication 物件來請求存取 secure object 及用來申請該物件的 security metadata 屬性清單(例如腳色清單)。
+9.5.1. Security 及 AOP Advice 需對 AOP 有概念，可參考 AOP 及 Spring AOP 簡述
+基本上 Advice 的位置 (JointPoint 連接點) 分為 before、after、throws 及 around。其中 around advice 相當有用，因為使用它可以選擇是否要繼續觸發方法、是否要變更回應或是否要丟出例外。
+所以 Spring Security 使用 Spring 支援標準 AOP 的 around advice 來處理方法的觸發；並使用 filter 模擬 around advice 來處理 web 請求。
+ 現代的 Java EE 應用程式通常都在 service layer 處理核心商業邏輯，所以很多人對如何在 service layer 處理方法的觸發比較關注，那 Spring AOP 就足夠了；如果你需要保護 domain object，那可以考慮 AspectJ</description>
+    </item>
+    
+    <item>
+      <title>I. 前言</title>
+      <link>https://idontwannarock.github.io/spring-security-reference/docs/i_pref/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://idontwannarock.github.io/spring-security-reference/docs/i_pref/</guid>
+      <description>I. 前言 Spring Security 為 Java EE 企業級應用程式提供了一個全面的安全方案，在探索本手冊的過程中，你會發現我們試圖提供一個實用且容許高度客製化的安全系統。
+安全是一個需要持續追求的目標，需要一個全面的系統性方法。我們鼓勵將安全分層，而每一層都試圖在其範圍內盡量達到安全，這樣連續性的安全層級會更有保障。而且每層的安全聯繫越緊密，你的應用程式就會更穩固與安全。
+在底層，你需要處理如傳輸安全及系統識別等問題，以減輕 MITM 中間人攻擊；接著你通常會利用防火牆，可能搭配 VPN 或 IPsec 以確保只有通過授權的系統可以嘗試連接。在企業環境，你可能會佈署一個 DMZ 將公開的伺服器從後端資料庫和應用程式伺服器中分離出來。
+作業系統也是個重要的腳色，處理像是以無特殊權限使用者身分執行程序，以及最大化檔案系統安全等問題。作業系統也常與其隨附的防火牆一起做設定。希望在這過程當中你還記得要阻擋 DOS 跟 暴力破解 的攻擊。在監看及回應攻擊方面，IDS 會特別有用，這種系統可以提供如即時阻絕入侵的 TCP/IP 位址等保護的手段。
+進入到較高的層級，你會希望對 JVM 做設定以盡量減少可以通過許可的 Java 類型，然後在你的應用程式加上特定領域的安全設定，Spring Security 可以讓你對特定領域做安全設定時更容易。
+當然，你必須適當的處理上面提到每個層級的安全，並把每層會碰到的管理層面因素考慮進去，例如 security bulletin monitoring、patching、personnel vetting、審計、change control、engineering management systems、資料備份、災難復原、performance benchmarking、負載監控、集中化日誌、事件回應程序等等。
+而即使有 Spring Security 在企業級應用程式安全層級的幫助，你也會發現不同商業領域的問題就有不同的需求。例如銀行應用程式的需求就跟電商的需求不同，電商應用系統也跟企業銷售自動化工具的需求不同。這些不同的需求也讓應用程式的安全有趣(?)、有挑戰性也更有成就感。
+一開始請完整閱讀 1. 準備開始 這個章節，當中會介紹框架，並使用命名空間作設定，讓你可以快速地開始並運作；如果想要更了解 Spring Security 如何運作以及可能需要用到的某些類別，你可以接著參考 II. 架構及實作；其餘的部分是以比較傳統的方式撰寫，以供需要的時候依需求查看。
+但我們還是建議盡量閱讀有關應用程式安全的議題，畢竟 Spring Security 不是所有安全問題的萬靈丹，重要的還是在開始設計應用程式的時候就留意安全性，改造重構並不是個好主意。在建構應用程式的時候，你就應該考慮到淺在的漏洞，例如 XSS、CSRF 及 連線劫持 等。
+OWASP 網站 列出目前前十大網路應用程式的漏洞，並提供許多有用的參考資訊。
+希望這個手冊對你有幫助，也歡迎回饋跟建議。
+最後，歡迎來到 Spring Security 社群。</description>
+    </item>
+    
+    <item>
+      <title>II. 架構及實作</title>
+      <link>https://idontwannarock.github.io/spring-security-reference/docs/ii_arch_and_impl/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://idontwannarock.github.io/spring-security-reference/docs/ii_arch_and_impl/</guid>
+      <description>II. 架構及實作 一旦你熟悉如何建立以命名空間設定並運作的應用程式後，你可能會想更了解這個框架是如何在命名空間底下運作的。
+如同多數的軟體，Spring Security 也有一些常用的介面、類別跟抽象概念。
+在這個段落會來看其中某些部分，以及他們如何互動，使 Spring Security 能支援權限驗證及存取控制。</description>
+    </item>
+    
+    <item>
+      <title>IV. 網路應用程式安全</title>
+      <link>https://idontwannarock.github.io/spring-security-reference/docs/iv_web_app_secu/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://idontwannarock.github.io/spring-security-reference/docs/iv_web_app_secu/</guid>
+      <description>IV. 網路應用程式安全 多數的 Spring Security 使用者都會在使用 HTTP 及 Servlet API 的應用程式中使用此框架。
+在這個部分，我們會來看看 Spring Security 如何為應用程式的網路層提供權限驗證及存取控制的功能，透過命名空間設定方式，我們也會看看哪些類別及介面會被使用到。
+在某些情況，必須用傳統 bean 設定以做完整的設定，所以我們也會看看如何不透過命名空間，而直接設定這些類別。</description>
+    </item>
+    
+    <item>
+      <title>V. 授權管理</title>
+      <link>https://idontwannarock.github.io/spring-security-reference/docs/v_auth/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://idontwannarock.github.io/spring-security-reference/docs/v_auth/</guid>
+      <description>V. 授權管理 Spring Security 進階的授權管理功能，是其受到歡迎最引人注目的原因之一。不管你選擇怎麼做驗證，不論是使用 Spring Security 提供的機制跟提供者，或是與一個容器或其他非 Spring Security 的驗證方整合，你都能在你的應用程式中穩定簡單的使用授權管理。
+在這個段落，我們會探討不同的 AbstractSecurityInterceptor 實作，然後會進一步探討如何用 domain 存取控制表來更進一步微調授權管理。</description>
+    </item>
+    
+    <item>
+      <title>基本及摘要驗證</title>
+      <link>https://idontwannarock.github.io/spring-security-reference/docs/17_basi_and_dige_auth/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://idontwannarock.github.io/spring-security-reference/docs/17_basi_and_dige_auth/</guid>
+      <description>基本及摘要驗證 基本及摘要驗證是網路應用程式中也很熱門的驗證機制。
+基本驗證會要求無狀態客戶端在每次請求都提供他們的憑證，在可被瀏覽器使用者介面或被當成 web-service 使用的應用程式中，常與表單驗證作結合。
+但是基本驗證會將密碼以純文字傳遞，所以應該透過加密傳輸層如 HTTPS 來使用。</description>
     </item>
     
   </channel>

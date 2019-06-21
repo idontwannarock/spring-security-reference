@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  
+    
+    16.2. Servlet 3&#43; 整合
+  
+ | Spring Security 之不要太相信這個中文手冊</title>
+
+
+
+<link rel="stylesheet" href="https://idontwannarock.github.io/spring-security-reference/book.min.f4161f5e2de53a2e927f51df1611323a2a12cccb2681f23cb6fc3517852e8643.css">
+
+
+<link rel="icon" href="https://idontwannarock.github.io/spring-security-reference/favicon.png" type="image/x-icon">
+
+
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body>
+  <input type="checkbox" style="display: none" id="menu-control" />
+  <main class="flex container">
+
+    <aside class="book-menu fixed">
+      <nav>
+<h2 class="book-brand">
+  <a href="https://idontwannarock.github.io/spring-security-reference/">Spring Security 之不要太相信這個中文手冊</a>
+</h2>
+
+
+
+    
+  
+  
+  
+
+  <style>
+  nav ul a[href$="\2f docs\2f 16_2_serv_3_plus_inte\2f "] {
+      color: #004ed0;
+  }
+  </style>
+
+<ul>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/i_pref/"><strong>I. 前言</strong></a>
+
+<ul>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/1_gett_star/">1. 準備開始</a></li>
+<li>2. 介紹
+
+<ul>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/2_1_what_is_spri_secu/">2.1. 什麼是 Spring Security</a></li>
+<li>2.2. 歷史</li>
+<li>2.3. 版本編號規則</li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/gett_spri_secu/">2.4. 取得 Spring Security</a></li>
+</ul></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/3_what_new_in_spri_secu_5/">3. Spring Security 5.0 新增功能</a></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/4_samp_and_guid/">4. 範例及指引 (由此開始)</a></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/5_java_conf/">5. Java 設定</a>
+
+<ul>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/5_1_hell_web_secu_java_conf/">5.1. 初到貴寶地來用個 Java 設定</a></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/5_2_http/">5.2. <code>HttpSecurity</code></a></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/5_3_java_conf_and_form_logi/">5.3. Java 設定及表單登入</a></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/5_4_auth_requ/">5.4. 設定授權請求</a></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/5_5_hand_logo/">5.5. 登出處理</a></li>
+<li>5.6. WebFlux 模組安全控制</li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/5_7_oaut_2_0_logi/">5.7. OAuth 2.0 登入</a></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/5_8_auth/">5.8. 權限驗證</a></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/5_9_mult_http/">5.9. 多重 <code>HttpSecurity</code></a></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/5_10_meth_secu/">5.10. 方法層級安全</a></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/5_11_post_proc_conf_obje/">5.11. 已設定物件的後處理</a></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/5_12_cust_dsl/">5.12. 自訂 DSL 領域特定語言</a></li>
+</ul></li>
+<li>6. Security 命名空間設定
+
+<ul>
+<li>6.1. 介紹</li>
+<li>6.2. 開始使用安全命名空間設定</li>
+<li>6.3. 進階網路功能</li>
+<li>6.4. 方法安全</li>
+<li>6.5. 預設 <code>AccessDecisionManager</code></li>
+<li>6.6. 驗證管理器與命名空間</li>
+</ul></li>
+<li>7. 範例應用程式
+
+<ul>
+<li>7.1. Tutorial 範例</li>
+<li>7.2. Contacts</li>
+<li>7.3. LDAP 範例</li>
+<li>7.4. OpenID 範例</li>
+<li>7.5. CAS 範例</li>
+<li>7.6. JAAS 範例</li>
+<li>7.7. 預先驗證範例</li>
+</ul></li>
+<li>8. Spring Security 社群
+
+<ul>
+<li>8.1. 問題追蹤</li>
+<li>8.2. 參與</li>
+<li>8.3. 未來資訊</li>
+</ul></li>
+</ul></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/ii_arch_and_impl/"><strong>II. 架構及實作</strong></a>
+
+<ul>
+<li>9. 技術概觀
+
+<ul>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/9_1_runt_envi/">9.1. 運行環境</a></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/9_2_core_comp/">9.2. 核心組件</a></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/9_3_auth/">9.3. 權限驗證</a></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/9_4_auth_in_web_app/">9.4. 網路應用程式的權限驗證</a></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/9_5_acce_cont_auth/">9.5. 存取控制 (授權管理)</a></li>
+<li>9.6. 在地化</li>
+</ul></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/10_core_serv/">10. 核心服務</a>
+
+<ul>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/10_1_auth_prov_auth/">10.1. <code>AuthenticationManager</code>、<code>ProviderManager</code> 及 <code>AuthenticationProvider</code></a></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/10_2_user_impl/">10.2. 實作 <code>UserDetailsService</code></a></li>
+<li>10.3. 密碼編碼</li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/10_4_jack_supp/">10.4. Jackson 支援</a></li>
+</ul></li>
+</ul></li>
+<li><strong>III. 測試</strong>
+
+<ul>
+<li>11. 測試方法安全
+
+<ul>
+<li>11.1. 設定安全測試</li>
+<li>11.2. <code>@WithMockUser</code></li>
+<li>11.3. <code>@WithAnonymousUser</code></li>
+<li>11.4. <code>@WithUserDetails</code></li>
+<li>11.5. <code>@WithSecurityContext</code></li>
+<li>11.6. 測試元註解</li>
+</ul></li>
+<li>12. Spring MVC 測試整合
+
+<ul>
+<li>12.1. 設定 <code>MockMvc</code> 及 Spring Security</li>
+<li>12.2. <code>SecurityMockMvcRequestPostProcessors</code></li>
+<li>12.3. <code>SecurityMockMvcRequestBuilders</code></li>
+<li>12.4. <code>SecurityMockMvcResultMatchers</code></li>
+</ul></li>
+</ul></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/iv_web_app_secu/"><strong>IV. 網路應用程式安全</strong></a>
+
+<ul>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/14_the_secu_filt_chai/">14. Security Filter Chain</a>
+
+<ul>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/14_1_dele/">14.1. <code>DelegatingFilterProxy</code></a></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/14_2_filt/">14.2. <code>FilterChainProxy</code></a></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/14_3_filt_orde/">14.3. Filter 排序</a></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/14_4_requ_matc_and_http/">14.4. 請求匹配與 <code>HttpFirewall</code></a></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/14_5_use_with_othe_filt_base_fram/">14.5. 與其他 filter 基礎的框架一起使用</a></li>
+<li>14.6. 進階命名空間設定</li>
+</ul></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/15_core_secu_filt/">15. 核心 Security Filter</a>
+
+<ul>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/15_1_filt/">15.1. <code>FilterSecurityInterceptor</code></a></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/15_2_exce/">15.2. <code>ExceptionTranslationFilter</code></a></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/15_3_secu/">15.3. <code>SecurityContextPersistenceFilter</code></a></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/15_4_user/">15.4. <code>UsernamePasswordAuthenticationFilter</code></a></li>
+</ul></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/16_serv_api_inte/">16. Servlet 介面整合</a>
+
+<ul>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/16_1_serv_2_5_plus_inte/">16.1. Servlet 2.5+ 整合</a></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/16_2_serv_3_plus_inte/">16.2. Servlet 3+ 整合</a></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/16_3_serv_3_1_plus_inte/">16.3. Servlet 3.1+ 整合</a></li>
+</ul></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/17_basi_and_dige_auth/">17. 基本及摘要驗證</a>
+
+<ul>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/17_1_basi/">17.1. <code>BasicAuthenticationFilter</code></a></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/17_2_dige/">17.2. <code>DigestAuthenticationFilter</code></a></li>
+</ul></li>
+<li>18. 記得我驗證
+
+<ul>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/18_1_over/">18.1. 總覽</a></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/18_2_simp_hash_base_toke_appr/">18.2. 簡單雜湊 Token 方式</a></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/18_3_pers_toke_appr/">18.3. 持久化 Token 方式</a></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/18_4_reme_me_inte_and_impl/">18.4. 記得我介面及實作</a></li>
+</ul></li>
+<li>19. CSRF
+
+<ul>
+<li>19.1. CSRF 攻擊</li>
+<li>19.2. 同步 Token 樣式</li>
+<li>19.3. 何時使用 CSRF 保護機制</li>
+<li>19.4. 使用 CSRF 保護機制</li>
+<li>19.5. CSRF 注意事項</li>
+<li>19.6. Override 預設</li>
+</ul></li>
+<li>20. CORS</li>
+<li>21. 安全 HTTP 回應表頭</li>
+<li>22. Session 管理</li>
+<li>23. 匿名驗證</li>
+<li>24. WebSocket 安全控制</li>
+</ul></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/v_auth/"><strong>V. 授權管理</strong></a>
+
+<ul>
+<li>25. 授權管理架構
+
+<ul>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/25_1_auth/">25.1. 權限</a></li>
+<li><a href="https://idontwannarock.github.io/spring-security-reference/docs/25_2_pre_invo_hand/">25.2. 觸發前處理</a></li>
+<li>25.3. 觸發後處理</li>
+<li>25.4. 階層式腳色</li>
+</ul></li>
+<li>26. 實作 Secure Object
+
+<ul>
+<li>26.1. AOP Alliance (<code>MethodInvocation</code>) 安全攔截器</li>
+<li>26.2. AspectJ (<code>JoinPoint</code>) 安全攔截器</li>
+</ul></li>
+<li>27. 表達式存取控制
+
+<ul>
+<li>27.1. 總覽</li>
+<li>27.2. 網路安全表達式</li>
+<li>27.3. 方法安全表達式</li>
+</ul></li>
+</ul></li>
+<li><strong>VI. 其他主題</strong>
+
+<ul>
+<li>39. 整合 Spring MVC
+
+<ul>
+<li>39.1. <code>@EnableWebMvcSecurity</code></li>
+<li>39.2. <code>MvcRequestMatcher</code></li>
+<li>39.3. <code>@AuthenticationPricipal</code></li>
+<li>39.4. Spring MVC 非同步整合</li>
+<li>39.5. Spring MVC 與 CSRF 整合</li>
+</ul></li>
+</ul></li>
+<li><strong>VII. 整合 Spring Data</strong></li>
+<li><strong>VIII. 附錄</strong>
+
+<ul>
+<li>46. FAQ
+
+<ul>
+<li>46.1. 概括性問題</li>
+<li>46.2. 常見問題</li>
+<li>46.3. 架構問題</li>
+<li>46.4. 常見「如何」問題</li>
+</ul></li>
+</ul></li>
+</ul>
+
+
+
+
+
+</nav>
+
+
+  
+<script>
+(function() {
+  var menu = document.querySelector('aside.book-menu nav')
+  addEventListener('beforeunload', function(event) {
+    localStorage.setItem('menu.scrollTop', menu.scrollTop)
+  });
+  menu.scrollTop = localStorage.getItem('menu.scrollTop')
+})()
+</script>
+
+
+
+    </aside>
+
+    <div class="book-page">
+      <header class="align-center justify-between book-header">
+  <label for="menu-control">
+    <img src="https://idontwannarock.github.io/spring-security-reference/svg/menu.svg" alt="Menu" />
+  </label>
+  <strong>
+  
+    
+    16.2. Servlet 3&#43; 整合
+  
+</strong>
+</header>
+
+      
+<article class="markdown">
+
+<h1 id="16-2-servlet-3-整合">16.2. Servlet 3+ 整合</h1>
+
+<p>這個段落會說明 Spring Security 與 Servlet 3 方法的整合。</p>
+
+<h2 id="16-2-1-httpservletrequest-authenticate-httpservletrequest-httpservletresponse">16.2.1. <code>HttpServletRequest.authenticate(HttpServletRequest,HttpServletResponse)</code></h2>
+
+<p><a href="https://docs.oracle.com/javaee/6/api/javax/servlet/http/HttpServletRequest.html#authenticate%28javax.servlet.http.HttpServletResponse%29"><code>HttpServletRequest.authenticate(HttpServletRequest,HttpServletResponse)</code></a> 方法可以用來確保使用者經過驗證。</p>
+
+<p>如果還沒驗證，則設定好的 <code>AuthenticationEntryPoint</code> 會被觸發來要求使用者作驗證，例如轉導到登入頁面。</p>
+
+<h2 id="16-2-2-httpservletrequest-login-string-string">16.2.2. <code>HttpServletRequest.login(String,String)</code></h2>
+
+<p><a href="https://docs.oracle.com/javaee/6/api/javax/servlet/http/HttpServletRequest.html#login%28java.lang.String,%20java.lang.String%29"><code>HttpServletRequest.login(String,String)</code></a> 方法可以被用來使用當前的 <code>AuthenticationManager</code> 來驗證使用者。</p>
+
+<p>例如以下範例會試圖以使用者名稱 <code>user</code> 及密碼 <code>password</code> 來作驗證：</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#00a8c8">try</span> <span style="color:#f92672">{</span>
+    <span style="color:#111">httpServletRequest</span><span style="color:#f92672">.</span><span style="color:#75af00">login</span><span style="color:#f92672">(</span><span style="color:#d88200">&#34;user&#34;</span><span style="color:#f92672">,</span><span style="color:#d88200">&#34;password&#34;</span><span style="color:#f92672">);</span>
+<span style="color:#f92672">}</span> <span style="color:#00a8c8">catch</span> <span style="color:#f92672">(</span><span style="color:#111">ServletException</span> <span style="color:#111">e</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    <span style="color:#75715e">// fail to authenticate
+</span><span style="color:#75715e"></span><span style="color:#f92672">}</span></code></pre></div>
+<blockquote>
+<p>如果你希望 Spring Security 來處理失敗的驗證，則不需要 catch ServletException</p>
+</blockquote>
+
+<h2 id="16-2-3-httpservletrequest-logout">16.2.3. <code>HttpServletRequest.logout()</code></h2>
+
+<p><a href="https://docs.oracle.com/javaee/6/api/javax/servlet/http/HttpServletRequest.html#logout%28%29"><code>HttpServletRequest.logout()</code></a> 方法可以用來登出目前的使用者。</p>
+
+<p>通常這代表 <code>SecurityContextHolder</code> 會被清空，<code>HttpSession</code> 會被廢止，任何「記得我」認證都會被清除等等。但是設定好的 <code>LogoutHandler</code> 實作也可以能因為你的 Spring Security 設定而有所不同。所以在 <code>HttpServletRequest.logout()</code> 被觸發後，你還能控制回應寫出是非常重要的，例如通常會轉導到歡迎頁面。</p>
+
+<h2 id="16-2-4-asynccontext-start-runnable">16.2.4. <code>AsyncContext.start(Runnable)</code></h2>
+
+<p><a href="https://docs.oracle.com/javaee/6/api/javax/servlet/AsyncContext.html#start%28java.lang.Runnable%29"><code>AsyncContext.start(Runnable)</code></a> 方法是用來確保你的憑證會被傳遞到新的 <code>Thread</code>。</p>
+
+<p>使用 Spring Security 對併發的支援，Spring Security 會覆蓋 <code>AsyncContext.start(Runnable)</code> 方法來確保處理 <code>Runnable</code> 時使用的是當前的 <code>SecurityContext</code>。</p>
+
+<p>例如以下範例會回應目前使用者的 <code>Authentication</code>：</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#00a8c8">final</span> <span style="color:#111">AsyncContext</span> <span style="color:#111">async</span> <span style="color:#f92672">=</span> <span style="color:#111">httpServletRequest</span><span style="color:#f92672">.</span><span style="color:#75af00">startAsync</span><span style="color:#f92672">();</span>
+<span style="color:#111">async</span><span style="color:#f92672">.</span><span style="color:#75af00">start</span><span style="color:#f92672">(</span><span style="color:#00a8c8">new</span> <span style="color:#111">Runnable</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+    <span style="color:#00a8c8">public</span> <span style="color:#00a8c8">void</span> <span style="color:#75af00">run</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#111">Authentication</span> <span style="color:#111">authentication</span> <span style="color:#f92672">=</span> <span style="color:#111">SecurityContextHolder</span><span style="color:#f92672">.</span><span style="color:#75af00">getContext</span><span style="color:#f92672">().</span><span style="color:#75af00">getAuthentication</span><span style="color:#f92672">();</span>
+        <span style="color:#00a8c8">try</span> <span style="color:#f92672">{</span>
+            <span style="color:#00a8c8">final</span> <span style="color:#111">HttpServletResponse</span> <span style="color:#111">asyncResponse</span> <span style="color:#f92672">=</span> <span style="color:#f92672">(</span><span style="color:#111">HttpServletResponse</span><span style="color:#f92672">)</span> <span style="color:#111">async</span><span style="color:#f92672">.</span><span style="color:#75af00">getResponse</span><span style="color:#f92672">();</span>
+            <span style="color:#111">asyncResponse</span><span style="color:#f92672">.</span><span style="color:#75af00">setStatus</span><span style="color:#f92672">(</span><span style="color:#111">HttpServletResponse</span><span style="color:#f92672">.</span><span style="color:#75af00">SC_OK</span><span style="color:#f92672">);</span>
+            <span style="color:#111">asyncResponse</span><span style="color:#f92672">.</span><span style="color:#75af00">getWriter</span><span style="color:#f92672">().</span><span style="color:#75af00">write</span><span style="color:#f92672">(</span><span style="color:#111">String</span><span style="color:#f92672">.</span><span style="color:#75af00">valueOf</span><span style="color:#f92672">(</span><span style="color:#111">authentication</span><span style="color:#f92672">));</span>
+            <span style="color:#111">async</span><span style="color:#f92672">.</span><span style="color:#75af00">complete</span><span style="color:#f92672">();</span>
+        <span style="color:#f92672">}</span> <span style="color:#00a8c8">catch</span><span style="color:#f92672">(</span><span style="color:#111">Exception</span> <span style="color:#111">e</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            <span style="color:#00a8c8">throw</span> <span style="color:#00a8c8">new</span> <span style="color:#111">RuntimeException</span><span style="color:#f92672">(</span><span style="color:#111">e</span><span style="color:#f92672">);</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">});</span></code></pre></div>
+<h2 id="16-2-5-非同步-servlet-支援">16.2.5. 非同步 Servlet 支援</h2>
+
+<p>如果你是使用 Java 設定，你可以直接使用非同步 Servlet 支援。但如果你是使用 XML，那還有一些必要的設定要做。</p>
+
+<p>第一步是確保你將你的 web.xml 更新到最起碼 3.0 的 schema，如以下：</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;web-app</span> <span style="color:#75af00">xmlns=</span><span style="color:#d88200">&#34;http://java.sun.com/xml/ns/javaee&#34;</span>
+    <span style="color:#75af00">xmlns:xsi=</span><span style="color:#d88200">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
+    <span style="color:#75af00">xsi:schemaLocation=</span><span style="color:#d88200">&#34;http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd&#34;</span>
+    <span style="color:#75af00">version=</span><span style="color:#d88200">&#34;3.0&#34;</span><span style="color:#f92672">&gt;</span>
+
+<span style="color:#f92672">&lt;/web-app&gt;</span></code></pre></div>
+<p>然後要確保你的 <code>springSecurityFilterChain</code> 被設定為處理非同步請求。</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;filter&gt;</span>
+    <span style="color:#f92672">&lt;filter-name&gt;</span>springSecurityFilterChain<span style="color:#f92672">&lt;/filter-name&gt;</span>
+    <span style="color:#f92672">&lt;filter-class&gt;</span>org.springframework.web.filter.DelegatingFilterProxy<span style="color:#f92672">&lt;/filter-class&gt;</span>
+    <span style="color:#f92672">&lt;async-supported&gt;</span>true<span style="color:#f92672">&lt;/async-supported&gt;</span>
+<span style="color:#f92672">&lt;/filter&gt;</span>
+<span style="color:#f92672">&lt;filter-mapping&gt;</span>
+    <span style="color:#f92672">&lt;filter-name&gt;</span>springSecurityFilterChain<span style="color:#f92672">&lt;/filter-name&gt;</span>
+    <span style="color:#f92672">&lt;url-pattern&gt;</span>/*<span style="color:#f92672">&lt;/url-pattern&gt;</span>
+    <span style="color:#f92672">&lt;dispatcher&gt;</span>REQUEST<span style="color:#f92672">&lt;/dispatcher&gt;</span>
+    <span style="color:#f92672">&lt;dispatcher&gt;</span>ASYNC<span style="color:#f92672">&lt;/dispatcher&gt;</span>
+<span style="color:#f92672">&lt;/filter-mapping&gt;</span></code></pre></div>
+<p>就這樣！現在 Spring Security 會確保你的 <code>SecurityContext</code> 也會傳遞到非同步的請求中。</p>
+
+<p>那它是怎麼進行的？如果你沒有特別想知道，你完全可以跳過這段落剩下的部分。</p>
+
+<p>這功能大部分都是建立在 Servlet 規格上，但 Spring Security 有做了一些些調整來確保適當的處理非同步請求。</p>
+
+<p>在 Spring Security 3.2 以前，當 <code>HttpServletResponse</code> 被提交時，<code>SecurityContextHolder</code> 內的 <code>SecurityContext</code> 會立刻被自動保存。這在非同步的環境下會造成一些問題。</p>
+
+<p>例如，考慮以下狀況：</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#111">httpServletRequest</span><span style="color:#f92672">.</span><span style="color:#75af00">startAsync</span><span style="color:#f92672">();</span>
+<span style="color:#00a8c8">new</span> <span style="color:#111">Thread</span><span style="color:#f92672">(</span><span style="color:#d88200">&#34;AsyncThread&#34;</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    <span style="color:#75af00">@Override</span>
+    <span style="color:#00a8c8">public</span> <span style="color:#00a8c8">void</span> <span style="color:#75af00">run</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#00a8c8">try</span> <span style="color:#f92672">{</span>
+            <span style="color:#75715e">// Do work
+</span><span style="color:#75715e"></span>            <span style="color:#111">TimeUnit</span><span style="color:#f92672">.</span><span style="color:#75af00">SECONDS</span><span style="color:#f92672">.</span><span style="color:#75af00">sleep</span><span style="color:#f92672">(</span><span style="color:#111">1</span><span style="color:#f92672">);</span>
+
+            <span style="color:#75715e">// Write to and commit the httpServletResponse
+</span><span style="color:#75715e"></span>            <span style="color:#111">httpServletResponse</span><span style="color:#f92672">.</span><span style="color:#75af00">getOutputStream</span><span style="color:#f92672">().</span><span style="color:#75af00">flush</span><span style="color:#f92672">();</span>
+        <span style="color:#f92672">}</span> <span style="color:#00a8c8">catch</span> <span style="color:#f92672">(</span><span style="color:#111">Exception</span> <span style="color:#111">e</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            <span style="color:#111">e</span><span style="color:#f92672">.</span><span style="color:#75af00">printStackTrace</span><span style="color:#f92672">();</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}.</span><span style="color:#75af00">start</span><span style="color:#f92672">();</span></code></pre></div>
+<p>這個狀況的問題是 Spring Security 並不知道這個 <code>Thread</code>，所以 <code>SecurityContext</code> 並不會傳遞給它，也就是說當我們提交 <code>HttpServletResponse</code> 的時候，<code>SecurityContext</code> 並不存在。所以當提交 <code>HttpServletResponse</code> 並且要自動保存 <code>SecurityContext</code> 的時候，就會失去已經登入的使用者。</p>
+
+<p>從 3.2 版開始，當提交 <code>HttpServletResponse</code> 並觸發 <code>HttpServletRequest.startAsync()</code> 時，Spring Security 就不再會自動保存 <code>SecurityContext</code>。</p>
+</article>
+
+      
+<div class="book-footer justify-end">
+  
+  
+  <div>
+    <a href="https://github.com/idontwannarock/spring-security-reference/edit/master/content/docs%5c16_2_serv_3_plus_inte.md" target="_blank" rel="noopener">
+      <img src="https://idontwannarock.github.io/spring-security-reference/svg/edit.svg" alt="Edit" /> Edit this page
+    </a>
+  </div>
+  
+</div>
+
+
+      
+    </div>
+
+    
+  
+
+  <aside class="book-toc level-3 fixed">
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#16-2-servlet-3-整合">16.2. Servlet 3+ 整合</a>
+<ul>
+<li><a href="#16-2-1-httpservletrequest-authenticate-httpservletrequest-httpservletresponse">16.2.1. <code>HttpServletRequest.authenticate(HttpServletRequest,HttpServletResponse)</code></a></li>
+<li><a href="#16-2-2-httpservletrequest-login-string-string">16.2.2. <code>HttpServletRequest.login(String,String)</code></a></li>
+<li><a href="#16-2-3-httpservletrequest-logout">16.2.3. <code>HttpServletRequest.logout()</code></a></li>
+<li><a href="#16-2-4-asynccontext-start-runnable">16.2.4. <code>AsyncContext.start(Runnable)</code></a></li>
+<li><a href="#16-2-5-非同步-servlet-支援">16.2.5. 非同步 Servlet 支援</a></li>
+</ul></li>
+</ul>
+</nav>
+  </aside>
+
+
+
+  </main>
+  
+  
+  
+</body>
+
+</html>
