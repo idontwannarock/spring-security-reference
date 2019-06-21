@@ -1,5 +1,6 @@
 ---
 title: "15.1. `FilterSecurityInterceptor`"
+type: docs
 ---
 
 # 15.1. `FilterSecurityInterceptor`

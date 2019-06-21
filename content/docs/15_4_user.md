@@ -1,5 +1,6 @@
 ---
 title: "15.4. `UsernamePasswordAuthenticationFilter`"
+type: docs
 ---
 
 # 15.4. `UsernamePasswordAuthenticationFilter`

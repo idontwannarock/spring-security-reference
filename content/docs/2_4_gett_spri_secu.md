@@ -1,8 +1,5 @@
 ---
 title: "2.4. 取得 Spring Security"
-slug: "gett_spri_secu"
-date: 2019-05-31T15:28:50+08:00
-draft: false
 type: docs
 ---
 

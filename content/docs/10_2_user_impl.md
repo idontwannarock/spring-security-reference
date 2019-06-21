@@ -1,5 +1,6 @@
 ---
 title: "10.2. 實作 `UserDetailsService`"
+type: docs
 ---
 
 # 10.2. 實作 `UserDetailsService`

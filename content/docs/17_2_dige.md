@@ -1,5 +1,6 @@
 ---
 title: "17.2. `DigestAuthenticationFilter`"
+type: docs
 ---
 
 # 17.2. `DigestAuthenticationFilter`

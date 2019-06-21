@@ -1,5 +1,6 @@
 ---
 title: "14.4. 請求匹配與 `HttpFirewall`"
+type: docs
 ---
 
 # 14.4. 請求匹配與 `HttpFirewall`

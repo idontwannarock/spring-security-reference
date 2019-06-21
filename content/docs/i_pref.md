@@ -1,5 +1,6 @@
 ---
 title: "I. 前言"
+type: docs
 ---
 
 # I. 前言

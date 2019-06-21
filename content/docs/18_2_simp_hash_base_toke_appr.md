@@ -1,5 +1,6 @@
 ---
 title: "18.2. 簡單雜湊 Token 方式"
+type: docs
 ---
 
 # 18.2. 簡單雜湊 Token 方式

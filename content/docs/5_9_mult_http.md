@@ -1,5 +1,6 @@
 ---
 title: "5.9. 多重 `HttpSecurity`"
+type: docs
 ---
 
 # 5.9. 多重 `HttpSecurity`

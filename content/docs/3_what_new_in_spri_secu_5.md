@@ -1,5 +1,6 @@
 ---
 title: "3. Spring Security 5.0 新增功能"
+type: docs
 ---
 
 # 3. Spring Security 5.0 新增功能

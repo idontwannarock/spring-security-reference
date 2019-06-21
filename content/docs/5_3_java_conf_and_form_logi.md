@@ -1,5 +1,6 @@
 ---
 title: "5.3. Java 設定及表單登入"
+type: docs
 ---
 
 # 5.3. Java 設定及表單登入

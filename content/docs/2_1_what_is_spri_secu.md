@@ -1,5 +1,6 @@
 ---
 title: "2.1. 什麼是 Spring Security"
+type: docs
 ---
 
 # 2.1. 什麼是 Spring Security

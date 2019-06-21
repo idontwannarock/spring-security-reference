@@ -1,5 +1,6 @@
 ---
 title: "5.7. OAuth 2.0 登入"
+type: docs
 ---
 
 # 5.7. OAuth 2.0 登入

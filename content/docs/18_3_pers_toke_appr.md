@@ -1,5 +1,6 @@
 ---
 title: "18.3. 持久化 Token 方式"
+type: docs
 ---
 
 # 18.3. 持久化 Token 方式

@@ -1,5 +1,6 @@
 ---
 title: "14. Security Filter Chain"
+type: docs
 ---
 
 # 14. Security Filter Chain

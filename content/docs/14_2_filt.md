@@ -1,5 +1,6 @@
 ---
 title: "14.2. `FilterChainProxy`"
+type: docs
 ---
 
 # 14.2. `FilterChainProxy`

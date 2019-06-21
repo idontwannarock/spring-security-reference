@@ -1,5 +1,6 @@
 ---
 title: "10.1. `AuthenticationManager`、`ProviderManager` 及 `AuthenticationProvider`"
+type: docs
 ---
 
 # 10.1. `AuthenticationManager`、`ProviderManager` 及 `AuthenticationProvider`

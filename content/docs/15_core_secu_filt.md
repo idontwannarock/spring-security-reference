@@ -1,5 +1,6 @@
 ---
 title: "15. 核心 Security Filter"
+type: docs
 ---
 
 # 15. 核心 Security Filter

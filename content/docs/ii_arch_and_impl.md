@@ -1,5 +1,6 @@
 ---
 title: "II. 架構及實作"
+type: docs
 ---
 
 # II. 架構及實作

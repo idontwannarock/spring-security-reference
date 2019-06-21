@@ -1,5 +1,6 @@
 ---
 title: "14.3. Filter 排序"
+type: docs
 ---
 
 # 14.3. Filter 排序

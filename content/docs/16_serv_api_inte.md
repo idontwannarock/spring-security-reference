@@ -1,5 +1,6 @@
 ---
 title: "16. Servlet 介面整合"
+type: docs
 ---
 
 # 16. Servlet 介面整合

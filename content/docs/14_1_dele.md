@@ -1,5 +1,6 @@
 ---
 title: "14.1. `DelegatingFilterProxy`"
+type: docs
 ---
 
 # 14.1. `DelegatingFilterProxy`

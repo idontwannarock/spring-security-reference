@@ -1,5 +1,6 @@
 ---
 title: "17.1. `BasicAuthenticationFilter`"
+type: docs
 ---
 
 # 17.1. `BasicAuthenticationFilter`

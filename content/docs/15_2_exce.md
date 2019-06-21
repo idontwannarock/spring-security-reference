@@ -1,5 +1,6 @@
 ---
 title: "15.2. `ExceptionTranslationFilter`"
+type: docs
 ---
 
 # 15.2. `ExceptionTranslationFilter`

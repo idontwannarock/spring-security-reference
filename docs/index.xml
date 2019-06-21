@@ -11,21 +11,6 @@
     
     
     <item>
-      <title>2.4. 取得 Spring Security</title>
-      <link>https://idontwannarock.github.io/spring-security-reference/docs/gett_spri_secu/</link>
-      <pubDate>Fri, 31 May 2019 15:28:50 +0800</pubDate>
-      
-      <guid>https://idontwannarock.github.io/spring-security-reference/docs/gett_spri_secu/</guid>
-      <description>2.4. 取得 Spring Security 有好幾種取得 Spring Security 的方式，可以從 Spring Security 的 Github 下載打包好的發行版本、可以從 Maven Central 直接下載 jar 檔，也可以取得原始碼自己建立專案。
-2.4.1. 使用 Maven 一組最基本的 Spring Security Maven 組合通常會長這樣：
-pom.xml
-&amp;lt;dependencies&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.springframework.security&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring-security-web&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;5.0.7.RELEASE&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.springframework.security&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring-security-config&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;5.0.7.RELEASE&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;/dependencies&amp;gt; 如果有需要其他功能例如 LDAP、OpenID 等等，你會需要再加入 其他模組。
-Maven Repositories 所有正式發行的版本 (版本號後綴為 .RELEASE) 都會放上 Maven Central，所以不需要另外在 pom 檔宣告其他 Maven repositories。
-但如果你使用的是 SNAPSHOT 版本，你就需要確保你有在 pom 檔有以下宣告：
-&amp;lt;repositories&amp;gt; &amp;lt;repository&amp;gt; &amp;lt;id&amp;gt;spring-snapshot&amp;lt;/id&amp;gt; &amp;lt;name&amp;gt;Spring Snapshot Repository&amp;lt;/name&amp;gt; &amp;lt;url&amp;gt;http://repo.spring.io/snapshot&amp;lt;/url&amp;gt; &amp;lt;/repository&amp;gt; &amp;lt;/repositories&amp;gt; 如果你使用的是 milestone 或發行候選的版本，則需要以下宣告：</description>
-    </item>
-    
-    <item>
       <title>1. 準備開始</title>
       <link>https://idontwannarock.github.io/spring-security-reference/docs/1_gett_star/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -374,6 +359,21 @@ autoLogin() 方法則是當 SecurityContextHolder 並不持有一個 Authenticat
 Spring Security 支援多種驗證模型，這些模型大多數是由第三方或相關標準單位所提供，例如 IETF。另外，Spring Security 也自訂了一些驗證功能。
 Spring Security 目前支援整合以下驗證技術：
  HTTP BASIC authentication headers (an IETF RFC-based standard) HTTP Digest authentication headers (an IETF RFC-based standard) HTTP X.509 client certificate exchange (an IETF RFC-based standard) LDAP (常見的跨平台驗證需求，特別是在大型環境) 表單驗證 (簡單的使用者介面需求) OpenID authentication Authentication based on pre-established request headers (such as Computer Associates Siteminder) Jasig Central Authentication Service (otherwise known as CAS, which is a popular open source single sign-on system) Transparent authentication context propagation for Remote Method Invocation (RMI) and HttpInvoker (a Spring remoting protocol) 自動化「記得我」驗證 (只需要打個勾，就可避免在一段預先設定好的時間內每次都要重新驗證) 匿名驗證 (讓每個未經過驗證的呼叫，自動定義為一個特定的安全身分) Run-as authentication (which is useful if one call should proceed with a different security identity) Java Authentication and Authorization Service (JAAS) Java EE container authentication (so you can still use Container Managed Authentication if desired) Kerberos Java Open Source Single Sign-On (JOSSO) * OpenNMS Network Management Platform * AppFuse * AndroMDA * Mule ESB * Direct Web Request (DWR) * Grails * Tapestry * JTrac * Jasypt * Roller * Elastic Path * Atlassian Crowd * Your own authentication systems (see below)  (標註 * 號代表由第三方提供)</description>
+    </item>
+    
+    <item>
+      <title>2.4. 取得 Spring Security</title>
+      <link>https://idontwannarock.github.io/spring-security-reference/docs/2_4_gett_spri_secu/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://idontwannarock.github.io/spring-security-reference/docs/2_4_gett_spri_secu/</guid>
+      <description>2.4. 取得 Spring Security 有好幾種取得 Spring Security 的方式，可以從 Spring Security 的 Github 下載打包好的發行版本、可以從 Maven Central 直接下載 jar 檔，也可以取得原始碼自己建立專案。
+2.4.1. 使用 Maven 一組最基本的 Spring Security Maven 組合通常會長這樣：
+pom.xml
+&amp;lt;dependencies&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.springframework.security&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring-security-web&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;5.0.7.RELEASE&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.springframework.security&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring-security-config&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;5.0.7.RELEASE&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;/dependencies&amp;gt; 如果有需要其他功能例如 LDAP、OpenID 等等，你會需要再加入 其他模組。
+Maven Repositories 所有正式發行的版本 (版本號後綴為 .RELEASE) 都會放上 Maven Central，所以不需要另外在 pom 檔宣告其他 Maven repositories。
+但如果你使用的是 SNAPSHOT 版本，你就需要確保你有在 pom 檔有以下宣告：
+&amp;lt;repositories&amp;gt; &amp;lt;repository&amp;gt; &amp;lt;id&amp;gt;spring-snapshot&amp;lt;/id&amp;gt; &amp;lt;name&amp;gt;Spring Snapshot Repository&amp;lt;/name&amp;gt; &amp;lt;url&amp;gt;http://repo.spring.io/snapshot&amp;lt;/url&amp;gt; &amp;lt;/repository&amp;gt; &amp;lt;/repositories&amp;gt; 如果你使用的是 milestone 或發行候選的版本，則需要以下宣告：</description>
     </item>
     
     <item>

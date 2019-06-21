@@ -1,5 +1,6 @@
 ---
 title: "16.1. Servlet 2.5+ 整合"
+type: docs
 ---
 
 # 16.1. Servlet 2.5+ 整合

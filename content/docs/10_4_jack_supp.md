@@ -1,5 +1,6 @@
 ---
 title: "10.4. Jackson 支援"
+type: docs
 ---
 
 # 10.4. Jackson 支援

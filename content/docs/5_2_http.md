@@ -1,5 +1,6 @@
 ---
 title: "5.2. `HttpSecurity`"
+type: docs
 ---
 
 # 5.2. `HttpSecurity`

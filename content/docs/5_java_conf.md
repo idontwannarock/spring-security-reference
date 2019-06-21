@@ -1,5 +1,6 @@
 ---
 title: "5. Java 設定機制"
+type: docs
 ---
 
 # 5. Java 設定機制

@@ -1,5 +1,6 @@
 ---
 title: "15.3. `SecurityContextPersistenceFilter`"
+type: docs
 ---
 
 # 15.3. `SecurityContextPersistenceFilter`
