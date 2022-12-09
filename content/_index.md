@@ -5,14 +5,14 @@ type: docs
 
 - 原文作者：Ben Alex, Luke Taylor, Rob Winch, Gunnar Hillert, Joe Grandja, Jay Bryant
 - 版本：5.0.x-SNAPSHOT
-- [原文連結](https://docs.spring.io/spring-security/site/docs/5.0.x-SNAPSHOT/reference/html5/)
+- [原文連結](https://docs.spring.io/spring-security/site/docs/5.0.x/reference/html5/)
 - [本手冊 Github 連結](https://github.com/idontwannarock/spring-security-reference)  
 
 # 說明
 
 本文 **_並不是完整而且百分之百的照翻_**，有很多自己的理 (ㄌㄢˇ) 解 (ㄉㄨㄛˋ) 跟廢話。
 
-不過如果對內文有疑義或建議，歡迎提 issue 或直接 pull request。
+不過如果對內文有疑義或建議，歡迎提 issue 或直接發 pull request。
 
 也歡迎各種轉載，版權沒有、翻印不究，但要記得附上以下版權聲明，尊重一下原文唷~
 
